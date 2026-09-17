@@ -1,0 +1,137 @@
+# ============================================================
+# JIT 缺陷预测系统 —— .gitignore
+#
+# openspec/ 属于课程要求的规范驱动开发(SDD)产物，是过程考核证据，
+# 必须提交，因此本文件【不】忽略它。
+# .claude/ 与 .agents/ 目前暂不纳入版本控制（见文件末尾）。
+# ============================================================
+
+# ---------- 操作系统 / 编辑器 ----------
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+.idea/
+.vscode/
+*.code-workspace
+
+# ---------- Python ----------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.eggs/
+sdist/
+wheels/
+MANIFEST
+
+# 虚拟环境
+.venv/
+venv/
+ENV/
+env/
+.python-version
+
+# 测试 / 覆盖率
+.pytest_cache/
+.tox/
+.nox/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+.hypothesis/
+
+# 类型检查 / 格式化缓存
+.mypy_cache/
+.dmypy.json
+.ruff_cache/
+.cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# ---------- 环境变量 / 密钥 ----------
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets.*
+credentials.*
+
+# ---------- 数据 ----------
+# 体量大的原始数据、中间产物一律不入库。
+# 目录名按项目实际结构调整；如需提交小型样例数据，
+# 放在 tests/fixtures/ 或 data/sample/ 下（见下方放行规则）。
+data/raw/
+data/interim/
+data/processed/
+data/external/
+datasets/
+
+# 第三方仓库克隆产物（SZZ 挖掘源仓库，动辄数百 MB）
+repos/
+repositories/
+third_party/
+cloned_repos/
+
+# 大体积数据文件格式
+*.parquet
+*.feather
+*.arrow
+*.jsonl
+*.h5
+*.hdf5
+*.db
+*.sqlite
+*.sqlite3
+*.npy
+*.npz
+
+# 放行小型样例 / 测试夹具数据
+!tests/fixtures/**
+!data/sample/**
+!**/sample*.csv
+!**/example*.csv
+
+# ---------- 模型产物 ----------
+models/
+checkpoints/
+runs/
+mlruns/
+lightning_logs/
+wandb/
+outputs/
+*.pkl
+*.pickle
+*.joblib
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.safetensors
+*.model
+*.bin
+
+# ---------- 日志 / 临时文件 ----------
+*.log
+logs/
+tmp/
+temp/
+*.tmp
+.tmp*
+
+# ---------- 前端（若采用 Node 工具链）----------
+node_modules/
+.vite/
+.next/
+
+# ---------- AI 工具目录（暂不纳入版本控制）----------
+# TODO Sprint 0 交基线前复核：项目要求「openspec/ 及相关 AI 工作流文件
+# 一并提交版本控制」，届时应删除以下两行，或对单个文件用 git add -f。
+.claude/
+.agents/
