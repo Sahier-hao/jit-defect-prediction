@@ -1,0 +1,171 @@
+{
+  "verifiedAt": "2026-10-04T17:16:50.024430+00:00",
+  "scope": "Temporal eligibility declarations and software integration; synthetic fixtures only; no Git, SZZ, real model-effect results, or team acceptance",
+  "pythonForRegression": "3.14.2",
+  "standardLibraryCliPython": "3.12.14",
+  "checks": [
+    {
+      "command": "C:/Python314/python.exe -m pytest -q",
+      "exitCode": 0,
+      "passed": 211,
+      "newTests": 39,
+      "previousTests": 172,
+      "skipped": 0,
+      "durationSeconds": 26.32,
+      "warnings": [
+        "Existing StarletteDeprecationWarning for httpx TestClient"
+      ]
+    },
+    {
+      "command": "ruff check jit_defect tests",
+      "exitCode": 0
+    },
+    {
+      "command": "ruff format --check changed Python modules and tests",
+      "exitCode": 0,
+      "filesAlreadyFormatted": 4
+    },
+    {
+      "command": "python docs/数据核查/复核样本.py",
+      "exitCode": 0,
+      "result": "PASS",
+      "sourceFiles": 15,
+      "historicalIssues": 4,
+      "caseDesigns": 8
+    },
+    {
+      "command": "openspec validate --all --strict --no-interactive",
+      "exitCode": 0,
+      "changesPassed": 6,
+      "changesFailed": 0
+    },
+    {
+      "command": "audit saved synthetic CSV/contract and verify snapshot",
+      "exitCode": 0,
+      "result": "PASS",
+      "snapshotId": "4a86d1a4266b3b0db23c8e7c0022b47a8391df488d6f43b84ca4fdaf0d3d8691",
+      "snapshotBytes": 14533,
+      "quality": {
+        "submitted": 40,
+        "training": 23,
+        "test": 9,
+        "excluded": 8,
+        "trainingClasses": {
+          "buggy": 13,
+          "cleanObserved": 10
+        },
+        "testClasses": {
+          "buggy": 5,
+          "cleanObserved": 4
+        },
+        "byReason": {
+          "future_feature_information": 1,
+          "late_test_label": 1,
+          "late_training_label": 1,
+          "missing_label_evidence": 1,
+          "premature_clean_evidence": 1,
+          "selected_test": 9,
+          "selected_training": 23,
+          "unknown_label": 3
+        }
+      },
+      "trainingReady": false
+    },
+    {
+      "command": "fit_temporal_baseline on saved synthetic fixture",
+      "exitCode": 0,
+      "training": 23,
+      "test": 9,
+      "excluded": 8,
+      "predictions": 32,
+      "modelPersisted": false,
+      "syntheticSoftwareCheck": true
+    },
+    {
+      "command": "python .cache/verify_temporal_evidence.py",
+      "exitCode": 0,
+      "result": "PASS",
+      "currentFingerprints": 13,
+      "unchangedHistoricalFingerprints": 13,
+      "intentionalNavigationUpdate": "README.md",
+      "snapshotReplayUnchanged": true
+    },
+    {
+      "command": "python .cache/validate_prerequisite_docs.py",
+      "exitCode": 0,
+      "checkedAt": "2026-10-04T17:16:53.485670+00:00",
+      "markdownFilesChecked": 50,
+      "localLinksChecked": 195,
+      "missingLocalLinks": [],
+      "pendingRealReviewAndFutureImplementation": 14,
+      "browserEvidence": "cached, not rerun"
+    }
+  ],
+  "redGreen": {
+    "initialCases": "37 failed before auditor/interfaces/guard existed, then 37 passed",
+    "additionalPostFilterTests": "2 passed for internally audited 1000-row synthetic fixtures",
+    "uncheckedApiBehavior": "1000-row unchecked non-demo request initially succeeded, now returns 422 with no artifact or registration"
+  },
+  "limits": [
+    "Temporal declarations and references require independent source review",
+    "No historical clean-to-buggy label revisions reconstructed",
+    "1-day fixture maturity is synthetic and not a project recommendation; 90-day draft remains pending Pilot",
+    "No contract API upload/storage integration or database migration",
+    "No frontend edit or browser-test rerun",
+    "Saved preparation sources/snapshots unchanged; active README/design/run docs intentionally updated"
+  ],
+  "files": [
+    {
+      "path": "jit_defect/temporal_audit.py",
+      "sha256": "0391f25c1ac84abe5c6ef197e4a660d7c2e6934e970cbac92ec89e4d9c076138"
+    },
+    {
+      "path": "jit_defect/learning.py",
+      "sha256": "3e013f6ce03db166fe87b75f1f2eccb022d1052b3aa5f0cc40bdb47a2ed080b5"
+    },
+    {
+      "path": "tests/test_temporal_audit.py",
+      "sha256": "16ff0fad1b45e7a9bf9baae61a324c8ec2e5408ed601ec85974ac950f24dc3a4"
+    },
+    {
+      "path": "tests/test_temporal_learning.py",
+      "sha256": "bd23351195587d20f88b85cf43f3394d3afbb08f848a15ff669c3a66de98f777"
+    },
+    {
+      "path": "docs/数据核查/标签时间合成示例/synthetic-features.csv",
+      "sha256": "56a8e649bea5b43b0554e4c50b836a27da7f9202618c5f174453f5b9c5b924d0"
+    },
+    {
+      "path": "docs/数据核查/标签时间合成示例/synthetic-contract.json",
+      "sha256": "a7ed5dca572f811a7c3115a3a004c1a05bbe2c354a7ba452db0cbdc4653c21e7"
+    },
+    {
+      "path": "docs/数据核查/标签时间审计结果/4a86d1a4266b3b0db23c8e7c0022b47a8391df488d6f43b84ca4fdaf0d3d8691.json",
+      "sha256": "ceea5bf7b801bd64eedf3ec68fe83547305e4f9a279d81bf6f92793108ca6971"
+    },
+    {
+      "path": "docs/数据核查/标签延迟与时间切分调研_20261005.md",
+      "sha256": "0e4f40771ddbbeae492adce0c28d3b3ee2fe94e16c01023259410c0915ef5d1d"
+    },
+    {
+      "path": "docs/数据核查/标签时间审计模块.md",
+      "sha256": "3ad1328fab8d85bd701fe52261ab4d7d380fd2725156830acca9ce75db7e0bc3"
+    },
+    {
+      "path": "README.md",
+      "sha256": "0dbe46ec4a4094bf91620717dcb3e6caf1a3c02959c3fd0fa6d647fb5998193b"
+    },
+    {
+      "path": "docs/产品设计文档.md",
+      "sha256": "263aaaad1a1a628d9db2941fa735ead6b3c119c7dfaefda35096b27403208573"
+    },
+    {
+      "path": "docs/本地基线实现与运行.md",
+      "sha256": "b48c7dac531fc5f3c2ebe5d28d5fcbd46ac9406348dd635addb5f9a9500951bd"
+    },
+    {
+      "path": ".cache/verify_temporal_evidence.py",
+      "sha256": "09a3acbacf8e49b5561005b0270d109dd7b0d83db3e043edbac865e1ca0acf25"
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "verifiedAt": "2026-10-04T12:19:20.459855+00:00",
+  "scope": "Source-verified batch preparation and immutable software artifacts only; no Git, network collection, SZZ, training or team acceptance",
+  "pythonForRegression": "3.14.2",
+  "defaultPythonCli": "3.12.14; prepare and verify saved-source example passed",
+  "checks": [
+    {
+      "command": "C:/Python314/python.exe -m pytest -q",
+      "exitCode": 0,
+      "passed": 118,
+      "newBatchTests": 37,
+      "previousTests": 81,
+      "skipped": 0,
+      "durationSeconds": 13.69,
+      "warnings": [
+        "Existing StarletteDeprecationWarning for httpx TestClient"
+      ]
+    },
+    {
+      "command": "ruff check jit_defect tests",
+      "exitCode": 0,
+      "version": "ruff 0.16.9"
+    },
+    {
+      "command": "python docs/????/????.py",
+      "exitCode": 0,
+      "result": "PASS",
+      "sourceFiles": 15,
+      "historicalIssues": 4,
+      "caseDesigns": 8
+    },
+    {
+      "command": "openspec validate --all --strict --no-interactive",
+      "exitCode": 0,
+      "changesPassed": 4,
+      "changesFailed": 0
+    },
+    {
+      "command": "python .cache/validate_prerequisite_docs.py",
+      "exitCode": 0,
+      "markdownFilesChecked": 37,
+      "localLinksChecked": 167,
+      "missingLocalLinks": []
+    },
+    {
+      "command": "prepare real example, read/verify saved snapshot, recompute body and compare",
+      "exitCode": 0,
+      "result": "PASS",
+      "snapshotId": "b750305c5fdde4a47b82f6d9035243b2f8bff2739a2f83648db1f8c40e775672",
+      "snapshotBytes": 10208,
+      "verifiedSources": 5,
+      "quality": {
+        "byReason": {
+          "candidate": 1,
+          "unknown_integration": 1
+        },
+        "candidates": 1,
+        "duplicates": 0,
+        "excluded": 0,
+        "failed": 0,
+        "parsed": 2,
+        "rawDiffTotals": {
+          "LA": 50,
+          "LD": 28,
+          "NF": 4
+        },
+        "submitted": 2,
+        "unique": 2,
+        "unknown": 1
+      },
+      "trainingReady": false
+    }
+  ],
+  "files": [
+    {
+      "path": "jit_defect/preparation_batch.py",
+      "sha256": "b4f5a805771e27343af74965924412d23b000cf6a30354184ead816f0a8216e1"
+    },
+    {
+      "path": "tests/test_preparation_batch.py",
+      "sha256": "49b821927593eaff38fe8a093a78af79cfab352537ad91c3480778b374ebee81"
+    },
+    {
+      "path": "tests/test_preparation_snapshots.py",
+      "sha256": "6e3fe27b3b637d221a3e5797810c03fe4b7ea7761ee92148fb4250fe55531f54"
+    },
+    {
+      "path": "tests/test_preparation_batch_cli.py",
+      "sha256": "9ec0ca17d85b4edfb919dbe919ee7ac2290e81f598a99d7ddc439a3e6d6c9d7a"
+    },
+    {
+      "path": "docs/数据核查/批量准备示例.json",
+      "sha256": "675e1b7a597cfa02332999c9cf0a079af5ee282df4528bb0e50497ede84ed3bc"
+    },
+    {
+      "path": "docs/数据核查/批量准备结果/b750305c5fdde4a47b82f6d9035243b2f8bff2739a2f83648db1f8c40e775672.json",
+      "sha256": "55f9559bcf1549684a71a1fb336f138a565f6774485a4e23637eebdbbfe2cce4"
+    }
+  ],
+  "limits": [
+    "Two purposively selected repairs, not a full repository census",
+    "Ledger integrity is not upstream authentication or branch-ancestry validation",
+    "Integration branch/time remain explicit assertions needing independent review",
+    "No inducing labels or complete Kamei14 training rows",
+    "Atomic publication requires hard-link support; NTFS was exercised",
+    "Publication exception cleanup was tested; full process-crash recovery is not claimed"
+  ]
+}

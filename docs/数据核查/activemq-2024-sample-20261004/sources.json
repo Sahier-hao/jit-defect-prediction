@@ -1,0 +1,167 @@
+[
+  {
+    "file": "official-issues.html",
+    "url": "https://activemq.apache.org/issues",
+    "method": "GET",
+    "fetchedAt": "2026-10-04T02:29:03.233449+00:00",
+    "status": 200,
+    "finalUrl": "https://activemq.apache.org/issues",
+    "contentType": "text/html",
+    "bytes": 13916,
+    "sha256": "bddb642d1031ac8500109ee06e4db2378d80ff5217f86eda5c51bd20a17d43ff"
+  },
+  {
+    "file": "official-contributing.html",
+    "url": "https://activemq.apache.org/contributing",
+    "method": "GET",
+    "fetchedAt": "2026-10-04T02:29:03.234236+00:00",
+    "status": 200,
+    "finalUrl": "https://activemq.apache.org/contributing",
+    "contentType": "text/html",
+    "bytes": 14066,
+    "sha256": "04f48589279de7848297c993abfca492b9779e3984ebb2e8dcb4ae04f8b445a1"
+  },
+  {
+    "file": "fix-72befc14.patch",
+    "url": "https://github.com/apache/activemq/commit/72befc14fbb69c24bdec0c7d4a1002da8874380d.patch",
+    "method": "GET",
+    "fetchedAt": "2026-10-04T02:29:03.234590+00:00",
+    "status": 200,
+    "finalUrl": "https://github.com/apache/activemq/commit/72befc14fbb69c24bdec0c7d4a1002da8874380d.patch",
+    "contentType": "text/plain; charset=utf-8",
+    "bytes": 3958,
+    "sha256": "5971d591ef752579b1458f4a18ba5e2645587bdaac8ff623111bb358c1bd196d"
+  },
+  {
+    "file": "fix-72befc14.html",
+    "url": "https://github.com/apache/activemq/commit/72befc14fbb69c24bdec0c7d4a1002da8874380d",
+    "method": "GET",
+    "fetchedAt": "2026-10-04T02:31:02.015614+00:00",
+    "status": 200,
+    "finalUrl": "https://github.com/apache/activemq/commit/72befc14fbb69c24bdec0c7d4a1002da8874380d",
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 356481,
+    "sha256": "d32bbb2df8094f053753877bd85805151b8f31f08044b31d9aaea5e925791d48"
+  },
+  {
+    "file": "backport-827ad101.patch",
+    "url": "https://github.com/apache/activemq/commit/827ad1012b934ca4fff749a5da1a9c1e070a0ee1.patch",
+    "method": "GET",
+    "fetchedAt": "2026-10-04T02:29:04.113447+00:00",
+    "status": 200,
+    "finalUrl": "https://github.com/apache/activemq/commit/827ad1012b934ca4fff749a5da1a9c1e070a0ee1.patch",
+    "contentType": "text/plain; charset=utf-8",
+    "bytes": 4028,
+    "sha256": "67ac3804e4f0d4373b0a2c094c8fde4c9aa4e396a8fd76b39d1e8abe451bc70b"
+  },
+  {
+    "file": "merge-6e6caf7c.html",
+    "url": "https://github.com/apache/activemq/commit/6e6caf7c6060efadc1ba524147e71d9720fcd935",
+    "method": "GET",
+    "fetchedAt": "2026-10-04T02:29:04.924396+00:00",
+    "status": 200,
+    "finalUrl": "https://github.com/apache/activemq/commit/6e6caf7c6060efadc1ba524147e71d9720fcd935",
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 357248,
+    "sha256": "c24f6c25e4cead0db7d9b54121bd1474a58597ec62bc04ca7d617a5bfadb738d"
+  },
+  {
+    "file": "pr-1206.html",
+    "url": "https://github.com/apache/activemq/pull/1206",
+    "method": "GET",
+    "fetchedAt": "2026-10-04T02:29:05.129960+00:00",
+    "status": 200,
+    "finalUrl": "https://github.com/apache/activemq/pull/1206",
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 331343,
+    "sha256": "e5a6080f417077cac36e2ff717f1aa9e7ec5233c20b039ac9abe60fb62b3cbc5"
+  },
+  {
+    "file": "amq9330-dc892d3d.patch",
+    "url": "https://github.com/apache/activemq/commit/dc892d3dfc2f4b7d0402d947f40431ce4e50d92d.patch",
+    "method": "GET",
+    "fetchedAt": "2026-10-04T02:31:02.017145+00:00",
+    "status": 200,
+    "finalUrl": "https://github.com/apache/activemq/commit/dc892d3dfc2f4b7d0402d947f40431ce4e50d92d.patch",
+    "contentType": "text/plain; charset=utf-8",
+    "bytes": 7773,
+    "sha256": "675927e2d88152dbb20009cd58a229886cffbbb0b8c79c65b1d17e4df2e80d71"
+  },
+  {
+    "file": "amq9330-8b6072d0.patch",
+    "url": "https://github.com/apache/activemq/commit/8b6072d03e273b02288e71cac6eef0539c48ea02.patch",
+    "method": "GET",
+    "fetchedAt": "2026-10-04T02:31:02.017424+00:00",
+    "status": 200,
+    "finalUrl": "https://github.com/apache/activemq/commit/8b6072d03e273b02288e71cac6eef0539c48ea02.patch",
+    "contentType": "text/plain; charset=utf-8",
+    "bytes": 7612,
+    "sha256": "12198a96e680fb5f1a9bf27e56a7e7c2274a8ddf6f89bd240ec2158236bda6ab"
+  },
+  {
+    "file": "parent-AsyncServletRequest.java.txt",
+    "url": "https://raw.githubusercontent.com/apache/activemq/6084867b26619ab614bc117667a32649def5887a/activemq-web/src/main/java/org/apache/activemq/web/async/AsyncServletRequest.java",
+    "method": "GET",
+    "fetchedAt": "2026-10-04T02:32:07.884863+00:00",
+    "status": 200,
+    "finalUrl": "https://raw.githubusercontent.com/apache/activemq/6084867b26619ab614bc117667a32649def5887a/activemq-web/src/main/java/org/apache/activemq/web/async/AsyncServletRequest.java",
+    "contentType": "text/plain; charset=utf-8",
+    "bytes": 6343,
+    "sha256": "0a54eba0d8c1dce7957fcbc1638e387e0a5a5967f5fba703fc0cfa0677760c04"
+  },
+  {
+    "file": "fixed-AsyncServletRequest.java.txt",
+    "url": "https://raw.githubusercontent.com/apache/activemq/72befc14fbb69c24bdec0c7d4a1002da8874380d/activemq-web/src/main/java/org/apache/activemq/web/async/AsyncServletRequest.java",
+    "method": "GET",
+    "fetchedAt": "2026-10-04T02:32:07.885371+00:00",
+    "status": 200,
+    "finalUrl": "https://raw.githubusercontent.com/apache/activemq/72befc14fbb69c24bdec0c7d4a1002da8874380d/activemq-web/src/main/java/org/apache/activemq/web/async/AsyncServletRequest.java",
+    "contentType": "text/plain; charset=utf-8",
+    "bytes": 6350,
+    "sha256": "3335fab50ac329188ef2b53bc28b196b92d212a1ac998f95cf0d54150565b10c"
+  },
+  {
+    "file": "AMQ-9481.json",
+    "url": "https://issues.apache.org/jira/rest/api/2/issue/AMQ-9481?fields=summary,issuetype,status,resolution,created,updated,resolutiondate,comment&expand=changelog",
+    "method": "GET",
+    "fetchedAt": "2026-10-04T02:29:05.242191+00:00",
+    "status": 200,
+    "finalUrl": "https://issues.apache.org/jira/rest/api/2/issue/AMQ-9481?fields=summary,issuetype,status,resolution,created,updated,resolutiondate,comment&expand=changelog",
+    "contentType": "application/json;charset=UTF-8",
+    "bytes": 18454,
+    "sha256": "05fc7d1258dce000e15aa3c67e2a01f46f8b55f938b94d00b17116a050a5a8f7"
+  },
+  {
+    "file": "AMQ-9482.json",
+    "url": "https://issues.apache.org/jira/rest/api/2/issue/AMQ-9482?fields=summary,issuetype,status,resolution,created,updated,resolutiondate,comment&expand=changelog",
+    "method": "GET",
+    "fetchedAt": "2026-10-04T02:29:06.155383+00:00",
+    "status": 200,
+    "finalUrl": "https://issues.apache.org/jira/rest/api/2/issue/AMQ-9482?fields=summary,issuetype,status,resolution,created,updated,resolutiondate,comment&expand=changelog",
+    "contentType": "application/json;charset=UTF-8",
+    "bytes": 23277,
+    "sha256": "57ee5b0cf8f428b63536356eb07a8c1cc03de448325a28f693834b49455615cf"
+  },
+  {
+    "file": "AMQ-9461.json",
+    "url": "https://issues.apache.org/jira/rest/api/2/issue/AMQ-9461?fields=summary,issuetype,status,resolution,created,updated,resolutiondate,comment&expand=changelog",
+    "method": "GET",
+    "fetchedAt": "2026-10-04T02:29:06.315463+00:00",
+    "status": 200,
+    "finalUrl": "https://issues.apache.org/jira/rest/api/2/issue/AMQ-9461?fields=summary,issuetype,status,resolution,created,updated,resolutiondate,comment&expand=changelog",
+    "contentType": "application/json;charset=UTF-8",
+    "bytes": 8003,
+    "sha256": "3e0c19d404a26dce9521f974a414c2e36dc8e8a7697431524a465bb624659fc3"
+  },
+  {
+    "file": "AMQ-9330.json",
+    "url": "https://issues.apache.org/jira/rest/api/2/issue/AMQ-9330?fields=summary,issuetype,status,resolution,created,updated,resolutiondate,comment&expand=changelog",
+    "method": "GET",
+    "fetchedAt": "2026-10-04T02:29:06.545524+00:00",
+    "status": 200,
+    "finalUrl": "https://issues.apache.org/jira/rest/api/2/issue/AMQ-9330?fields=summary,issuetype,status,resolution,created,updated,resolutiondate,comment&expand=changelog",
+    "contentType": "application/json;charset=UTF-8",
+    "bytes": 22757,
+    "sha256": "8042e40b98f4141c0b27a9b5f87a7514a5ce5aa7e08689f63a20464adceaffcd"
+  }
+]

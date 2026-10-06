@@ -1,0 +1,596 @@
+{
+  "layoutDate": "2026-10-06",
+  "scope": "Documentation navigation and confined file moves; no Git, product approval or application code changes",
+  "moves": [
+    {
+      "from": "docs/产品需求文档.md",
+      "to": "docs/需求与设计/产品需求文档.md",
+      "beforeSha256": "8fa234e92142de8165e0a100c0d0b6b9bfdd563d35b5803ab70a8f6d52e51659",
+      "afterMoveSha256": "3f8c217bffd6a5e45cf39927fe383b953deec40280d934614db89ddf03130b39"
+    },
+    {
+      "from": "docs/产品设计文档.md",
+      "to": "docs/需求与设计/产品设计文档.md",
+      "beforeSha256": "263aaaad1a1a628d9db2941fa735ead6b3c119c7dfaefda35096b27403208573",
+      "afterMoveSha256": "cba061a0627d143d492b6d26d0502975249ebb27a1dbdb374d2e82fd89631c84"
+    },
+    {
+      "from": "docs/核心流程设计_中英.md",
+      "to": "docs/需求与设计/核心流程设计_中英.md",
+      "beforeSha256": "5c99053d34e247c64408ca1d2faef92e724035fe6c3a74993cfd2ccae76a775d",
+      "afterMoveSha256": "570fb3b9e80d140449d614c33cf01f0500241bb6491f74545d2b255d53a00ab8"
+    },
+    {
+      "from": "docs/核心范围与任务拆分.md",
+      "to": "docs/需求与设计/核心范围与任务拆分.md",
+      "beforeSha256": "23eb27627d9ca82a482246d3282776183eb045e53c97a51d95b306a3484030f0",
+      "afterMoveSha256": "d78623ee5663665c1c45c0aec37fce80ea765162046a90503029e00e820f7350"
+    },
+    {
+      "from": "docs/验收测试设计.md",
+      "to": "docs/需求与设计/验收测试设计.md",
+      "beforeSha256": "fd1f670107ebc03f0cf092b3babfdd3c0103f36b1e9d90d71ec9fede22ccdc9f",
+      "afterMoveSha256": "0c77cb11d9593ab25997329eddc708531b7f58710fa04e8b19021d0b295b9f52"
+    },
+    {
+      "from": "docs/项目一页概要.md",
+      "to": "docs/团队协作/项目一页概要.md",
+      "beforeSha256": "dd91eefbbcca89aa557dce52fd006e6d99732ae4ac4f55dde140a03cde233ae9",
+      "afterMoveSha256": "4ad92e2c593bf6fa3174dd445e5afb2ad738996492a6b3f5d90795adc5b6ffd3"
+    },
+    {
+      "from": "docs/Sprint0前置工作清单.md",
+      "to": "docs/团队协作/Sprint0前置工作清单.md",
+      "beforeSha256": "7aeca5ad2d3cc67b63950c7da05da5996fec37ab4e9ed2f3677f38d393dfba4b",
+      "afterMoveSha256": "014c1a660e6c95709089b2b91e82c62b7ba824c5bece3056d2a373715adaf64c"
+    },
+    {
+      "from": "docs/团队入门指南_中英.md",
+      "to": "docs/团队协作/团队入门指南_中英.md",
+      "beforeSha256": "405601f81bbb91f5d6a1b715ea9f2a19143ad13a4ad0ab6a434e690f35df4025",
+      "afterMoveSha256": "df30f64a9d9bd66430a905456384b4775d604336ab9b239501f1d74e4b0cfaad"
+    },
+    {
+      "from": "docs/团队协作约定.md",
+      "to": "docs/团队协作/团队协作约定.md",
+      "beforeSha256": "072978c21034398b90c8ea57ad81e2b05f47ddc3e90944e3139aaffd5275098e",
+      "afterMoveSha256": "62a62934d447b740396463977a85a0c5893f6915be30232fd3774b732d658621"
+    },
+    {
+      "from": "docs/用户调研计划与记录模板.md",
+      "to": "docs/调研资料/用户调研计划与记录模板.md",
+      "beforeSha256": "0d9504d50a0c0a52b6b604230ef8349b9bad7821c9caf01c0a921511085a9abc",
+      "afterMoveSha256": "fa7c62aeb1969c51c99fbac39d8852ce6b75e54e3f11541b242deb010ad7d82d"
+    },
+    {
+      "from": "docs/JIT学术与竞品调研_第一周.md",
+      "to": "docs/调研资料/JIT学术与竞品调研_第一周.md",
+      "beforeSha256": "98c6ef3aa7ab48c9d63a72bd43e6b4927a3a3fb02f340d6d85ffc2949fc8cc4f",
+      "afterMoveSha256": "98c6ef3aa7ab48c9d63a72bd43e6b4927a3a3fb02f340d6d85ffc2949fc8cc4f"
+    },
+    {
+      "from": "docs/JIT竞品对比矩阵.csv",
+      "to": "docs/调研资料/JIT竞品对比矩阵.csv",
+      "beforeSha256": "cf6d2ae7f4cd63b3284304d018c8f423e40b8b56be867e47393d253779c1cbc3",
+      "afterMoveSha256": "cf6d2ae7f4cd63b3284304d018c8f423e40b8b56be867e47393d253779c1cbc3"
+    },
+    {
+      "from": "docs/2026-2027-1 软件开发与测试综合实训 项目要求.pdf",
+      "to": "docs/课程资料/2026-2027-1 软件开发与测试综合实训 项目要求.pdf",
+      "beforeSha256": "6c90d8ce4c91fcc716c61e4ab88d2d29c9fc800676b7ff082b4ed80a718f2c70",
+      "afterMoveSha256": "6c90d8ce4c91fcc716c61e4ab88d2d29c9fc800676b7ff082b4ed80a718f2c70"
+    },
+    {
+      "from": "docs/课程要求及日程安排-2026-v2.pdf",
+      "to": "docs/课程资料/课程要求及日程安排-2026-v2.pdf",
+      "beforeSha256": "bf2c415ae813aadf318fd70dc95041b9d47b9e254675be7dafd617223f4342ab",
+      "afterMoveSha256": "bf2c415ae813aadf318fd70dc95041b9d47b9e254675be7dafd617223f4342ab"
+    },
+    {
+      "from": "docs/敏捷-Scrum.pdf",
+      "to": "docs/课程资料/敏捷-Scrum.pdf",
+      "beforeSha256": "77239372f2a101cef9819f6090894e7d2f7d9e1ffe01a23cf0692aa878ac5c1a",
+      "afterMoveSha256": "77239372f2a101cef9819f6090894e7d2f7d9e1ffe01a23cf0692aa878ac5c1a"
+    },
+    {
+      "from": "docs/规格驱动开发 SDD 与 OpenSpec.pdf",
+      "to": "docs/课程资料/规格驱动开发 SDD 与 OpenSpec.pdf",
+      "beforeSha256": "2cebcfbebb0da8dd40d0142584d22d935ef5be7d3a7156c9020c2d3584993c02",
+      "afterMoveSha256": "2cebcfbebb0da8dd40d0142584d22d935ef5be7d3a7156c9020c2d3584993c02"
+    },
+    {
+      "from": "docs/本地基线实现与运行.md",
+      "to": "docs/技术试做/本地基线实现与运行.md",
+      "beforeSha256": "b48c7dac531fc5f3c2ebe5d28d5fcbd46ac9406348dd635addb5f9a9500951bd",
+      "afterMoveSha256": "2f5d505c060630aec8d2c4e74c4196239bce20031a7eaca8d710fabbaf0d251e"
+    },
+    {
+      "from": "docs/本地基线验证记录.md",
+      "to": "docs/验证记录/本地基线验证记录.md",
+      "beforeSha256": "a5616e96fd00a379152306c4225949e52664f16abe8da599efab9c5b0550be7d",
+      "afterMoveSha256": "5eaeb8e6801e2164fea3a66f018fb7f33be5833b186b40fc2cafff4ccea38527"
+    },
+    {
+      "from": "docs/前置材料验证记录.md",
+      "to": "docs/验证记录/前置材料验证记录.md",
+      "beforeSha256": "59b45028a7b0b32aa15ef84ce37df352fa9af60183066e3920f3c7e0edea7810",
+      "afterMoveSha256": "18c33f03c91d61217aec057d9baa74307636f2a91f7c2429bc51322b9734bc5d"
+    },
+    {
+      "from": "docs/下一步任务清单_中英.md",
+      "to": "docs/历史资料/下一步任务清单_中英.md",
+      "beforeSha256": "25439cbb1dedadbc7d0052f842030a07023f923a8cf94746eb17d2adf22761bd",
+      "afterMoveSha256": "97e2906ae8a79da1c03a0c033846f927217291ca448746af42bf579166694698"
+    },
+    {
+      "from": "docs/原型/低保真原型.html",
+      "to": "docs/需求与设计/原型/低保真原型.html",
+      "beforeSha256": "ac758aed141e1e4e4f02358317e8ae846a62047a93895610610d4c7f161fe6bb",
+      "afterMoveSha256": "ac758aed141e1e4e4f02358317e8ae846a62047a93895610610d4c7f161fe6bb"
+    },
+    {
+      "from": "docs/原型/文档检查结果.json",
+      "to": "docs/验证记录/前置材料/文档检查结果.json",
+      "beforeSha256": "b3f056cec9e84a77e9ed48c0df30e354a9fa5fad991499661c8fbd65da3ea2d8",
+      "afterMoveSha256": "b3f056cec9e84a77e9ed48c0df30e354a9fa5fad991499661c8fbd65da3ea2d8"
+    },
+    {
+      "from": "docs/评审/评审工作页.html",
+      "to": "docs/团队协作/评审/评审工作页.html",
+      "beforeSha256": "ae849ac3172cbfbb24a2b2706c826215802473464d53eb563590176d4bdbf209",
+      "afterMoveSha256": "0b46dbe6663543e6501e71a2059f96f3b510fcc017bc17c1a0d4451fa0526deb"
+    },
+    {
+      "from": "docs/评审/准备计划.json",
+      "to": "docs/团队协作/评审/准备计划.json",
+      "beforeSha256": "90fccf6f00d7c662da3b9b0ddbd716e8ad47e28042bd1eb1c1ff5b832cce53cf",
+      "afterMoveSha256": "90fccf6f00d7c662da3b9b0ddbd716e8ad47e28042bd1eb1c1ff5b832cce53cf"
+    },
+    {
+      "from": "docs/评审/工作页检查结果.json",
+      "to": "docs/验证记录/前置材料/工作页检查结果.json",
+      "beforeSha256": "dc9c2926cbcba392d080f177bb099220d783319faa3b283c793bc49c56169f4a",
+      "afterMoveSha256": "dc9c2926cbcba392d080f177bb099220d783319faa3b283c793bc49c56169f4a"
+    },
+    {
+      "from": "docs/评审/验收算例核算.json",
+      "to": "docs/验证记录/前置材料/验收算例核算.json",
+      "beforeSha256": "c7f3569b9d8269eb377223dd6535cf7f171451f5bc7c978ace3eba91d46b8188",
+      "afterMoveSha256": "c7f3569b9d8269eb377223dd6535cf7f171451f5bc7c978ace3eba91d46b8188"
+    },
+    {
+      "from": "docs/评审/工作页预览.png",
+      "to": "docs/验证记录/前置材料/工作页预览.png",
+      "beforeSha256": "73f31012ee11ab2121119a2fbf1472f767bc7fa921662da40393dae780438a8e",
+      "afterMoveSha256": "73f31012ee11ab2121119a2fbf1472f767bc7fa921662da40393dae780438a8e"
+    },
+    {
+      "from": "docs/数据核查/复核样本.py",
+      "to": "scripts/verify_data_sources.py",
+      "beforeSha256": "eb6278ce0f5533d5f3b020e3af69188477e6a62cc2c65bc525493af006c697b7",
+      "afterMoveSha256": "09990f3ac956df5d294d826634dff1e9a0c29092fb440fb0033bfc908f9eee8f"
+    },
+    {
+      "from": "docs/原型/WF-01.png",
+      "to": "docs/需求与设计/原型/WF-01.png",
+      "beforeSha256": "d3df07579e1da81733169adc7feef68b277c319f866438db0ddfd8efcc84e46f",
+      "afterMoveSha256": "d3df07579e1da81733169adc7feef68b277c319f866438db0ddfd8efcc84e46f"
+    },
+    {
+      "from": "docs/原型/WF-02.png",
+      "to": "docs/需求与设计/原型/WF-02.png",
+      "beforeSha256": "7e737e8d0b25fd68e6bcf0532a272405c497ad4000a0394a97fbc80c5f99561b",
+      "afterMoveSha256": "7e737e8d0b25fd68e6bcf0532a272405c497ad4000a0394a97fbc80c5f99561b"
+    },
+    {
+      "from": "docs/原型/WF-03.png",
+      "to": "docs/需求与设计/原型/WF-03.png",
+      "beforeSha256": "96e7014264b8f2b155eecc3f21878ab8dd6a5ff81d36d8f74a313a5cd51eec74",
+      "afterMoveSha256": "96e7014264b8f2b155eecc3f21878ab8dd6a5ff81d36d8f74a313a5cd51eec74"
+    },
+    {
+      "from": "docs/原型/WF-04.png",
+      "to": "docs/需求与设计/原型/WF-04.png",
+      "beforeSha256": "40feeeb929bcd86ceb1815db29a0d81eff9dcbe7445397988c88be28de3bde1e",
+      "afterMoveSha256": "40feeeb929bcd86ceb1815db29a0d81eff9dcbe7445397988c88be28de3bde1e"
+    },
+    {
+      "from": "docs/原型/WF-05.png",
+      "to": "docs/需求与设计/原型/WF-05.png",
+      "beforeSha256": "a877c23fd07e93b5c92244a910fb4ed665218d5f0f168890ecf54b07a533c307",
+      "afterMoveSha256": "a877c23fd07e93b5c92244a910fb4ed665218d5f0f168890ecf54b07a533c307"
+    }
+  ],
+  "protectedFiles": [
+    {
+      "beforePath": "docs/2026-2027-1 软件开发与测试综合实训 项目要求.pdf",
+      "currentPath": "docs/课程资料/2026-2027-1 软件开发与测试综合实训 项目要求.pdf",
+      "sha256": "6c90d8ce4c91fcc716c61e4ab88d2d29c9fc800676b7ff082b4ed80a718f2c70"
+    },
+    {
+      "beforePath": "docs/JIT竞品对比矩阵.csv",
+      "currentPath": "docs/调研资料/JIT竞品对比矩阵.csv",
+      "sha256": "cf6d2ae7f4cd63b3284304d018c8f423e40b8b56be867e47393d253779c1cbc3"
+    },
+    {
+      "beforePath": "docs/原型/WF-01.png",
+      "currentPath": "docs/需求与设计/原型/WF-01.png",
+      "sha256": "d3df07579e1da81733169adc7feef68b277c319f866438db0ddfd8efcc84e46f"
+    },
+    {
+      "beforePath": "docs/原型/WF-02.png",
+      "currentPath": "docs/需求与设计/原型/WF-02.png",
+      "sha256": "7e737e8d0b25fd68e6bcf0532a272405c497ad4000a0394a97fbc80c5f99561b"
+    },
+    {
+      "beforePath": "docs/原型/WF-03.png",
+      "currentPath": "docs/需求与设计/原型/WF-03.png",
+      "sha256": "96e7014264b8f2b155eecc3f21878ab8dd6a5ff81d36d8f74a313a5cd51eec74"
+    },
+    {
+      "beforePath": "docs/原型/WF-04.png",
+      "currentPath": "docs/需求与设计/原型/WF-04.png",
+      "sha256": "40feeeb929bcd86ceb1815db29a0d81eff9dcbe7445397988c88be28de3bde1e"
+    },
+    {
+      "beforePath": "docs/原型/WF-05.png",
+      "currentPath": "docs/需求与设计/原型/WF-05.png",
+      "sha256": "a877c23fd07e93b5c92244a910fb4ed665218d5f0f168890ecf54b07a533c307"
+    },
+    {
+      "beforePath": "docs/原型/文档检查结果.json",
+      "currentPath": "docs/验证记录/前置材料/文档检查结果.json",
+      "sha256": "b3f056cec9e84a77e9ed48c0df30e354a9fa5fad991499661c8fbd65da3ea2d8"
+    },
+    {
+      "beforePath": "docs/敏捷-Scrum.pdf",
+      "currentPath": "docs/课程资料/敏捷-Scrum.pdf",
+      "sha256": "77239372f2a101cef9819f6090894e7d2f7d9e1ffe01a23cf0692aa878ac5c1a"
+    },
+    {
+      "beforePath": "docs/数据核查/activemq-2024-sample-20261004/AMQ-9330.json",
+      "currentPath": "docs/数据核查/activemq-2024-sample-20261004/AMQ-9330.json",
+      "sha256": "8042e40b98f4141c0b27a9b5f87a7514a5ce5aa7e08689f63a20464adceaffcd"
+    },
+    {
+      "beforePath": "docs/数据核查/activemq-2024-sample-20261004/AMQ-9461.json",
+      "currentPath": "docs/数据核查/activemq-2024-sample-20261004/AMQ-9461.json",
+      "sha256": "3e0c19d404a26dce9521f974a414c2e36dc8e8a7697431524a465bb624659fc3"
+    },
+    {
+      "beforePath": "docs/数据核查/activemq-2024-sample-20261004/AMQ-9481.json",
+      "currentPath": "docs/数据核查/activemq-2024-sample-20261004/AMQ-9481.json",
+      "sha256": "05fc7d1258dce000e15aa3c67e2a01f46f8b55f938b94d00b17116a050a5a8f7"
+    },
+    {
+      "beforePath": "docs/数据核查/activemq-2024-sample-20261004/AMQ-9482.json",
+      "currentPath": "docs/数据核查/activemq-2024-sample-20261004/AMQ-9482.json",
+      "sha256": "57ee5b0cf8f428b63536356eb07a8c1cc03de448325a28f693834b49455615cf"
+    },
+    {
+      "beforePath": "docs/数据核查/activemq-2024-sample-20261004/amq9330-8b6072d0.patch",
+      "currentPath": "docs/数据核查/activemq-2024-sample-20261004/amq9330-8b6072d0.patch",
+      "sha256": "12198a96e680fb5f1a9bf27e56a7e7c2274a8ddf6f89bd240ec2158236bda6ab"
+    },
+    {
+      "beforePath": "docs/数据核查/activemq-2024-sample-20261004/amq9330-dc892d3d.patch",
+      "currentPath": "docs/数据核查/activemq-2024-sample-20261004/amq9330-dc892d3d.patch",
+      "sha256": "675927e2d88152dbb20009cd58a229886cffbbb0b8c79c65b1d17e4df2e80d71"
+    },
+    {
+      "beforePath": "docs/数据核查/activemq-2024-sample-20261004/backport-827ad101.patch",
+      "currentPath": "docs/数据核查/activemq-2024-sample-20261004/backport-827ad101.patch",
+      "sha256": "67ac3804e4f0d4373b0a2c094c8fde4c9aa4e396a8fd76b39d1e8abe451bc70b"
+    },
+    {
+      "beforePath": "docs/数据核查/activemq-2024-sample-20261004/case-study.json",
+      "currentPath": "docs/数据核查/activemq-2024-sample-20261004/case-study.json",
+      "sha256": "7d8797b333908c971b1e0cf0957c775b190865d4f288211327958621f9722f28"
+    },
+    {
+      "beforePath": "docs/数据核查/activemq-2024-sample-20261004/fix-72befc14.html",
+      "currentPath": "docs/数据核查/activemq-2024-sample-20261004/fix-72befc14.html",
+      "sha256": "d32bbb2df8094f053753877bd85805151b8f31f08044b31d9aaea5e925791d48"
+    },
+    {
+      "beforePath": "docs/数据核查/activemq-2024-sample-20261004/fix-72befc14.patch",
+      "currentPath": "docs/数据核查/activemq-2024-sample-20261004/fix-72befc14.patch",
+      "sha256": "5971d591ef752579b1458f4a18ba5e2645587bdaac8ff623111bb358c1bd196d"
+    },
+    {
+      "beforePath": "docs/数据核查/activemq-2024-sample-20261004/fixed-AsyncServletRequest.java.txt",
+      "currentPath": "docs/数据核查/activemq-2024-sample-20261004/fixed-AsyncServletRequest.java.txt",
+      "sha256": "3335fab50ac329188ef2b53bc28b196b92d212a1ac998f95cf0d54150565b10c"
+    },
+    {
+      "beforePath": "docs/数据核查/activemq-2024-sample-20261004/merge-6e6caf7c.html",
+      "currentPath": "docs/数据核查/activemq-2024-sample-20261004/merge-6e6caf7c.html",
+      "sha256": "c24f6c25e4cead0db7d9b54121bd1474a58597ec62bc04ca7d617a5bfadb738d"
+    },
+    {
+      "beforePath": "docs/数据核查/activemq-2024-sample-20261004/official-contributing.html",
+      "currentPath": "docs/数据核查/activemq-2024-sample-20261004/official-contributing.html",
+      "sha256": "04f48589279de7848297c993abfca492b9779e3984ebb2e8dcb4ae04f8b445a1"
+    },
+    {
+      "beforePath": "docs/数据核查/activemq-2024-sample-20261004/official-issues.html",
+      "currentPath": "docs/数据核查/activemq-2024-sample-20261004/official-issues.html",
+      "sha256": "bddb642d1031ac8500109ee06e4db2378d80ff5217f86eda5c51bd20a17d43ff"
+    },
+    {
+      "beforePath": "docs/数据核查/activemq-2024-sample-20261004/parent-AsyncServletRequest.java.txt",
+      "currentPath": "docs/数据核查/activemq-2024-sample-20261004/parent-AsyncServletRequest.java.txt",
+      "sha256": "0a54eba0d8c1dce7957fcbc1638e387e0a5a5967f5fba703fc0cfa0677760c04"
+    },
+    {
+      "beforePath": "docs/数据核查/activemq-2024-sample-20261004/pr-1206.html",
+      "currentPath": "docs/数据核查/activemq-2024-sample-20261004/pr-1206.html",
+      "sha256": "e5a6080f417077cac36e2ff717f1aa9e7ec5233c20b039ac9abe60fb62b3cbc5"
+    },
+    {
+      "beforePath": "docs/数据核查/activemq-2024-sample-20261004/sources.json",
+      "currentPath": "docs/数据核查/activemq-2024-sample-20261004/sources.json",
+      "sha256": "635d0510842866973482f26e69c71da19b457ecae207a0c0626482f5b1bcdd4e"
+    },
+    {
+      "beforePath": "docs/数据核查/Java旧行准备示例.json",
+      "currentPath": "docs/数据核查/Java旧行准备示例.json",
+      "sha256": "b9e7098fe2025ec847b23039e9be6b69248eae8048e99f453b428d68f585c9b3"
+    },
+    {
+      "beforePath": "docs/数据核查/Java旧行准备结果/8537a3c2771653741a661a4785220527455a695562623a18386bdbaf0e9b028b.json",
+      "currentPath": "docs/数据核查/Java旧行准备结果/8537a3c2771653741a661a4785220527455a695562623a18386bdbaf0e9b028b.json",
+      "sha256": "4f6d61ba01ad10a4fee434c18000d05751b91b081926986e426e528141382d88"
+    },
+    {
+      "beforePath": "docs/数据核查/Java旧行准备验证记录.json",
+      "currentPath": "docs/数据核查/Java旧行准备验证记录.json",
+      "sha256": "547c5ff006d1c910fdff71404407a2b54d9b8eff4fe041dde1b3aa80cc27dc92"
+    },
+    {
+      "beforePath": "docs/数据核查/批量准备示例.json",
+      "currentPath": "docs/数据核查/批量准备示例.json",
+      "sha256": "675e1b7a597cfa02332999c9cf0a079af5ee282df4528bb0e50497ede84ed3bc"
+    },
+    {
+      "beforePath": "docs/数据核查/批量准备结果/b750305c5fdde4a47b82f6d9035243b2f8bff2739a2f83648db1f8c40e775672.json",
+      "currentPath": "docs/数据核查/批量准备结果/b750305c5fdde4a47b82f6d9035243b2f8bff2739a2f83648db1f8c40e775672.json",
+      "sha256": "55f9559bcf1549684a71a1fb336f138a565f6774485a4e23637eebdbbfe2cce4"
+    },
+    {
+      "beforePath": "docs/数据核查/批量准备验证记录.json",
+      "currentPath": "docs/数据核查/批量准备验证记录.json",
+      "sha256": "ca9c6ecd228bba8b9ddbf0589bd2bf5950e5e60c11b881246d556c883ebc15cc"
+    },
+    {
+      "beforePath": "docs/数据核查/标签时间合成示例/synthetic-contract.json",
+      "currentPath": "docs/数据核查/标签时间合成示例/synthetic-contract.json",
+      "sha256": "a7ed5dca572f811a7c3115a3a004c1a05bbe2c354a7ba452db0cbdc4653c21e7"
+    },
+    {
+      "beforePath": "docs/数据核查/标签时间合成示例/synthetic-features.csv",
+      "currentPath": "docs/数据核查/标签时间合成示例/synthetic-features.csv",
+      "sha256": "56a8e649bea5b43b0554e4c50b836a27da7f9202618c5f174453f5b9c5b924d0"
+    },
+    {
+      "beforePath": "docs/数据核查/标签时间审计结果/4a86d1a4266b3b0db23c8e7c0022b47a8391df488d6f43b84ca4fdaf0d3d8691.json",
+      "currentPath": "docs/数据核查/标签时间审计结果/4a86d1a4266b3b0db23c8e7c0022b47a8391df488d6f43b84ca4fdaf0d3d8691.json",
+      "sha256": "ceea5bf7b801bd64eedf3ec68fe83547305e4f9a279d81bf6f92793108ca6971"
+    },
+    {
+      "beforePath": "docs/数据核查/标签时间审计验证记录.json",
+      "currentPath": "docs/数据核查/标签时间审计验证记录.json",
+      "sha256": "4979af747760ffa1ef062fc54941e805a2631473e9838ec294e48f07f776b78d"
+    },
+    {
+      "beforePath": "docs/数据核查/离线准备模块验证记录.json",
+      "currentPath": "docs/数据核查/离线准备模块验证记录.json",
+      "sha256": "4a57e9f3210451f9d508733f4a3c256a356373fb7a98ffe746f5e1898988945c"
+    },
+    {
+      "beforePath": "docs/数据核查/离线准备结果/AMQ-9481-after-cutoff.json",
+      "currentPath": "docs/数据核查/离线准备结果/AMQ-9481-after-cutoff.json",
+      "sha256": "fda77a12abb315aef5457eff3f8433f5a753c25ed4ba2cbf5b24be7dab8baa28"
+    },
+    {
+      "beforePath": "docs/数据核查/离线准备结果/AMQ-9481-before-cutoff.json",
+      "currentPath": "docs/数据核查/离线准备结果/AMQ-9481-before-cutoff.json",
+      "sha256": "94da3fcafd26a6be8f501dfe8f5a61277e3585933bb60e256f30df9040da3ec1"
+    },
+    {
+      "beforePath": "docs/规格驱动开发 SDD 与 OpenSpec.pdf",
+      "currentPath": "docs/课程资料/规格驱动开发 SDD 与 OpenSpec.pdf",
+      "sha256": "2cebcfbebb0da8dd40d0142584d22d935ef5be7d3a7156c9020c2d3584993c02"
+    },
+    {
+      "beforePath": "docs/评审/准备计划.json",
+      "currentPath": "docs/团队协作/评审/准备计划.json",
+      "sha256": "90fccf6f00d7c662da3b9b0ddbd716e8ad47e28042bd1eb1c1ff5b832cce53cf"
+    },
+    {
+      "beforePath": "docs/评审/工作页检查结果.json",
+      "currentPath": "docs/验证记录/前置材料/工作页检查结果.json",
+      "sha256": "dc9c2926cbcba392d080f177bb099220d783319faa3b283c793bc49c56169f4a"
+    },
+    {
+      "beforePath": "docs/评审/工作页预览.png",
+      "currentPath": "docs/验证记录/前置材料/工作页预览.png",
+      "sha256": "73f31012ee11ab2121119a2fbf1472f767bc7fa921662da40393dae780438a8e"
+    },
+    {
+      "beforePath": "docs/评审/验收算例核算.json",
+      "currentPath": "docs/验证记录/前置材料/验收算例核算.json",
+      "sha256": "c7f3569b9d8269eb377223dd6535cf7f171451f5bc7c978ace3eba91d46b8188"
+    },
+    {
+      "beforePath": "docs/课程要求及日程安排-2026-v2.pdf",
+      "currentPath": "docs/课程资料/课程要求及日程安排-2026-v2.pdf",
+      "sha256": "bf2c415ae813aadf318fd70dc95041b9d47b9e254675be7dafd617223f4342ab"
+    },
+    {
+      "beforePath": "jit_defect/api.py",
+      "currentPath": "jit_defect/api.py",
+      "sha256": "a1b7e110ff52470613f29334122b899ff0867a68e3decb8bf982f9e2e4f7d18f"
+    },
+    {
+      "beforePath": "jit_defect/data.py",
+      "currentPath": "jit_defect/data.py",
+      "sha256": "96ed2a0a17c0bb031a978fdb557924bfecad8a795328588b71f3de7a5b183ad5"
+    },
+    {
+      "beforePath": "jit_defect/demo.py",
+      "currentPath": "jit_defect/demo.py",
+      "sha256": "d7cc909a5062e121cad623751f0e6d046af77c5bd3d3510bcfa83de3b40b909e"
+    },
+    {
+      "beforePath": "jit_defect/learning.py",
+      "currentPath": "jit_defect/learning.py",
+      "sha256": "3e013f6ce03db166fe87b75f1f2eccb022d1052b3aa5f0cc40bdb47a2ed080b5"
+    },
+    {
+      "beforePath": "jit_defect/preparation.py",
+      "currentPath": "jit_defect/preparation.py",
+      "sha256": "cc6e1adf4111a1c27b5146f25671ae9ef17bc4250c47e76ad5a99cac885bdb73"
+    },
+    {
+      "beforePath": "jit_defect/preparation_batch.py",
+      "currentPath": "jit_defect/preparation_batch.py",
+      "sha256": "b4f5a805771e27343af74965924412d23b000cf6a30354184ead816f0a8216e1"
+    },
+    {
+      "beforePath": "jit_defect/store.py",
+      "currentPath": "jit_defect/store.py",
+      "sha256": "c434c1ed6926de210156de1e21cda1ec2e0953c1af5eba1d23ebf5d743164c1f"
+    },
+    {
+      "beforePath": "jit_defect/szz_inputs.py",
+      "currentPath": "jit_defect/szz_inputs.py",
+      "sha256": "c530d11d1b82ebcac46fff22f2b17d3f1d304666019c0bc03a5bf5ea568f1d19"
+    },
+    {
+      "beforePath": "jit_defect/temporal_audit.py",
+      "currentPath": "jit_defect/temporal_audit.py",
+      "sha256": "0391f25c1ac84abe5c6ef197e4a660d7c2e6934e970cbac92ec89e4d9c076138"
+    },
+    {
+      "beforePath": "jit_defect/__init__.py",
+      "currentPath": "jit_defect/__init__.py",
+      "sha256": "854c88be891875ae42caa1b31cbb0340133afb4f545f315a5cbf3e10e6b2dbfb"
+    },
+    {
+      "beforePath": "tests/conftest.py",
+      "currentPath": "tests/conftest.py",
+      "sha256": "6652a0711d8a7c9076b58cfe6cf18590648e40b830b2600ee9f46ce7da5d773c"
+    },
+    {
+      "beforePath": "tests/test_api.py",
+      "currentPath": "tests/test_api.py",
+      "sha256": "fe21361fa39ced6d6cf6a6e9ee475b7b4f6fe8cbd88557ba8641ce3d46ab5950"
+    },
+    {
+      "beforePath": "tests/test_data.py",
+      "currentPath": "tests/test_data.py",
+      "sha256": "7144515cda76434025f173ce8a97d6d5b6191e4f28c0fa911154d12217146326"
+    },
+    {
+      "beforePath": "tests/test_learning.py",
+      "currentPath": "tests/test_learning.py",
+      "sha256": "57c024e72ebafe6d758ce525b31621d7452e0dacdfec74b6933e021723548d27"
+    },
+    {
+      "beforePath": "tests/test_preparation_batch.py",
+      "currentPath": "tests/test_preparation_batch.py",
+      "sha256": "49b821927593eaff38fe8a093a78af79cfab352537ad91c3480778b374ebee81"
+    },
+    {
+      "beforePath": "tests/test_preparation_batch_cli.py",
+      "currentPath": "tests/test_preparation_batch_cli.py",
+      "sha256": "9ec0ca17d85b4edfb919dbe919ee7ac2290e81f598a99d7ddc439a3e6d6c9d7a"
+    },
+    {
+      "beforePath": "tests/test_preparation_cli.py",
+      "currentPath": "tests/test_preparation_cli.py",
+      "sha256": "4fc7ad28519b33c5865aec2a86aa5607e979f4aacc4f45b519015d3b3f470276"
+    },
+    {
+      "beforePath": "tests/test_preparation_history.py",
+      "currentPath": "tests/test_preparation_history.py",
+      "sha256": "314fe6008bf1c0bdc73cb7fc0f5dff0bc0dd140b65029c4737c978b506733fe1"
+    },
+    {
+      "beforePath": "tests/test_preparation_patch.py",
+      "currentPath": "tests/test_preparation_patch.py",
+      "sha256": "59e1efefd7233d27d8fed8973bf8f2d8b8360353b2f7392273610916e3d32f98"
+    },
+    {
+      "beforePath": "tests/test_preparation_snapshots.py",
+      "currentPath": "tests/test_preparation_snapshots.py",
+      "sha256": "6e3fe27b3b637d221a3e5797810c03fe4b7ea7761ee92148fb4250fe55531f54"
+    },
+    {
+      "beforePath": "tests/test_szz_inputs.py",
+      "currentPath": "tests/test_szz_inputs.py",
+      "sha256": "d0286c64c837a5ca139a5ba2e1d45983e2335ac1762d9d9305cac6a0a1cbae7e"
+    },
+    {
+      "beforePath": "tests/test_szz_java.py",
+      "currentPath": "tests/test_szz_java.py",
+      "sha256": "d9f118ae59aa0250b14411c44d6e3f7de2cd7fd160cf7b860cbdd916551e5985"
+    },
+    {
+      "beforePath": "tests/test_temporal_audit.py",
+      "currentPath": "tests/test_temporal_audit.py",
+      "sha256": "16ff0fad1b45e7a9bf9baae61a324c8ec2e5408ed601ec85974ac950f24dc3a4"
+    },
+    {
+      "beforePath": "tests/test_temporal_learning.py",
+      "currentPath": "tests/test_temporal_learning.py",
+      "sha256": "bd23351195587d20f88b85cf43f3394d3afbb08f848a15ff669c3a66de98f777"
+    },
+    {
+      "beforePath": "frontend/src/api.js",
+      "currentPath": "frontend/src/api.js",
+      "sha256": "b4b6ccd095f66fde9367a5124cd8e3b7e45a77450e48bd276b34988ba86926d1"
+    },
+    {
+      "beforePath": "frontend/src/App.vue",
+      "currentPath": "frontend/src/App.vue",
+      "sha256": "93302fe55d0c1340af595816b12357d143f75a66d648c7513e9fd504981ceb05"
+    },
+    {
+      "beforePath": "frontend/src/main.js",
+      "currentPath": "frontend/src/main.js",
+      "sha256": "1297cf214fa1b84a364b43b5f05c9c364beb4c5385b7c8aa05c48a9bf41323ce"
+    },
+    {
+      "beforePath": "frontend/src/style.css",
+      "currentPath": "frontend/src/style.css",
+      "sha256": "1af947216f7fc2c2e955a4e8e3548b2cf6377d303742f995844f74b19a9fec69"
+    }
+  ],
+  "rewrittenNavigationFiles": [
+    "README.md",
+    "docs/团队协作/Sprint0前置工作清单.md",
+    "docs/历史资料/下一步任务清单_中英.md",
+    "docs/需求与设计/产品设计文档.md",
+    "docs/需求与设计/产品需求文档.md",
+    "docs/验证记录/前置材料验证记录.md",
+    "docs/团队协作/团队入门指南_中英.md",
+    "docs/团队协作/团队协作约定.md",
+    "docs/数据核查/ActiveMQ数据可行性核查.md",
+    "docs/数据核查/Java旧行准备模块.md",
+    "docs/数据核查/批量准备与快照.md",
+    "docs/数据核查/标签延迟与时间切分调研_20261005.md",
+    "docs/数据核查/离线准备模块.md",
+    "docs/技术试做/本地基线实现与运行.md",
+    "docs/验证记录/本地基线验证记录.md",
+    "docs/需求与设计/核心流程设计_中英.md",
+    "docs/需求与设计/核心范围与任务拆分.md",
+    "docs/调研资料/用户调研计划与记录模板.md",
+    "docs/团队协作/评审/评审工作页.html",
+    "docs/团队协作/项目一页概要.md",
+    "docs/需求与设计/验收测试设计.md",
+    "openspec/changes/establish-product-baseline/design.md",
+    "openspec/changes/establish-product-baseline/tasks.md"
+  ]
+}

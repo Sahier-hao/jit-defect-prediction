@@ -1,0 +1,1535 @@
+{
+  "formatVersion": 1,
+  "kind": "public_real_source_case_study",
+  "scope": "Four purposively selected historical issues; not a random sample, corpus census, SZZ run, training dataset or model result",
+  "repository": "apache/activemq",
+  "candidateStudyWindow": "historical 2024, with AMQ-9461 from March as a deliberate non-Bug counterexample",
+  "issues": [
+    {
+      "id": "AMQ-9481",
+      "summary": "Concurrent access error attempting to consume messages via REST API in 5.18.2 or higher",
+      "issueType": "Bug",
+      "status": "Resolved",
+      "resolution": "Fixed",
+      "createdAt": "2024-04-15T03:37:00.352+0000",
+      "resolvedAt": "2024-04-22T15:07:37.766+0000",
+      "historyComplete": true,
+      "historyEvents": [
+        {
+          "created": "2024-04-21T16:47:26.479+0000",
+          "items": [
+            {
+              "field": "status",
+              "fieldtype": "jira",
+              "from": "1",
+              "fromString": "Open",
+              "to": "3",
+              "toString": "In Progress"
+            }
+          ]
+        },
+        {
+          "created": "2024-04-22T15:07:37.776+0000",
+          "items": [
+            {
+              "field": "resolution",
+              "fieldtype": "jira",
+              "from": null,
+              "fromString": null,
+              "to": "1",
+              "toString": "Fixed"
+            },
+            {
+              "field": "status",
+              "fieldtype": "jira",
+              "from": "3",
+              "fromString": "In Progress",
+              "to": "5",
+              "toString": "Resolved"
+            }
+          ]
+        }
+      ],
+      "commitNotifications": [
+        {
+          "sha": "72befc14fbb69c24bdec0c7d4a1002da8874380d",
+          "branch": "refs/heads/AMQ-9841",
+          "notificationAt": "2024-04-21T16:44:25.763+0000"
+        },
+        {
+          "sha": "72befc14fbb69c24bdec0c7d4a1002da8874380d",
+          "branch": "refs/heads/main",
+          "notificationAt": "2024-04-22T15:01:42.170+0000"
+        },
+        {
+          "sha": "6e6caf7c6060efadc1ba524147e71d9720fcd935",
+          "branch": "refs/heads/main",
+          "notificationAt": "2024-04-22T15:01:42.771+0000"
+        },
+        {
+          "sha": "827ad1012b934ca4fff749a5da1a9c1e070a0ee1",
+          "branch": "refs/heads/activemq-5.18.x",
+          "notificationAt": "2024-04-22T15:07:24.266+0000"
+        }
+      ],
+      "fixCandidateAssessment": "issue_verified_fix_candidate",
+      "inducingCommitLabel": "unknown_szz_not_executed",
+      "sourceFile": "AMQ-9481.json"
+    },
+    {
+      "id": "AMQ-9482",
+      "summary": "Broker crashes after runaway threads spawn",
+      "issueType": "Bug",
+      "status": "Open",
+      "resolution": null,
+      "createdAt": "2024-04-19T11:28:34.122+0000",
+      "resolvedAt": null,
+      "historyComplete": true,
+      "historyEvents": [],
+      "commitNotifications": [],
+      "fixCandidateAssessment": "unresolved_without_fix_evidence",
+      "inducingCommitLabel": "unknown_szz_not_executed",
+      "sourceFile": "AMQ-9482.json"
+    },
+    {
+      "id": "AMQ-9461",
+      "summary": "webconsole - Upgrade (c) year from 2023 to 2024",
+      "issueType": "Task",
+      "status": "Resolved",
+      "resolution": "Fixed",
+      "createdAt": "2024-03-22T08:50:35.737+0000",
+      "resolvedAt": "2024-03-23T10:57:58.420+0000",
+      "historyComplete": true,
+      "historyEvents": [
+        {
+          "created": "2024-03-23T10:57:58.430+0000",
+          "items": [
+            {
+              "field": "resolution",
+              "fieldtype": "jira",
+              "from": null,
+              "fromString": null,
+              "to": "1",
+              "toString": "Fixed"
+            },
+            {
+              "field": "status",
+              "fieldtype": "jira",
+              "from": "1",
+              "fromString": "Open",
+              "to": "5",
+              "toString": "Resolved"
+            }
+          ]
+        },
+        {
+          "created": "2024-06-02T16:44:41.946+0000",
+          "items": [
+            {
+              "field": "issuetype",
+              "fieldtype": "jira",
+              "from": "4",
+              "fromString": "Improvement",
+              "to": "3",
+              "toString": "Task"
+            }
+          ]
+        }
+      ],
+      "commitNotifications": [],
+      "fixCandidateAssessment": "non_bug_excluded_from_bug_fix_candidates",
+      "inducingCommitLabel": "unknown_szz_not_executed",
+      "sourceFile": "AMQ-9461.json"
+    },
+    {
+      "id": "AMQ-9330",
+      "summary": "Polling empty queue via REST returns 500 Server Error",
+      "issueType": "Bug",
+      "status": "Resolved",
+      "resolution": "Fixed",
+      "createdAt": "2023-10-12T17:21:27.874+0000",
+      "resolvedAt": "2024-04-11T14:05:12.816+0000",
+      "historyComplete": true,
+      "historyEvents": [
+        {
+          "created": "2024-04-11T14:05:12.823+0000",
+          "items": [
+            {
+              "field": "resolution",
+              "fieldtype": "jira",
+              "from": null,
+              "fromString": null,
+              "to": "1",
+              "toString": "Fixed"
+            },
+            {
+              "field": "status",
+              "fieldtype": "jira",
+              "from": "1",
+              "fromString": "Open",
+              "to": "5",
+              "toString": "Resolved"
+            }
+          ]
+        }
+      ],
+      "commitNotifications": [
+        {
+          "sha": "8b6072d03e273b02288e71cac6eef0539c48ea02",
+          "branch": "refs/heads/main",
+          "notificationAt": "2024-04-11T13:59:53.219+0000"
+        },
+        {
+          "sha": "dc892d3dfc2f4b7d0402d947f40431ce4e50d92d",
+          "branch": "refs/heads/activemq-5.18.x",
+          "notificationAt": "2024-04-11T14:04:40.679+0000"
+        }
+      ],
+      "fixCandidateAssessment": "issue_verified_fix_candidate",
+      "inducingCommitLabel": "unknown_szz_not_executed",
+      "sourceFile": "AMQ-9330.json"
+    }
+  ],
+  "patches": [
+    {
+      "sha": "72befc14fbb69c24bdec0c7d4a1002da8874380d",
+      "authoredAt": "2024-04-21T16:42:20+00:00",
+      "message": "AMQ-9481 - Correctly complete async servlet request on\n timeout\n\nThis fixes AsyncServletRequest to correctly call context.dispatch() when\nthe async request times out so that the consumer can be re-used.",
+      "messageIssueRefs": [
+        "AMQ-9481"
+      ],
+      "cherryPickedFrom": [],
+      "files": [
+        {
+          "pathBefore": "activemq-web-demo/src/test/java/org/apache/activemq/web/RestTest.java",
+          "pathAfter": "activemq-web-demo/src/test/java/org/apache/activemq/web/RestTest.java",
+          "added": 13,
+          "deleted": 4,
+          "hunks": [
+            {
+              "oldStart": 86,
+              "oldCount": 11,
+              "newStart": 86,
+              "newCount": 20,
+              "oldLines": [
+                "        HttpClient httpClient = new HttpClient();",
+                "        httpClient.start();",
+                "",
+                "        final StringBuffer buf = new StringBuffer();",
+                "        final Future<Result> result =",
+                "            asyncRequest(httpClient, \"http://localhost:\" + port + \"/message/test?readTimeout=1000&type=queue\", buf);",
+                "",
+                "        //Test timeout, no message was sent",
+                "        assertEquals(HttpStatus.NO_CONTENT_204, result.get().getResponse().getStatus());",
+                "    }",
+                ""
+              ],
+              "newLines": [
+                "        HttpClient httpClient = new HttpClient();",
+                "        httpClient.start();",
+                "",
+                "        // AMQ-9330 - test no 500 error on timeout and instead 204 error",
+                "        Future<Result> result =",
+                "            asyncRequest(httpClient, \"http://localhost:\" + port + \"/message/test?readTimeout=2000&type=queue&clientId=test\", new StringBuffer());",
+                "        // try a second request while the first is running, this should get a 500 error since the first is still running and",
+                "        // concurrent access to the same consumer is not allowed",
+                "        Future<Result> errorResult = asyncRequest(httpClient, \"http://localhost:\" + port + \"/message/test?readTimeout=1&type=queue&clientId=test\", new StringBuffer());",
+                "        assertEquals(HttpStatus.INTERNAL_SERVER_ERROR_500, errorResult.get().getResponse().getStatus());",
+                "        //After the original request finishes, verify 204 and not 500 error",
+                "        assertEquals(HttpStatus.NO_CONTENT_204, result.get().getResponse().getStatus());",
+                "",
+                "        // AMQ-9481 - test to make sure we can re-use the consumer after timeout by trying again and ensuring",
+                "        // no 500 error. Before the fix in AMQ-9418 this would fail even after the previous request timed out",
+                "        result =",
+                "            asyncRequest(httpClient, \"http://localhost:\" + port + \"/message/test?readTimeout=1000&type=queue&clientId=test\", new StringBuffer());",
+                "        assertEquals(HttpStatus.NO_CONTENT_204, result.get().getResponse().getStatus());",
+                "    }",
+                ""
+              ],
+              "removed": [
+                {
+                  "oldLine": 89,
+                  "text": "        final StringBuffer buf = new StringBuffer();"
+                },
+                {
+                  "oldLine": 90,
+                  "text": "        final Future<Result> result ="
+                },
+                {
+                  "oldLine": 91,
+                  "text": "            asyncRequest(httpClient, \"http://localhost:\" + port + \"/message/test?readTimeout=1000&type=queue\", buf);"
+                },
+                {
+                  "oldLine": 93,
+                  "text": "        //Test timeout, no message was sent"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "pathBefore": "activemq-web/src/main/java/org/apache/activemq/web/async/AsyncServletRequest.java",
+          "pathAfter": "activemq-web/src/main/java/org/apache/activemq/web/async/AsyncServletRequest.java",
+          "added": 4,
+          "deleted": 4,
+          "hunks": [
+            {
+              "oldStart": 115,
+              "oldCount": 10,
+              "newStart": 115,
+              "newCount": 10,
+              "oldLines": [
+                "        }",
+                "",
+                "        final AsyncContext context = event.getAsyncContext();",
+                "        if (context != null) {",
+                "            // We must call complete and then set the status code to prevent a 500",
+                "            // error. The spec requires a 500 error on timeout unless complete() is called.",
+                "            context.complete();",
+                "            final ServletResponse response = context.getResponse();",
+                "            if (response instanceof HttpServletResponse) {",
+                "                ((HttpServletResponse) response).setStatus(HttpServletResponse.SC_NO_CONTENT);"
+              ],
+              "newLines": [
+                "        }",
+                "",
+                "        final AsyncContext context = event.getAsyncContext();",
+                "        if (context != null && event.getSuppliedRequest().isAsyncStarted()) {",
+                "            // We must call dispatch to finish the request on timeout.",
+                "            // then set the status code to prevent a 500 error.",
+                "            context.dispatch();",
+                "            final ServletResponse response = context.getResponse();",
+                "            if (response instanceof HttpServletResponse) {",
+                "                ((HttpServletResponse) response).setStatus(HttpServletResponse.SC_NO_CONTENT);"
+              ],
+              "removed": [
+                {
+                  "oldLine": 118,
+                  "text": "        if (context != null) {"
+                },
+                {
+                  "oldLine": 119,
+                  "text": "            // We must call complete and then set the status code to prevent a 500"
+                },
+                {
+                  "oldLine": 120,
+                  "text": "            // error. The spec requires a 500 error on timeout unless complete() is called."
+                },
+                {
+                  "oldLine": 121,
+                  "text": "            context.complete();"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "sourceFile": "fix-72befc14.patch"
+    },
+    {
+      "sha": "827ad1012b934ca4fff749a5da1a9c1e070a0ee1",
+      "authoredAt": "2024-04-21T16:42:20+00:00",
+      "message": "AMQ-9481 - Correctly complete async servlet request on\n timeout\n\nThis fixes AsyncServletRequest to correctly call context.dispatch() when\nthe async request times out so that the consumer can be re-used.\n\n(cherry picked from commit 72befc14fbb69c24bdec0c7d4a1002da8874380d)",
+      "messageIssueRefs": [
+        "AMQ-9481"
+      ],
+      "cherryPickedFrom": [
+        "72befc14fbb69c24bdec0c7d4a1002da8874380d"
+      ],
+      "files": [
+        {
+          "pathBefore": "activemq-web-demo/src/test/java/org/apache/activemq/web/RestTest.java",
+          "pathAfter": "activemq-web-demo/src/test/java/org/apache/activemq/web/RestTest.java",
+          "added": 13,
+          "deleted": 4,
+          "hunks": [
+            {
+              "oldStart": 86,
+              "oldCount": 11,
+              "newStart": 86,
+              "newCount": 20,
+              "oldLines": [
+                "        HttpClient httpClient = new HttpClient();",
+                "        httpClient.start();",
+                "",
+                "        final StringBuffer buf = new StringBuffer();",
+                "        final Future<Result> result =",
+                "            asyncRequest(httpClient, \"http://localhost:\" + port + \"/message/test?readTimeout=1000&type=queue\", buf);",
+                "",
+                "        //Test timeout, no message was sent",
+                "        assertEquals(HttpStatus.NO_CONTENT_204, result.get().getResponse().getStatus());",
+                "    }",
+                ""
+              ],
+              "newLines": [
+                "        HttpClient httpClient = new HttpClient();",
+                "        httpClient.start();",
+                "",
+                "        // AMQ-9330 - test no 500 error on timeout and instead 204 error",
+                "        Future<Result> result =",
+                "            asyncRequest(httpClient, \"http://localhost:\" + port + \"/message/test?readTimeout=2000&type=queue&clientId=test\", new StringBuffer());",
+                "        // try a second request while the first is running, this should get a 500 error since the first is still running and",
+                "        // concurrent access to the same consumer is not allowed",
+                "        Future<Result> errorResult = asyncRequest(httpClient, \"http://localhost:\" + port + \"/message/test?readTimeout=1&type=queue&clientId=test\", new StringBuffer());",
+                "        assertEquals(HttpStatus.INTERNAL_SERVER_ERROR_500, errorResult.get().getResponse().getStatus());",
+                "        //After the original request finishes, verify 204 and not 500 error",
+                "        assertEquals(HttpStatus.NO_CONTENT_204, result.get().getResponse().getStatus());",
+                "",
+                "        // AMQ-9481 - test to make sure we can re-use the consumer after timeout by trying again and ensuring",
+                "        // no 500 error. Before the fix in AMQ-9418 this would fail even after the previous request timed out",
+                "        result =",
+                "            asyncRequest(httpClient, \"http://localhost:\" + port + \"/message/test?readTimeout=1000&type=queue&clientId=test\", new StringBuffer());",
+                "        assertEquals(HttpStatus.NO_CONTENT_204, result.get().getResponse().getStatus());",
+                "    }",
+                ""
+              ],
+              "removed": [
+                {
+                  "oldLine": 89,
+                  "text": "        final StringBuffer buf = new StringBuffer();"
+                },
+                {
+                  "oldLine": 90,
+                  "text": "        final Future<Result> result ="
+                },
+                {
+                  "oldLine": 91,
+                  "text": "            asyncRequest(httpClient, \"http://localhost:\" + port + \"/message/test?readTimeout=1000&type=queue\", buf);"
+                },
+                {
+                  "oldLine": 93,
+                  "text": "        //Test timeout, no message was sent"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "pathBefore": "activemq-web/src/main/java/org/apache/activemq/web/async/AsyncServletRequest.java",
+          "pathAfter": "activemq-web/src/main/java/org/apache/activemq/web/async/AsyncServletRequest.java",
+          "added": 4,
+          "deleted": 4,
+          "hunks": [
+            {
+              "oldStart": 115,
+              "oldCount": 10,
+              "newStart": 115,
+              "newCount": 10,
+              "oldLines": [
+                "        }",
+                "",
+                "        final AsyncContext context = event.getAsyncContext();",
+                "        if (context != null) {",
+                "            // We must call complete and then set the status code to prevent a 500",
+                "            // error. The spec requires a 500 error on timeout unless complete() is called.",
+                "            context.complete();",
+                "            final ServletResponse response = context.getResponse();",
+                "            if (response instanceof HttpServletResponse) {",
+                "                ((HttpServletResponse) response).setStatus(HttpServletResponse.SC_NO_CONTENT);"
+              ],
+              "newLines": [
+                "        }",
+                "",
+                "        final AsyncContext context = event.getAsyncContext();",
+                "        if (context != null && event.getSuppliedRequest().isAsyncStarted()) {",
+                "            // We must call dispatch to finish the request on timeout.",
+                "            // then set the status code to prevent a 500 error.",
+                "            context.dispatch();",
+                "            final ServletResponse response = context.getResponse();",
+                "            if (response instanceof HttpServletResponse) {",
+                "                ((HttpServletResponse) response).setStatus(HttpServletResponse.SC_NO_CONTENT);"
+              ],
+              "removed": [
+                {
+                  "oldLine": 118,
+                  "text": "        if (context != null) {"
+                },
+                {
+                  "oldLine": 119,
+                  "text": "            // We must call complete and then set the status code to prevent a 500"
+                },
+                {
+                  "oldLine": 120,
+                  "text": "            // error. The spec requires a 500 error on timeout unless complete() is called."
+                },
+                {
+                  "oldLine": 121,
+                  "text": "            context.complete();"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "sourceFile": "backport-827ad101.patch"
+    },
+    {
+      "sha": "dc892d3dfc2f4b7d0402d947f40431ce4e50d92d",
+      "authoredAt": "2024-04-11T13:59:46+00:00",
+      "message": "AMQ-9330 - Return 204 code when polling empty destinations\n (#1203)\n\nPreviously a timeout was thrown and complete was not called so Jetty was\nreturning a 500 error\n\n(cherry picked from commit 8b6072d03e273b02288e71cac6eef0539c48ea02)\n(cherry picked from commit 45a1bd54d3e1202d775388cf5b7d63e4c96183a5)",
+      "messageIssueRefs": [
+        "AMQ-9330"
+      ],
+      "cherryPickedFrom": [
+        "8b6072d03e273b02288e71cac6eef0539c48ea02",
+        "45a1bd54d3e1202d775388cf5b7d63e4c96183a5"
+      ],
+      "files": [
+        {
+          "pathBefore": "activemq-web-demo/src/test/java/org/apache/activemq/web/RestTest.java",
+          "pathAfter": "activemq-web-demo/src/test/java/org/apache/activemq/web/RestTest.java",
+          "added": 20,
+          "deleted": 20,
+          "hunks": [
+            {
+              "oldStart": 21,
+              "oldCount": 7,
+              "newStart": 21,
+              "newCount": 9,
+              "oldLines": [
+                "import static org.junit.Assert.assertTrue;",
+                "",
+                "import java.util.Set;",
+                "import java.util.concurrent.CountDownLatch;",
+                "import java.util.concurrent.atomic.AtomicInteger;",
+                "",
+                "import javax.jms.TextMessage;"
+              ],
+              "newLines": [
+                "import static org.junit.Assert.assertTrue;",
+                "",
+                "import java.util.Set;",
+                "import java.util.concurrent.CompletableFuture;",
+                "import java.util.concurrent.CountDownLatch;",
+                "import java.util.concurrent.Future;",
+                "import java.util.concurrent.atomic.AtomicInteger;",
+                "",
+                "import javax.jms.TextMessage;"
+              ],
+              "removed": []
+            },
+            {
+              "oldStart": 52,
+              "oldCount": 10,
+              "newStart": 54,
+              "newCount": 10,
+              "oldLines": [
+                "        httpClient.start();",
+                "",
+                "        final StringBuffer buf = new StringBuffer();",
+                "        final CountDownLatch latch =",
+                "                asyncRequest(httpClient, \"http://localhost:\" + port + \"/message/test?readTimeout=1000&type=queue\", buf);",
+                "",
+                "        latch.await();",
+                "        assertEquals(\"test\", buf.toString());",
+                "    }",
+                ""
+              ],
+              "newLines": [
+                "        httpClient.start();",
+                "",
+                "        final StringBuffer buf = new StringBuffer();",
+                "        final Future<Result> result =",
+                "                asyncRequest(httpClient, \"http://localhost:\" + port + \"/message/test?readTimeout=1000&type=queue\", buf);",
+                "",
+                "        assertEquals(HttpStatus.OK_200, result.get().getResponse().getStatus());",
+                "        assertEquals(\"test\", buf.toString());",
+                "    }",
+                ""
+              ],
+              "removed": [
+                {
+                  "oldLine": 55,
+                  "text": "        final CountDownLatch latch ="
+                },
+                {
+                  "oldLine": 58,
+                  "text": "        latch.await();"
+                }
+              ]
+            },
+            {
+              "oldStart": 66,
+              "oldCount": 7,
+              "newStart": 68,
+              "newCount": 7,
+              "oldLines": [
+                "        httpClient.start();",
+                "",
+                "        final StringBuffer buf = new StringBuffer();",
+                "        final CountDownLatch latch =",
+                "            asyncRequest(httpClient, \"http://localhost:\" + port + \"/message/test?readTimeout=5000&type=queue\", buf);",
+                "",
+                "        //Sleep 2 seconds before sending, should still get the response as timeout is 5 seconds"
+              ],
+              "newLines": [
+                "        httpClient.start();",
+                "",
+                "        final StringBuffer buf = new StringBuffer();",
+                "        final Future<Result> result =",
+                "            asyncRequest(httpClient, \"http://localhost:\" + port + \"/message/test?readTimeout=5000&type=queue\", buf);",
+                "",
+                "        //Sleep 2 seconds before sending, should still get the response as timeout is 5 seconds"
+              ],
+              "removed": [
+                {
+                  "oldLine": 69,
+                  "text": "        final CountDownLatch latch ="
+                }
+              ]
+            },
+            {
+              "oldStart": 74,
+              "oldCount": 7,
+              "newStart": 76,
+              "newCount": 7,
+              "oldLines": [
+                "        producer.send(session.createTextMessage(\"test\"));",
+                "        LOG.info(\"message sent\");",
+                "",
+                "        latch.await();",
+                "        assertEquals(\"test\", buf.toString());",
+                "    }",
+                ""
+              ],
+              "newLines": [
+                "        producer.send(session.createTextMessage(\"test\"));",
+                "        LOG.info(\"message sent\");",
+                "",
+                "        assertEquals(HttpStatus.OK_200, result.get().getResponse().getStatus());",
+                "        assertEquals(\"test\", buf.toString());",
+                "    }",
+                ""
+              ],
+              "removed": [
+                {
+                  "oldLine": 77,
+                  "text": "        latch.await();"
+                }
+              ]
+            },
+            {
+              "oldStart": 85,
+              "oldCount": 12,
+              "newStart": 87,
+              "newCount": 11,
+              "oldLines": [
+                "        httpClient.start();",
+                "",
+                "        final StringBuffer buf = new StringBuffer();",
+                "        final CountDownLatch latch =",
+                "            asyncRequest(httpClient, \"http://localhost:\" + port + \"/message/test?readTimeout=1000&type=queue\", buf);",
+                "",
+                "        //Test timeout, no message was sent",
+                "        latch.await();",
+                "        assertTrue(buf.toString().contains(\"AsyncContext timeout\"));",
+                "    }",
+                "",
+                "    @Test(timeout = 60 * 1000)"
+              ],
+              "newLines": [
+                "        httpClient.start();",
+                "",
+                "        final StringBuffer buf = new StringBuffer();",
+                "        final Future<Result> result =",
+                "            asyncRequest(httpClient, \"http://localhost:\" + port + \"/message/test?readTimeout=1000&type=queue\", buf);",
+                "",
+                "        //Test timeout, no message was sent",
+                "        assertEquals(HttpStatus.NO_CONTENT_204, result.get().getResponse().getStatus());",
+                "    }",
+                "",
+                "    @Test(timeout = 60 * 1000)"
+              ],
+              "removed": [
+                {
+                  "oldLine": 88,
+                  "text": "        final CountDownLatch latch ="
+                },
+                {
+                  "oldLine": 92,
+                  "text": "        latch.await();"
+                },
+                {
+                  "oldLine": 93,
+                  "text": "        assertTrue(buf.toString().contains(\"AsyncContext timeout\"));"
+                }
+              ]
+            },
+            {
+              "oldStart": 101,
+              "oldCount": 13,
+              "newStart": 102,
+              "newCount": 13,
+              "oldLines": [
+                "        httpClient.start();",
+                "",
+                "        final StringBuffer buf = new StringBuffer();",
+                "        final CountDownLatch latch =",
+                "                asyncRequest(httpClient, \"http://localhost:\" + port + \"/message/test?readTimeout=5000&type=queue\", buf);",
+                "",
+                "        producer.send(session.createTextMessage(\"test\"));",
+                "        LOG.info(\"message sent\");",
+                "",
+                "        latch.await();",
+                "        assertEquals(\"test\", buf.toString());",
+                "",
+                "    }"
+              ],
+              "newLines": [
+                "        httpClient.start();",
+                "",
+                "        final StringBuffer buf = new StringBuffer();",
+                "        final Future<Result> result =",
+                "                asyncRequest(httpClient, \"http://localhost:\" + port + \"/message/test?readTimeout=5000&type=queue\", buf);",
+                "",
+                "        producer.send(session.createTextMessage(\"test\"));",
+                "        LOG.info(\"message sent\");",
+                "",
+                "        assertEquals(HttpStatus.OK_200, result.get().getResponse().getStatus());",
+                "        assertEquals(\"test\", buf.toString());",
+                "",
+                "    }"
+              ],
+              "removed": [
+                {
+                  "oldLine": 104,
+                  "text": "        final CountDownLatch latch ="
+                },
+                {
+                  "oldLine": 110,
+                  "text": "        latch.await();"
+                }
+              ]
+            },
+            {
+              "oldStart": 163,
+              "oldCount": 12,
+              "newStart": 164,
+              "newCount": 11,
+              "oldLines": [
+                "            producer.send(message);",
+                "",
+                "            final StringBuffer buf = new StringBuffer();",
+                "            final CountDownLatch latch =",
+                "                    asyncRequest(httpClient, \"http://localhost:\" + port + \"/message/test?readTimeout=1000&type=queue&clientId=test\", buf);",
+                "",
+                "            latch.await();",
+                "            LOG.info(\"Received: \" +  buf.toString());",
+                "           // assertEquals(200, contentExchange.getResponseStatus());",
+                "            assertEquals(correlId,  buf.toString());",
+                "        }",
+                "        httpClient.stop();"
+              ],
+              "newLines": [
+                "            producer.send(message);",
+                "",
+                "            final StringBuffer buf = new StringBuffer();",
+                "            final Future<Result> result =",
+                "                    asyncRequest(httpClient, \"http://localhost:\" + port + \"/message/test?readTimeout=1000&type=queue&clientId=test\", buf);",
+                "",
+                "            assertEquals(HttpStatus.OK_200, result.get().getResponse().getStatus());",
+                "            LOG.info(\"Received: \" +  buf);",
+                "            assertEquals(correlId,  buf.toString());",
+                "        }",
+                "        httpClient.stop();"
+              ],
+              "removed": [
+                {
+                  "oldLine": 166,
+                  "text": "            final CountDownLatch latch ="
+                },
+                {
+                  "oldLine": 169,
+                  "text": "            latch.await();"
+                },
+                {
+                  "oldLine": 170,
+                  "text": "            LOG.info(\"Received: \" +  buf.toString());"
+                },
+                {
+                  "oldLine": 171,
+                  "text": "           // assertEquals(200, contentExchange.getResponseStatus());"
+                }
+              ]
+            },
+            {
+              "oldStart": 183,
+              "oldCount": 11,
+              "newStart": 183,
+              "newCount": 11,
+              "oldLines": [
+                "        httpClient.start();",
+                "",
+                "        final StringBuffer buf = new StringBuffer();",
+                "        final CountDownLatch latch =",
+                "                asyncRequest(httpClient, \"http://localhost:\" + port + \"/message/test?readTimeout=1000&type=queue&clientId=test\", buf);",
+                "",
+                "        latch.await();",
+                "        LOG.info(\"Received: \" + buf.toString());",
+                "",
+                "        final StringBuffer buf2 = new StringBuffer();",
+                "        final CountDownLatch latch2 = new CountDownLatch(1);"
+              ],
+              "newLines": [
+                "        httpClient.start();",
+                "",
+                "        final StringBuffer buf = new StringBuffer();",
+                "        final Future<Result> result =",
+                "                asyncRequest(httpClient, \"http://localhost:\" + port + \"/message/test?readTimeout=1000&type=queue&clientId=test\", buf);",
+                "",
+                "        assertEquals(HttpStatus.OK_200, result.get().getResponse().getStatus());",
+                "        LOG.info(\"Received: \" + buf);",
+                "",
+                "        final StringBuffer buf2 = new StringBuffer();",
+                "        final CountDownLatch latch2 = new CountDownLatch(1);"
+              ],
+              "removed": [
+                {
+                  "oldLine": 186,
+                  "text": "        final CountDownLatch latch ="
+                },
+                {
+                  "oldLine": 189,
+                  "text": "        latch.await();"
+                },
+                {
+                  "oldLine": 190,
+                  "text": "        LOG.info(\"Received: \" + buf.toString());"
+                }
+              ]
+            },
+            {
+              "oldStart": 315,
+              "oldCount": 16,
+              "newStart": 315,
+              "newCount": 16,
+              "oldLines": [
+                "        assertTrue(\"success status\", HttpStatus.isSuccess(status.get()));",
+                "    }",
+                "",
+                "    protected CountDownLatch asyncRequest(final HttpClient httpClient, final String url, final StringBuffer buffer) {",
+                "        final CountDownLatch latch = new CountDownLatch(1);",
+                "        httpClient.newRequest(url).send(new BufferingResponseListener() {",
+                "            @Override",
+                "            public void onComplete(Result result) {",
+                "                buffer.append(getContentAsString());",
+                "                latch.countDown();",
+                "            }",
+                "        });",
+                "        return latch;",
+                "    }",
+                "",
+                "    protected CountDownLatch asyncRequest(final HttpClient httpClient, final String url, final StringBuffer buffer,"
+              ],
+              "newLines": [
+                "        assertTrue(\"success status\", HttpStatus.isSuccess(status.get()));",
+                "    }",
+                "",
+                "    protected Future<Result> asyncRequest(final HttpClient httpClient, final String url, final StringBuffer buffer) {",
+                "        final CompletableFuture<Result> futureResult = new CompletableFuture<>();",
+                "        httpClient.newRequest(url).send(new BufferingResponseListener() {",
+                "            @Override",
+                "            public void onComplete(Result result) {",
+                "                buffer.append(getContentAsString());",
+                "                futureResult.complete(result);",
+                "            }",
+                "        });",
+                "        return futureResult;",
+                "    }",
+                "",
+                "    protected CountDownLatch asyncRequest(final HttpClient httpClient, final String url, final StringBuffer buffer,"
+              ],
+              "removed": [
+                {
+                  "oldLine": 318,
+                  "text": "    protected CountDownLatch asyncRequest(final HttpClient httpClient, final String url, final StringBuffer buffer) {"
+                },
+                {
+                  "oldLine": 319,
+                  "text": "        final CountDownLatch latch = new CountDownLatch(1);"
+                },
+                {
+                  "oldLine": 324,
+                  "text": "                latch.countDown();"
+                },
+                {
+                  "oldLine": 327,
+                  "text": "        return latch;"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "pathBefore": "activemq-web/src/main/java/org/apache/activemq/web/async/AsyncServletRequest.java",
+          "pathAfter": "activemq-web/src/main/java/org/apache/activemq/web/async/AsyncServletRequest.java",
+          "added": 13,
+          "deleted": 0,
+          "hunks": [
+            {
+              "oldStart": 27,
+              "oldCount": 6,
+              "newStart": 27,
+              "newCount": 8,
+              "oldLines": [
+                "import javax.servlet.DispatcherType;",
+                "import javax.servlet.ServletRequest;",
+                "import javax.servlet.ServletRequestWrapper;",
+                "import org.slf4j.Logger;",
+                "import org.slf4j.LoggerFactory;",
+                ""
+              ],
+              "newLines": [
+                "import javax.servlet.DispatcherType;",
+                "import javax.servlet.ServletRequest;",
+                "import javax.servlet.ServletRequestWrapper;",
+                "import javax.servlet.ServletResponse;",
+                "import javax.servlet.http.HttpServletResponse;",
+                "import org.slf4j.Logger;",
+                "import org.slf4j.LoggerFactory;",
+                ""
+              ],
+              "removed": []
+            },
+            {
+              "oldStart": 111,
+              "oldCount": 6,
+              "newStart": 113,
+              "newCount": 17,
+              "oldLines": [
+                "        if (LOG.isDebugEnabled()) {",
+                "            LOG.debug(\"ActiveMQAsyncRequest \" + event + \" timeout.\");",
+                "        }",
+                "    }",
+                "",
+                "    @Override"
+              ],
+              "newLines": [
+                "        if (LOG.isDebugEnabled()) {",
+                "            LOG.debug(\"ActiveMQAsyncRequest \" + event + \" timeout.\");",
+                "        }",
+                "",
+                "        final AsyncContext context = event.getAsyncContext();",
+                "        if (context != null) {",
+                "            // We must call complete and then set the status code to prevent a 500",
+                "            // error. The spec requires a 500 error on timeout unless complete() is called.",
+                "            context.complete();",
+                "            final ServletResponse response = context.getResponse();",
+                "            if (response instanceof HttpServletResponse) {",
+                "                ((HttpServletResponse) response).setStatus(HttpServletResponse.SC_NO_CONTENT);",
+                "            }",
+                "        }",
+                "    }",
+                "",
+                "    @Override"
+              ],
+              "removed": []
+            }
+          ]
+        }
+      ],
+      "sourceFile": "amq9330-dc892d3d.patch"
+    },
+    {
+      "sha": "8b6072d03e273b02288e71cac6eef0539c48ea02",
+      "authoredAt": "2024-04-11T13:59:46+00:00",
+      "message": "AMQ-9330 - Return 204 code when polling empty destinations\n (#1203)\n\nPreviously a timeout was thrown and complete was not called so Jetty was\nreturning a 500 error",
+      "messageIssueRefs": [
+        "AMQ-9330"
+      ],
+      "cherryPickedFrom": [],
+      "files": [
+        {
+          "pathBefore": "activemq-web-demo/src/test/java/org/apache/activemq/web/RestTest.java",
+          "pathAfter": "activemq-web-demo/src/test/java/org/apache/activemq/web/RestTest.java",
+          "added": 20,
+          "deleted": 20,
+          "hunks": [
+            {
+              "oldStart": 21,
+              "oldCount": 7,
+              "newStart": 21,
+              "newCount": 9,
+              "oldLines": [
+                "import static org.junit.Assert.assertTrue;",
+                "",
+                "import java.util.Set;",
+                "import java.util.concurrent.CountDownLatch;",
+                "import java.util.concurrent.atomic.AtomicInteger;",
+                "",
+                "import jakarta.jms.TextMessage;"
+              ],
+              "newLines": [
+                "import static org.junit.Assert.assertTrue;",
+                "",
+                "import java.util.Set;",
+                "import java.util.concurrent.CompletableFuture;",
+                "import java.util.concurrent.CountDownLatch;",
+                "import java.util.concurrent.Future;",
+                "import java.util.concurrent.atomic.AtomicInteger;",
+                "",
+                "import jakarta.jms.TextMessage;"
+              ],
+              "removed": []
+            },
+            {
+              "oldStart": 52,
+              "oldCount": 10,
+              "newStart": 54,
+              "newCount": 10,
+              "oldLines": [
+                "        httpClient.start();",
+                "",
+                "        final StringBuffer buf = new StringBuffer();",
+                "        final CountDownLatch latch =",
+                "                asyncRequest(httpClient, \"http://localhost:\" + port + \"/message/test?readTimeout=1000&type=queue\", buf);",
+                "",
+                "        latch.await();",
+                "        assertEquals(\"test\", buf.toString());",
+                "    }",
+                ""
+              ],
+              "newLines": [
+                "        httpClient.start();",
+                "",
+                "        final StringBuffer buf = new StringBuffer();",
+                "        final Future<Result> result =",
+                "                asyncRequest(httpClient, \"http://localhost:\" + port + \"/message/test?readTimeout=1000&type=queue\", buf);",
+                "",
+                "        assertEquals(HttpStatus.OK_200, result.get().getResponse().getStatus());",
+                "        assertEquals(\"test\", buf.toString());",
+                "    }",
+                ""
+              ],
+              "removed": [
+                {
+                  "oldLine": 55,
+                  "text": "        final CountDownLatch latch ="
+                },
+                {
+                  "oldLine": 58,
+                  "text": "        latch.await();"
+                }
+              ]
+            },
+            {
+              "oldStart": 66,
+              "oldCount": 7,
+              "newStart": 68,
+              "newCount": 7,
+              "oldLines": [
+                "        httpClient.start();",
+                "",
+                "        final StringBuffer buf = new StringBuffer();",
+                "        final CountDownLatch latch =",
+                "            asyncRequest(httpClient, \"http://localhost:\" + port + \"/message/test?readTimeout=5000&type=queue\", buf);",
+                "",
+                "        //Sleep 2 seconds before sending, should still get the response as timeout is 5 seconds"
+              ],
+              "newLines": [
+                "        httpClient.start();",
+                "",
+                "        final StringBuffer buf = new StringBuffer();",
+                "        final Future<Result> result =",
+                "            asyncRequest(httpClient, \"http://localhost:\" + port + \"/message/test?readTimeout=5000&type=queue\", buf);",
+                "",
+                "        //Sleep 2 seconds before sending, should still get the response as timeout is 5 seconds"
+              ],
+              "removed": [
+                {
+                  "oldLine": 69,
+                  "text": "        final CountDownLatch latch ="
+                }
+              ]
+            },
+            {
+              "oldStart": 74,
+              "oldCount": 7,
+              "newStart": 76,
+              "newCount": 7,
+              "oldLines": [
+                "        producer.send(session.createTextMessage(\"test\"));",
+                "        LOG.info(\"message sent\");",
+                "",
+                "        latch.await();",
+                "        assertEquals(\"test\", buf.toString());",
+                "    }",
+                ""
+              ],
+              "newLines": [
+                "        producer.send(session.createTextMessage(\"test\"));",
+                "        LOG.info(\"message sent\");",
+                "",
+                "        assertEquals(HttpStatus.OK_200, result.get().getResponse().getStatus());",
+                "        assertEquals(\"test\", buf.toString());",
+                "    }",
+                ""
+              ],
+              "removed": [
+                {
+                  "oldLine": 77,
+                  "text": "        latch.await();"
+                }
+              ]
+            },
+            {
+              "oldStart": 85,
+              "oldCount": 12,
+              "newStart": 87,
+              "newCount": 11,
+              "oldLines": [
+                "        httpClient.start();",
+                "",
+                "        final StringBuffer buf = new StringBuffer();",
+                "        final CountDownLatch latch =",
+                "            asyncRequest(httpClient, \"http://localhost:\" + port + \"/message/test?readTimeout=1000&type=queue\", buf);",
+                "",
+                "        //Test timeout, no message was sent",
+                "        latch.await();",
+                "        assertTrue(buf.toString().contains(\"AsyncContext timeout\"));",
+                "    }",
+                "",
+                "    @Test(timeout = 60 * 1000)"
+              ],
+              "newLines": [
+                "        httpClient.start();",
+                "",
+                "        final StringBuffer buf = new StringBuffer();",
+                "        final Future<Result> result =",
+                "            asyncRequest(httpClient, \"http://localhost:\" + port + \"/message/test?readTimeout=1000&type=queue\", buf);",
+                "",
+                "        //Test timeout, no message was sent",
+                "        assertEquals(HttpStatus.NO_CONTENT_204, result.get().getResponse().getStatus());",
+                "    }",
+                "",
+                "    @Test(timeout = 60 * 1000)"
+              ],
+              "removed": [
+                {
+                  "oldLine": 88,
+                  "text": "        final CountDownLatch latch ="
+                },
+                {
+                  "oldLine": 92,
+                  "text": "        latch.await();"
+                },
+                {
+                  "oldLine": 93,
+                  "text": "        assertTrue(buf.toString().contains(\"AsyncContext timeout\"));"
+                }
+              ]
+            },
+            {
+              "oldStart": 101,
+              "oldCount": 13,
+              "newStart": 102,
+              "newCount": 13,
+              "oldLines": [
+                "        httpClient.start();",
+                "",
+                "        final StringBuffer buf = new StringBuffer();",
+                "        final CountDownLatch latch =",
+                "                asyncRequest(httpClient, \"http://localhost:\" + port + \"/message/test?readTimeout=5000&type=queue\", buf);",
+                "",
+                "        producer.send(session.createTextMessage(\"test\"));",
+                "        LOG.info(\"message sent\");",
+                "",
+                "        latch.await();",
+                "        assertEquals(\"test\", buf.toString());",
+                "",
+                "    }"
+              ],
+              "newLines": [
+                "        httpClient.start();",
+                "",
+                "        final StringBuffer buf = new StringBuffer();",
+                "        final Future<Result> result =",
+                "                asyncRequest(httpClient, \"http://localhost:\" + port + \"/message/test?readTimeout=5000&type=queue\", buf);",
+                "",
+                "        producer.send(session.createTextMessage(\"test\"));",
+                "        LOG.info(\"message sent\");",
+                "",
+                "        assertEquals(HttpStatus.OK_200, result.get().getResponse().getStatus());",
+                "        assertEquals(\"test\", buf.toString());",
+                "",
+                "    }"
+              ],
+              "removed": [
+                {
+                  "oldLine": 104,
+                  "text": "        final CountDownLatch latch ="
+                },
+                {
+                  "oldLine": 110,
+                  "text": "        latch.await();"
+                }
+              ]
+            },
+            {
+              "oldStart": 163,
+              "oldCount": 12,
+              "newStart": 164,
+              "newCount": 11,
+              "oldLines": [
+                "            producer.send(message);",
+                "",
+                "            final StringBuffer buf = new StringBuffer();",
+                "            final CountDownLatch latch =",
+                "                    asyncRequest(httpClient, \"http://localhost:\" + port + \"/message/test?readTimeout=1000&type=queue&clientId=test\", buf);",
+                "",
+                "            latch.await();",
+                "            LOG.info(\"Received: \" +  buf.toString());",
+                "           // assertEquals(200, contentExchange.getResponseStatus());",
+                "            assertEquals(correlId,  buf.toString());",
+                "        }",
+                "        httpClient.stop();"
+              ],
+              "newLines": [
+                "            producer.send(message);",
+                "",
+                "            final StringBuffer buf = new StringBuffer();",
+                "            final Future<Result> result =",
+                "                    asyncRequest(httpClient, \"http://localhost:\" + port + \"/message/test?readTimeout=1000&type=queue&clientId=test\", buf);",
+                "",
+                "            assertEquals(HttpStatus.OK_200, result.get().getResponse().getStatus());",
+                "            LOG.info(\"Received: \" +  buf);",
+                "            assertEquals(correlId,  buf.toString());",
+                "        }",
+                "        httpClient.stop();"
+              ],
+              "removed": [
+                {
+                  "oldLine": 166,
+                  "text": "            final CountDownLatch latch ="
+                },
+                {
+                  "oldLine": 169,
+                  "text": "            latch.await();"
+                },
+                {
+                  "oldLine": 170,
+                  "text": "            LOG.info(\"Received: \" +  buf.toString());"
+                },
+                {
+                  "oldLine": 171,
+                  "text": "           // assertEquals(200, contentExchange.getResponseStatus());"
+                }
+              ]
+            },
+            {
+              "oldStart": 183,
+              "oldCount": 11,
+              "newStart": 183,
+              "newCount": 11,
+              "oldLines": [
+                "        httpClient.start();",
+                "",
+                "        final StringBuffer buf = new StringBuffer();",
+                "        final CountDownLatch latch =",
+                "                asyncRequest(httpClient, \"http://localhost:\" + port + \"/message/test?readTimeout=1000&type=queue&clientId=test\", buf);",
+                "",
+                "        latch.await();",
+                "        LOG.info(\"Received: \" + buf.toString());",
+                "",
+                "        final StringBuffer buf2 = new StringBuffer();",
+                "        final CountDownLatch latch2 = new CountDownLatch(1);"
+              ],
+              "newLines": [
+                "        httpClient.start();",
+                "",
+                "        final StringBuffer buf = new StringBuffer();",
+                "        final Future<Result> result =",
+                "                asyncRequest(httpClient, \"http://localhost:\" + port + \"/message/test?readTimeout=1000&type=queue&clientId=test\", buf);",
+                "",
+                "        assertEquals(HttpStatus.OK_200, result.get().getResponse().getStatus());",
+                "        LOG.info(\"Received: \" + buf);",
+                "",
+                "        final StringBuffer buf2 = new StringBuffer();",
+                "        final CountDownLatch latch2 = new CountDownLatch(1);"
+              ],
+              "removed": [
+                {
+                  "oldLine": 186,
+                  "text": "        final CountDownLatch latch ="
+                },
+                {
+                  "oldLine": 189,
+                  "text": "        latch.await();"
+                },
+                {
+                  "oldLine": 190,
+                  "text": "        LOG.info(\"Received: \" + buf.toString());"
+                }
+              ]
+            },
+            {
+              "oldStart": 316,
+              "oldCount": 16,
+              "newStart": 316,
+              "newCount": 16,
+              "oldLines": [
+                "        assertTrue(\"success status\", HttpStatus.isSuccess(status.get()));",
+                "    }",
+                "",
+                "    protected CountDownLatch asyncRequest(final HttpClient httpClient, final String url, final StringBuffer buffer) {",
+                "        final CountDownLatch latch = new CountDownLatch(1);",
+                "        httpClient.newRequest(url).send(new BufferingResponseListener() {",
+                "            @Override",
+                "            public void onComplete(Result result) {",
+                "                buffer.append(getContentAsString());",
+                "                latch.countDown();",
+                "            }",
+                "        });",
+                "        return latch;",
+                "    }",
+                "",
+                "    protected CountDownLatch asyncRequest(final HttpClient httpClient, final String url, final StringBuffer buffer,"
+              ],
+              "newLines": [
+                "        assertTrue(\"success status\", HttpStatus.isSuccess(status.get()));",
+                "    }",
+                "",
+                "    protected Future<Result> asyncRequest(final HttpClient httpClient, final String url, final StringBuffer buffer) {",
+                "        final CompletableFuture<Result> futureResult = new CompletableFuture<>();",
+                "        httpClient.newRequest(url).send(new BufferingResponseListener() {",
+                "            @Override",
+                "            public void onComplete(Result result) {",
+                "                buffer.append(getContentAsString());",
+                "                futureResult.complete(result);",
+                "            }",
+                "        });",
+                "        return futureResult;",
+                "    }",
+                "",
+                "    protected CountDownLatch asyncRequest(final HttpClient httpClient, final String url, final StringBuffer buffer,"
+              ],
+              "removed": [
+                {
+                  "oldLine": 319,
+                  "text": "    protected CountDownLatch asyncRequest(final HttpClient httpClient, final String url, final StringBuffer buffer) {"
+                },
+                {
+                  "oldLine": 320,
+                  "text": "        final CountDownLatch latch = new CountDownLatch(1);"
+                },
+                {
+                  "oldLine": 325,
+                  "text": "                latch.countDown();"
+                },
+                {
+                  "oldLine": 328,
+                  "text": "        return latch;"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "pathBefore": "activemq-web/src/main/java/org/apache/activemq/web/async/AsyncServletRequest.java",
+          "pathAfter": "activemq-web/src/main/java/org/apache/activemq/web/async/AsyncServletRequest.java",
+          "added": 13,
+          "deleted": 0,
+          "hunks": [
+            {
+              "oldStart": 16,
+              "oldCount": 6,
+              "newStart": 16,
+              "newCount": 8,
+              "oldLines": [
+                " */",
+                "package org.apache.activemq.web.async;",
+                "",
+                "import java.util.Objects;",
+                "import java.util.Optional;",
+                "import java.util.concurrent.atomic.AtomicBoolean;"
+              ],
+              "newLines": [
+                " */",
+                "package org.apache.activemq.web.async;",
+                "",
+                "import jakarta.servlet.ServletResponse;",
+                "import jakarta.servlet.http.HttpServletResponse;",
+                "import java.util.Objects;",
+                "import java.util.Optional;",
+                "import java.util.concurrent.atomic.AtomicBoolean;"
+              ],
+              "removed": []
+            },
+            {
+              "oldStart": 111,
+              "oldCount": 6,
+              "newStart": 113,
+              "newCount": 17,
+              "oldLines": [
+                "        if (LOG.isDebugEnabled()) {",
+                "            LOG.debug(\"ActiveMQAsyncRequest \" + event + \" timeout.\");",
+                "        }",
+                "    }",
+                "",
+                "    @Override"
+              ],
+              "newLines": [
+                "        if (LOG.isDebugEnabled()) {",
+                "            LOG.debug(\"ActiveMQAsyncRequest \" + event + \" timeout.\");",
+                "        }",
+                "",
+                "        final AsyncContext context = event.getAsyncContext();",
+                "        if (context != null) {",
+                "            // We must call complete and then set the status code to prevent a 500",
+                "            // error. The spec requires a 500 error on timeout unless complete() is called.",
+                "            context.complete();",
+                "            final ServletResponse response = context.getResponse();",
+                "            if (response instanceof  HttpServletResponse) {",
+                "                ((HttpServletResponse) response).setStatus(HttpServletResponse.SC_NO_CONTENT);",
+                "            }",
+                "        }",
+                "    }",
+                "",
+                "    @Override"
+              ],
+              "removed": []
+            }
+          ]
+        }
+      ],
+      "sourceFile": "amq9330-8b6072d0.patch"
+    }
+  ],
+  "commitMetadata": {
+    "fix": {
+      "oid": "72befc14fbb69c24bdec0c7d4a1002da8874380d",
+      "authoredDate": "2024-04-21T12:42:20.000-04:00",
+      "committedDate": "2024-04-21T12:42:20.000-04:00",
+      "parents": [
+        "6084867b26619ab614bc117667a32649def5887a"
+      ],
+      "pushedDate": null
+    },
+    "merge": {
+      "oid": "6e6caf7c6060efadc1ba524147e71d9720fcd935",
+      "authoredDate": "2024-04-22T11:01:35.000-04:00",
+      "committedDate": "2024-04-22T11:01:35.000-04:00",
+      "parents": [
+        "6084867b26619ab614bc117667a32649def5887a",
+        "72befc14fbb69c24bdec0c7d4a1002da8874380d"
+      ],
+      "pushedDate": null
+    }
+  },
+  "availabilityCase": {
+    "branch": "main",
+    "authoredAt": "2024-04-21T16:42:20+00:00",
+    "mergedAt": "2024-04-22T15:01:36Z",
+    "issueFixedAt": "2024-04-22T15:07:37.766+0000",
+    "proposedPolicyAvailableAt": "2024-04-22T15:07:37.766000+00:00",
+    "policy": "max(observed mainline integration event, qualifying Bug/Fixed evidence time); engineering proposal",
+    "retrievedNowIsNotHistoricObservation": true
+  },
+  "diffChecks": {
+    "productionPath": "activemq-web/src/main/java/org/apache/activemq/web/async/AsyncServletRequest.java",
+    "parentSha": "6084867b26619ab614bc117667a32649def5887a",
+    "oldExecutableLinesForLaterAttribution": [
+      118,
+      121
+    ],
+    "excludedCommentLines": [
+      119,
+      120
+    ],
+    "excludedTestPaths": [
+      "activemq-web-demo/src/test/java/org/apache/activemq/web/RestTest.java"
+    ],
+    "reconstructedFileMatchesIndependentFixedSnapshot": true,
+    "rawAllPaths": {
+      "NF": 2,
+      "LA": 17,
+      "LD": 8
+    },
+    "featureVectorStatus": "incomplete; history-dependent features intentionally unset"
+  },
+  "cases": [
+    {
+      "id": "DATA-01",
+      "input": "AMQ-9481 + 72befc14",
+      "expected": "Bug + Fixed + commit reference forms a verified fix candidate; inducing label remains unknown until SZZ",
+      "sources": [
+        "AMQ-9481.json",
+        "fix-72befc14.patch"
+      ]
+    },
+    {
+      "id": "DATA-02",
+      "input": "AMQ-9461: Task + Fixed",
+      "expected": "Exclude from Bug-only fix candidates; do not infer a clean inducing-commit label",
+      "sources": [
+        "AMQ-9461.json"
+      ]
+    },
+    {
+      "id": "DATA-03",
+      "input": "AMQ-9482: Bug + Open + no attributed fix",
+      "expected": "No verified fix; do not convert unresolved issue or absence of fix into clean commit label",
+      "sources": [
+        "AMQ-9482.json"
+      ]
+    },
+    {
+      "id": "DATA-04",
+      "input": "72befc14 + 6e6caf7c + 827ad101",
+      "expected": "Source change / two-parent merge / backport are linked but distinct; branch-restricted evidence must prevent duplicate repair counting",
+      "sources": [
+        "AMQ-9481.json",
+        "fix-72befc14.html",
+        "merge-6e6caf7c.html",
+        "backport-827ad101.patch"
+      ]
+    },
+    {
+      "id": "DATA-05",
+      "input": "Commit subject contains AMQ-9481; diff mentions AMQ-9330 and AMQ-9418",
+      "expected": "Candidate linking reads message only; issue keys inside changed test code are not extra repair links",
+      "sources": [
+        "fix-72befc14.patch"
+      ]
+    },
+    {
+      "id": "DATA-06",
+      "input": "Training cutoff 2024-04-22T00:00:00Z, earlier authored commit timestamp",
+      "expected": "Under mainline plus Bug/Fixed verification policy this repair is unavailable at cutoff; keep affected label unknown",
+      "sources": [
+        "fix-72befc14.html",
+        "pr-1206.html",
+        "AMQ-9481.json"
+      ]
+    },
+    {
+      "id": "DATA-07",
+      "input": "Production removed lines 118-121; test file changes also exist",
+      "expected": "This manual case sends old executable lines 118 and 121 to later SZZ; excluded comments/test lines are counted, not silently erased",
+      "sources": [
+        "fix-72befc14.patch",
+        "parent-AsyncServletRequest.java.txt",
+        "fixed-AsyncServletRequest.java.txt"
+      ]
+    },
+    {
+      "id": "DATA-08",
+      "input": "Patch-only metadata, without ancestor history",
+      "expected": "All-path raw NF=2, LA=17, LD=8; do not invent AGE/NDEV/EXP or call this a complete Kamei14 training row",
+      "sources": [
+        "fix-72befc14.patch"
+      ]
+    }
+  ],
+  "sourceCount": 15,
+  "sourceBytes": 1181609,
+  "probeFailures": [
+    {
+      "url": "https://api.github.com/repos/apache/activemq",
+      "status": 403,
+      "reasonObserved": "rate limit exceeded",
+      "attempts": 1,
+      "action": "No retries, no credentials; collected bounded public HTML, patch and Jira REST evidence instead"
+    }
+  ]
+}

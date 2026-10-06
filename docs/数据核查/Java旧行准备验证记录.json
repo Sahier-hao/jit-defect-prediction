@@ -1,0 +1,135 @@
+{
+  "verifiedAt": "2026-10-04T16:50:26.198193+00:00",
+  "scope": "Offline Java old-line preparation and primary-source research; no Git, blame, SZZ run, inducing labels, training, or team acceptance",
+  "pythonForRegression": "3.14.2",
+  "defaultPythonCli": "3.12.14",
+  "checks": [
+    {
+      "command": "C:/Python314/python.exe -m pytest tests/test_szz_java.py tests/test_szz_inputs.py -q",
+      "exitCode": 0,
+      "passed": 54,
+      "durationSeconds": 11.56
+    },
+    {
+      "command": "C:/Python314/python.exe -m pytest -q",
+      "exitCode": 0,
+      "passed": 172,
+      "newTests": 54,
+      "previousTests": 118,
+      "skipped": 0,
+      "durationSeconds": 36.65,
+      "warnings": [
+        "Existing StarletteDeprecationWarning for httpx TestClient"
+      ]
+    },
+    {
+      "command": "ruff check jit_defect tests",
+      "exitCode": 0
+    },
+    {
+      "command": "ruff format --check jit_defect/szz_inputs.py tests/test_szz_java.py tests/test_szz_inputs.py",
+      "exitCode": 0,
+      "filesFormatted": 3
+    },
+    {
+      "command": "python docs/数据核查/复核样本.py",
+      "exitCode": 0,
+      "result": "PASS",
+      "sourceFiles": 15,
+      "historicalIssues": 4,
+      "caseDesigns": 8
+    },
+    {
+      "command": "openspec validate --all --strict --no-interactive",
+      "exitCode": 0,
+      "changesPassed": 5,
+      "changesFailed": 0
+    },
+    {
+      "command": "prepare real example and verify immutable snapshot",
+      "exitCode": 0,
+      "result": "PASS",
+      "snapshotId": "8537a3c2771653741a661a4785220527455a695562623a18386bdbaf0e9b028b",
+      "snapshotBytes": 5009,
+      "additionalVerifiedSources": 3,
+      "quality": {
+        "rawFiles": 2,
+        "rawAdded": 17,
+        "rawRemoved": 8,
+        "selectedFiles": 1,
+        "selectedLines": 2,
+        "excludedLines": 6,
+        "byReason": {
+          "excluded_comment": 2,
+          "excluded_test_path": 4,
+          "selected_non_comment": 2
+        }
+      },
+      "trainingReady": false,
+      "sameFileReplay": true
+    },
+    {
+      "command": "compare previous batch verification fingerprints",
+      "result": "PASS",
+      "unchangedFiles": 6
+    },
+    {
+      "command": "python .cache/validate_prerequisite_docs.py",
+      "exitCode": 0,
+      "checkedAt": "2026-10-04T16:51:35.123782+00:00",
+      "markdownFilesChecked": 43,
+      "localLinksChecked": 180,
+      "missingLocalLinks": [],
+      "pendingRealReviewAndFutureImplementation": 14,
+      "browserEvidence": "cached, not rerun"
+    }
+  ],
+  "redGreen": {
+    "lexicalAndReconstruction": "25 failed with absent module, then 25 passed",
+    "manifestAndCLI": "29 failed with absent interfaces, then combined 54 passed",
+    "fixtureCorrection": "A global synthetic edit also changed content outside hunks; updated its independent fixed fixture, leaving full-file consistency checks intact"
+  },
+  "limits": [
+    "One purposively selected repair, not a corpus or an accuracy study",
+    "Parent ancestry and branch integration remain asserted and require review",
+    "Maven Java policy excludes test and other layouts; no formatting-only change detection",
+    "Bounded lexical scanning, not full Java syntax or execution analysis",
+    "Conservative Unicode escape refusal; deleted production files unsupported",
+    "No frontend edits or rerun of cached browser/wireframe checks"
+  ],
+  "files": [
+    {
+      "path": "jit_defect/szz_inputs.py",
+      "sha256": "c530d11d1b82ebcac46fff22f2b17d3f1d304666019c0bc03a5bf5ea568f1d19"
+    },
+    {
+      "path": "tests/test_szz_java.py",
+      "sha256": "d9f118ae59aa0250b14411c44d6e3f7de2cd7fd160cf7b860cbdd916551e5985"
+    },
+    {
+      "path": "tests/test_szz_inputs.py",
+      "sha256": "d0286c64c837a5ca139a5ba2e1d45983e2335ac1762d9d9305cac6a0a1cbae7e"
+    },
+    {
+      "path": "docs/数据核查/Java旧行准备示例.json",
+      "sha256": "b9e7098fe2025ec847b23039e9be6b69248eae8048e99f453b428d68f585c9b3"
+    },
+    {
+      "path": "docs/数据核查/Java旧行准备结果/8537a3c2771653741a661a4785220527455a695562623a18386bdbaf0e9b028b.json",
+      "sha256": "4f6d61ba01ad10a4fee434c18000d05751b91b081926986e426e528141382d88"
+    },
+    {
+      "path": "docs/数据核查/SZZ输入策略调研_20261005.md",
+      "sha256": "d2d523460ccdcbfa1777b3dda7f208a863d2ff006a33489cb0fb7556d63dbf66"
+    },
+    {
+      "path": "docs/数据核查/Java旧行准备模块.md",
+      "sha256": "388a660cf87670b20d972974f42618aee5df1b8da82e2ab3abc4719b99e1832b"
+    },
+    {
+      "path": "README.md",
+      "sha256": "974d11b5da8528b10566bf4c023ec13abb30bb0656e934003aeca0469ffbb8dd"
+    }
+  ],
+  "artifactRecheckedAt": "2026-10-04T16:52:15.622155+00:00"
+}

@@ -1,0 +1,13 @@
+# Saved sources, canonical snapshots and verification records use byte hashes.
+# Preserve their bytes across checkouts, including on Windows with autocrlf=true.
+# Unsetting text disables line-ending conversion; normal text diffs still work.
+* -text
+
+# Accept CRLF terminators while checking actual trailing spaces and indentation.
+* whitespace=trailing-space,space-before-tab,cr-at-eol
+
+# Immutable upstream patches and saved pages retain the source whitespace.
+docs/数据核查/activemq-2024-sample-20261004/** -whitespace
+
+*.pdf binary
+*.png binary

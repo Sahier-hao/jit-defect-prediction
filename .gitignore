@@ -3,7 +3,7 @@
 #
 # openspec/ 属于课程要求的规范驱动开发(SDD)产物，是过程考核证据，
 # 必须提交，因此本文件【不】忽略它。
-# .claude/ 与 .agents/ 目前暂不纳入版本控制（见文件末尾）。
+# .claude/ 与 .agents/ 仅放行项目OpenSpec模板，其余本机文件忽略。
 # ============================================================
 
 # ---------- 操作系统 / 编辑器 ----------
@@ -130,8 +130,28 @@ node_modules/
 .vite/
 .next/
 
-# ---------- AI 工具目录（暂不纳入版本控制）----------
-# TODO Sprint 0 交基线前复核：项目要求「openspec/ 及相关 AI 工作流文件
-# 一并提交版本控制」，届时应删除以下两行，或对单个文件用 git add -f。
-.claude/
-.agents/
+# ---------- AI 工作流：共享OpenSpec模板，忽略本机配置 ----------
+/.claude/*
+!/.claude/commands/
+/.claude/commands/*
+!/.claude/commands/opsx/
+/.claude/commands/opsx/*
+!/.claude/commands/opsx/*.md
+!/.claude/skills/
+/.claude/skills/*
+!/.claude/skills/openspec-*/
+/.claude/skills/openspec-*/*
+!/.claude/skills/openspec-*/SKILL.md
+
+/.agents/*
+!/.agents/skills/
+/.agents/skills/*
+!/.agents/skills/openspec-*/
+/.agents/skills/openspec-*/*
+!/.agents/skills/openspec-*/SKILL.md
+
+# Local application output and browser verification artifacts
+runtime/
+frontend/dist/
+frontend/test-results/
+frontend/playwright-report/

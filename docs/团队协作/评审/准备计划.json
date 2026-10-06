@@ -1,0 +1,595 @@
+{
+  "projectId": "jit-defect-prediction",
+  "formatVersion": 1,
+  "scopeVersion": "v0.6",
+  "status": "draft",
+  "updated": "2026-10-04",
+  "summary": {
+    "firstMvpBusinessStories": 16,
+    "coreBusinessStories": 24,
+    "coreProcessStories": 2,
+    "deferredStories": 16,
+    "backlogStories": 42
+  },
+  "stories": [
+    {
+      "id": "US-1.1.1",
+      "title": "通过界面填入 Git 仓库地址，系统自动拉取代码历史",
+      "priority": "P0",
+      "kind": "业务",
+      "scope": "首轮链路",
+      "reason": "支撑已选择的核心业务闭环。",
+      "criteria": "WHEN 提交合法公开仓库地址及有效窗口 THEN 返回任务 ID 并可查询进度；WHEN 地址／窗口无效或仓库无法访问 THEN 显示明确原因，不创建 ready 数据集；WHEN 超资源上限 THEN 指出配置上限并拒绝，不能无限等待"
+    },
+    {
+      "id": "US-1.1.2",
+      "title": "查看已接入仓库列表及其状态",
+      "priority": "P0",
+      "kind": "业务",
+      "scope": "首轮链路",
+      "reason": "支撑已选择的核心业务闭环。",
+      "criteria": "WHEN 已有接入任务 THEN 列出仓库、阶段、进度及更新时间；WHEN 任务失败 THEN 保留失败原因和重试入口；WHEN 无仓库 THEN 显示接入指引，不显示空白页面"
+    },
+    {
+      "id": "US-1.1.3",
+      "title": "对克隆失败的仓库重试或删除",
+      "priority": "P1",
+      "kind": "业务",
+      "scope": "核心扩展",
+      "reason": "支撑已选择的核心业务闭环。",
+      "criteria": "WHEN 重试失败任务 THEN 新建 attempt 并保留旧失败记录；WHEN 删除失败草稿 THEN 清理该任务的未引用数据；WHEN 仍有训练／模型引用或任务运行中 THEN 阻止删除并说明依赖"
+    },
+    {
+      "id": "US-1.2.1",
+      "title": "解析每个提交的元数据",
+      "priority": "P0",
+      "kind": "业务",
+      "scope": "首轮链路",
+      "reason": "支撑已选择的核心业务闭环。",
+      "criteria": "WHEN 解析固定窗口 THEN 保存提交ID、父提交、author／committer时间、匿名作者、变更路径及增删行，并记录目标分支／固定ref和可得的集成事件；计数与过滤日志一致；WHEN 遇到二进制或不可解析提交 THEN 记录状态与原因，不静默填数或中断所有提交"
+    },
+    {
+      "id": "US-1.2.2",
+      "title": "自动过滤合并提交与纯格式变更",
+      "priority": "P1",
+      "kind": "业务",
+      "scope": "暂缓候选",
+      "reason": "先固定基础解析及SZZ支持边界，自动识别纯格式变更后续增强。",
+      "criteria": "WHEN 开启固定版本过滤规则 THEN 合并与纯格式变更按规则排除并统计；WHEN 同时含逻辑和空白修改 THEN 不能整条当纯格式变更排除；WHEN 无法判断 THEN 保留并标记待核对"
+    },
+    {
+      "id": "US-1.3.1",
+      "title": "自动识别缺陷修复提交",
+      "priority": "P0",
+      "kind": "业务",
+      "scope": "首轮链路",
+      "reason": "支撑已选择的核心业务闭环。",
+      "criteria": "WHEN 提交消息关键词或issue键匹配 THEN 生成候选，记录tracker、类型／状态历史、来源哈希及分页完整性；WHEN 仅Fixed但类型非Bug或issue键只出现在diff中 THEN 不作为本规则下已核对Bug修复；WHEN 来源不可得、分页不全或关联不明 THEN 待核对并统计，不直接赋引入标签"
+    },
+    {
+      "id": "US-1.3.2",
+      "title": "执行 SZZ 算法回溯引入缺陷的提交",
+      "priority": "P0",
+      "kind": "业务",
+      "scope": "首轮链路",
+      "reason": "支撑已选择的核心业务闭环。",
+      "criteria": "WHEN 对确认规则下的候选执行 SZZ THEN 保存fix、可疑引入提交、目标分支、旧路径／行号、算法及过滤版本、证据与可得时间；merge／backport来源关系保留，不能重复归因同一主分支修复；WHEN 无法回溯 THEN 保存无法归因原因并统计，不视为 clean；WHEN 重命名／合并不支持 THEN 明确限制"
+    },
+    {
+      "id": "US-1.3.3",
+      "title": "查看标注结果统计",
+      "priority": "P1",
+      "kind": "业务",
+      "scope": "核心扩展",
+      "reason": "支撑已选择的核心业务闭环。",
+      "criteria": "WHEN 查看固定标签快照 THEN 展示 buggy、clean_observed、unknown、排除及回溯成功／失败数，计数可核对；WHEN 无可标注样本 THEN 比例显示未定义，不展示 0% 作为高质量结论"
+    },
+    {
+      "id": "US-1.4.1",
+      "title": "解析结果持久化到数据库",
+      "priority": "P0",
+      "kind": "业务",
+      "scope": "首轮链路",
+      "reason": "支撑已选择的核心业务闭环。",
+      "criteria": "WHEN 采集成功并持久化 THEN 重启后可读取同一快照且来源哈希一致；WHEN 同一提交重复导入 THEN 不产生重复主记录；WHEN 写入中断 THEN 不产生 ready 半成品，保留失败 attempt"
+    },
+    {
+      "id": "US-1.4.2",
+      "title": "数据异常时重建指定仓库数据集",
+      "priority": "P2",
+      "kind": "业务",
+      "scope": "暂缓候选",
+      "reason": "先支持失败重试与保留成功快照，数据重建作为后续维护能力。",
+      "criteria": "WHEN 重建指定仓库 THEN 创建新版本并保留旧引用快照；WHEN 重建失败 THEN 原成功数据集仍可读取；WHEN 试图覆盖被模型引用的快照 THEN 拒绝并说明原因"
+    },
+    {
+      "id": "US-2.1.1",
+      "title": "自动计算 Kamei 14 维代码变更度量元",
+      "priority": "P0",
+      "kind": "业务",
+      "scope": "首轮链路",
+      "reason": "支撑已选择的核心业务闭环。",
+      "criteria": "WHEN 计算固定版本 Kamei 特征 THEN 14个字段齐全，单位／公式／文件范围可查且重复计算一致；Kamei文件范围与SZZ归因范围分别版本化；WHEN 历史不足或解析失败 THEN 记录有效性与原因，不能静默填零；WHEN 计算历史特征 THEN 不读取该提交之后的信息"
+    },
+    {
+      "id": "US-2.1.2",
+      "title": "查看单个提交的 14 维特征明细",
+      "priority": "P1",
+      "kind": "业务",
+      "scope": "核心扩展",
+      "reason": "支撑已选择的核心业务闭环。",
+      "criteria": "WHEN 打开提交特征明细 THEN 列出 14 个名称、值、单位、版本和历史截止；WHEN 特征缺失 THEN 显示原因而非 0；WHEN 提交不存在 THEN 明确报错"
+    },
+    {
+      "id": "US-2.1.3",
+      "title": "以插件方式新增自定义度量元",
+      "priority": "P2",
+      "kind": "业务",
+      "scope": "暂缓候选",
+      "reason": "先固定14维接口，插件化后续扩展。",
+      "criteria": "WHEN 注册合法度量插件 THEN 新特征进入新 schema 版本且原模型仍按原 schema 工作；WHEN 名称冲突／返回非法值 THEN 拒绝或标记失败，不能覆盖核心 14 维"
+    },
+    {
+      "id": "US-2.2.1",
+      "title": "按时间顺序切分训练集与测试集",
+      "priority": "P0",
+      "kind": "业务",
+      "scope": "首轮链路",
+      "reason": "支撑已选择的核心业务闭环。",
+      "criteria": "WHEN 切分合格快照 THEN 训练时间严格早于测试且相同时间戳不跨边界；训练标签在截止已可得，核对所需分支集成与issue历史证据；缺少历史可得性保持unknown，拟合／调参仅用训练期；WHEN 样本／类别不足或边界无效 THEN 拒绝并报告计数，不能退回随机切分"
+    },
+    {
+      "id": "US-2.2.2",
+      "title": "剔除特征不完整的样本",
+      "priority": "P1",
+      "kind": "业务",
+      "scope": "核心扩展",
+      "reason": "支撑已选择的核心业务闭环。",
+      "criteria": "WHEN 样本存在必需特征缺失／非有限数 THEN 按固定策略排除并报告逐类计数；WHEN 全部被排除 THEN 阻止训练并解释；WHEN 仅标签 unknown THEN 单独统计，不把它改成 0"
+    },
+    {
+      "id": "US-2.2.3",
+      "title": "查看数据集的类别分布",
+      "priority": "P1",
+      "kind": "业务",
+      "scope": "核心扩展",
+      "reason": "支撑已选择的核心业务闭环。",
+      "criteria": "WHEN 查看数据集或分区 THEN 展示有效数量、正／负／unknown 及比例，合计可追溯；WHEN 分母为零 THEN 显示未定义；WHEN 重新切分 THEN 分区统计随清单版本更新"
+    },
+    {
+      "id": "US-3.1.1",
+      "title": "一键训练多种经典模型",
+      "priority": "P0",
+      "kind": "业务",
+      "scope": "首轮链路",
+      "reason": "支撑已选择的核心业务闭环。",
+      "criteria": "WHEN 选定合格快照及经典方法 THEN 保存参数、种子、时间边界和真实训练输出；首轮至少一方法成功，最终与深度类合计≥8种；WHEN 参数无效／超预算／训练失败 THEN 保留失败原因，不能登记可用模型"
+    },
+    {
+      "id": "US-3.1.2",
+      "title": "调整超参数并重新训练",
+      "priority": "P1",
+      "kind": "业务",
+      "scope": "暂缓候选",
+      "reason": "先用版本化固定配置训练，界面调参及搜索控制后续增加。",
+      "criteria": "WHEN 修改合法超参数重训 THEN 产生新 run／版本，原结果不覆盖；WHEN 用最终测试集选择参数或参数超范围 THEN 拒绝并指出问题；WHEN 参数相同 THEN 可核对完整配置和种子"
+    },
+    {
+      "id": "US-3.1.3",
+      "title": "查看训练过程日志与耗时",
+      "priority": "P2",
+      "kind": "业务",
+      "scope": "暂缓候选",
+      "reason": "基础失败原因与耗时必须记录；单独的日志浏览界面后续增加。",
+      "criteria": "WHEN 任务开始至结束 THEN 保存阶段、耗时、配置和失败原因；WHEN 失败或中断 THEN 日志仍可查看且不记成功；WHEN 查看日志 THEN 不展示凭据内容"
+    },
+    {
+      "id": "US-3.2.1",
+      "title": "训练基于提交变更的深度学习模型",
+      "priority": "P0",
+      "kind": "业务",
+      "scope": "核心扩展",
+      "reason": "支撑已选择的核心业务闭环。",
+      "criteria": "WHEN 训练确认的深度方法 THEN 使用明确合理的变更输入、保存预处理与资源记录，并与经典类总计≥8种；WHEN 数据／词表／张量不兼容或预算不足 THEN 明确失败，不用同一模型改名称充数量"
+    },
+    {
+      "id": "US-3.2.2",
+      "title": "指定训练轮数与批大小",
+      "priority": "P1",
+      "kind": "业务",
+      "scope": "暂缓候选",
+      "reason": "训练预算与配置必须记录；手动编辑epoch/batch的界面后续增加。",
+      "criteria": "WHEN 指定合法 epoch／batch 与预算 THEN 实际训练遵守并记录早停原因；WHEN 非正整数／超上限 THEN 校验拒绝；WHEN 超时 THEN 停止并标记未完成，不补最终指标"
+    },
+    {
+      "id": "US-3.3.1",
+      "title": "查看每个模型的 Effort-unaware 指标",
+      "priority": "P0",
+      "kind": "业务",
+      "scope": "首轮链路",
+      "reason": "支撑已选择的核心业务闭环。",
+      "criteria": "WHEN 对固定测试清单评价 THEN 同时报告 Precision、Recall、F1、AUC、阈值及混淆计数；WHEN 测试集仅一类或指标分母为零 THEN 按口径返回未定义及原因，不能伪造 AUC 或提升结果"
+    },
+    {
+      "id": "US-3.3.2",
+      "title": "查看 Effort-aware 指标",
+      "priority": "P0",
+      "kind": "业务",
+      "scope": "首轮链路",
+      "reason": "支撑已选择的核心业务闭环。",
+      "criteria": "WHEN 评价相同快照 THEN 同时给出两类指标、成本代理、排序、20%实际预算和全范围 Popt；WHEN 测试清单／标签／指标口径不同 THEN 禁止混合比较；WHEN 无正例或归一化退化 THEN 显示未定义及原因"
+    },
+    {
+      "id": "US-3.3.3",
+      "title": "查看模型对比表与对比图",
+      "priority": "P1",
+      "kind": "业务",
+      "scope": "核心扩展",
+      "reason": "支撑已选择的核心业务闭环。",
+      "criteria": "WHEN 选择可比模型 THEN 表与图使用相同清单和两组指标，能查看原报告；WHEN 不可比 THEN 列明差异而不合成排名；WHEN 某模型失败或指标未定义 THEN 保留状态而不当零分结果"
+    },
+    {
+      "id": "US-3.3.4",
+      "title": "将选定模型保存并登记版本",
+      "priority": "P0",
+      "kind": "业务",
+      "scope": "首轮链路",
+      "reason": "支撑已选择的核心业务闭环。",
+      "criteria": "WHEN 登记成功模型 THEN 保存数据哈希、时间／标签截止、schema、参数、种子、依赖、指标口径与文件校验值，重启可读取；WHEN 文件缺失／校验失败或训练失败 THEN 不列为 ready；WHEN 重训 THEN 新建版本"
+    },
+    {
+      "id": "US-4.1.1",
+      "title": "输入或选择提交并获得缺陷概率",
+      "priority": "P0",
+      "kind": "业务",
+      "scope": "首轮链路",
+      "reason": "支撑已选择的核心业务闭环。",
+      "criteria": "WHEN 选择有完整兼容特征的提交与 ready 模型 THEN 返回有限 [0,1] 分数、预测 ID、模型版本及解释状态；WHEN 无特征、模型缺失／失效或 schema 不匹配 THEN 返回原因，不给默认分数；历史重放标明训练窗口"
+    },
+    {
+      "id": "US-4.1.2",
+      "title": "通过 API 批量提交获取预测结果",
+      "priority": "P1",
+      "kind": "业务",
+      "scope": "暂缓候选",
+      "reason": "首轮和收敛核心用单条查询；批量集成接口后续增加。",
+      "criteria": "WHEN 合法批量请求 THEN 按请求顺序返回每项提交 ID、分数／版本或错误；WHEN 部分项失败 THEN 不丢项、不用默认值补齐；WHEN 超条数上限或模型失效 THEN 校验拒绝并给出原因"
+    },
+    {
+      "id": "US-4.1.3",
+      "title": "看到每个提交的风险等级",
+      "priority": "P1",
+      "kind": "业务",
+      "scope": "暂缓候选",
+      "reason": "核心展示真实分数；三级风险阈值与标签后续增加。",
+      "criteria": "WHEN 分数可用 THEN 按已版本化阈值显示等级及规则来源；WHEN 分数恰等于边界 THEN 按明确定义归类；WHEN 无分数 THEN 不标低风险；阈值改变不能修改历史记录的原规则"
+    },
+    {
+      "id": "US-4.2.1",
+      "title": "看到影响本次预测的关键特征及其方向",
+      "priority": "P0",
+      "kind": "业务",
+      "scope": "首轮链路",
+      "reason": "支撑已选择的核心业务闭环。",
+      "criteria": "WHEN 成功预测 THEN 显示明确解释状态；ready 后至少有3个真实特征贡献、方向、方法和单位，零贡献如实标注；WHEN 未缓存 THEN 显示 pending 并可查询；WHEN 失败／超时 THEN 给原因和重试入口，不伪造解释或算通过"
+    },
+    {
+      "id": "US-4.2.2",
+      "title": "看到全局特征重要度排序",
+      "priority": "P1",
+      "kind": "业务",
+      "scope": "暂缓候选",
+      "reason": "先做局部解释，全局重要度单独评价后续增加。",
+      "criteria": "WHEN 查看模型全局重要度 THEN 显示方法、数据范围、单位及排名；WHEN 仅有局部解释 THEN 不能冒充全局结果；WHEN 方法不支持或计算失败 THEN 明确状态，不混合不同单位作排名"
+    },
+    {
+      "id": "US-5.1.1",
+      "title": "看到按缺陷概率降序排列的提交列表",
+      "priority": "P0",
+      "kind": "业务",
+      "scope": "首轮链路",
+      "reason": "支撑已选择的核心业务闭环。",
+      "criteria": "WHEN 打开有可用结果的列表 THEN 按概率全局降序后分页，显示提交时间、分数和模型来源；若后续启用等级，另附版本化规则；WHEN 翻页 THEN 顺序及仓库／模型选择保持一致；WHEN 无仓库／模型／特征 THEN 有明确下一步，服务错误不伪装成无结果"
+    },
+    {
+      "id": "US-5.1.2",
+      "title": "按仓库、时间范围、概率阈值筛选列表",
+      "priority": "P1",
+      "kind": "业务",
+      "scope": "暂缓候选",
+      "reason": "核心保留仓库/模型选择与分页；复杂时间/阈值筛选后续增加。",
+      "criteria": "WHEN 设置仓库、时间与分数筛选 THEN 仅返回匹配记录且总数准确，条件随分页保留；WHEN 起止倒置或阈值超范围 THEN 指出错误；WHEN 无匹配 THEN 允许清除条件，不改成所有数据"
+    },
+    {
+      "id": "US-5.1.3",
+      "title": "点击列表项查看该提交的详情",
+      "priority": "P1",
+      "kind": "业务",
+      "scope": "首轮链路",
+      "reason": "支撑已选择的核心业务闭环。",
+      "criteria": "WHEN 点击提交 THEN 展示同一提交与模型版本的上下文、特征、解释状态和返回入口；WHEN 切换模型／提交 THEN 旧响应不能覆盖当前详情；WHEN 数据不存在 THEN 显示原因，不展示上一条详情"
+    },
+    {
+      "id": "US-5.2.1",
+      "title": "看到缺陷引入数量和比例随时间的变化趋势",
+      "priority": "P1",
+      "kind": "业务",
+      "scope": "核心扩展",
+      "reason": "支撑已选择的核心业务闭环。",
+      "criteria": "WHEN 查询固定标签快照及时间桶 THEN 展示历史 buggy 数／可标注提交比例、unknown、窗口与规则；WHEN 分母为零 THEN 比例未定义；WHEN 标签未成熟 THEN 标注限制，不能把预测高风险数当真实缺陷数"
+    },
+    {
+      "id": "US-5.2.2",
+      "title": "看到缺陷按模块／目录的分布",
+      "priority": "P1",
+      "kind": "业务",
+      "scope": "暂缓候选",
+      "reason": "保留时间趋势；多目录重复计数和目录分布后续增加。",
+      "criteria": "WHEN 查看目录分布 THEN 按明确的多目录计数规则展示标签数量及唯一提交数；WHEN 一提交涉及多个目录 THEN 说明重复计数；WHEN 路径缺失 THEN 单独统计，不悄悄归入默认目录"
+    },
+    {
+      "id": "US-5.2.3",
+      "title": "看到模型性能指标概览",
+      "priority": "P2",
+      "kind": "业务",
+      "scope": "暂缓候选",
+      "reason": "模型评价在专门页面；管理者概览后续增加。",
+      "criteria": "WHEN 展示模型概览 THEN 带测试窗口、清单版本、两组指标及原报告入口；WHEN 无评价或不适用指标 THEN 显示状态与原因；WHEN 数据窗口不同 THEN 不宣称性能改善"
+    },
+    {
+      "id": "US-5.2.4",
+      "title": "看到高风险提交的贡献者分布",
+      "priority": "P2",
+      "kind": "业务",
+      "scope": "暂缓候选",
+      "reason": "不以贡献者风险分数评估个人能力，贡献者分布后续增加。",
+      "criteria": "WHEN 查看贡献者分布 THEN 使用匿名作者键并说明这是模型高风险数量而非缺陷确认；WHEN 别名合并 THEN 固定映射版本；WHEN 作者未知 THEN 单列 unknown，不用于个人能力排名"
+    },
+    {
+      "id": "US-6.1.1",
+      "title": "按分支规范开发并通过 PR 合并",
+      "priority": "P0",
+      "kind": "过程",
+      "scope": "全程协作",
+      "reason": "支撑已选择的核心业务闭环。",
+      "criteria": "WHEN 实际进行协作评审 THEN 留下 Story／change、验证和非作者审阅证据；WHEN 只有作者自审或仍有未解决意见 THEN 不计已完成评审；本轮仅整理文档，不执行 Git 或创建远端记录"
+    },
+    {
+      "id": "US-6.1.2",
+      "title": "需求变更时同步更新 OpenSpec 记录",
+      "priority": "P0",
+      "kind": "过程",
+      "scope": "全程协作",
+      "reason": "支撑已选择的核心业务闭环。",
+      "criteria": "WHEN 需求发生变更 THEN 同步 PRD、change 的规格／设计／任务及验收映射；WHEN 任务勾选但无运行／验收证据 THEN 不算功能合格；WHEN 最终归档 THEN 当前规格与产品一致，未批准草案不当基线"
+    },
+    {
+      "id": "US-6.2.1",
+      "title": "在提交或 PR 时自动执行构建与测试",
+      "priority": "P1",
+      "kind": "过程",
+      "scope": "暂缓候选",
+      "reason": "本地检查与真实非作者复核保留，自动流水线按课程可选增量处理。",
+      "criteria": "WHEN 启用自动检查并触发 THEN 记录构建与关键测试输出；WHEN 故意引入检查失败 THEN 流程报失败而不发布；WHEN 依赖或配置变更 THEN 仍可复现锁定环境，启用前不宣称有流水线"
+    },
+    {
+      "id": "US-6.2.2",
+      "title": "在 CI 中执行 OpenSpec 规范校验",
+      "priority": "P2",
+      "kind": "过程",
+      "scope": "暂缓候选",
+      "reason": "本地OpenSpec校验保留，自动流水线中的规范校验后续增加。",
+      "criteria": "WHEN 校验有效规格 THEN 检查通过并留存结果；WHEN 缺少需求／Scenario 或格式非法 THEN 检查失败且可定位；WHEN 校验通过 THEN 只代表结构合格，不替代业务验收"
+    },
+    {
+      "id": "US-6.3.1",
+      "title": "通过容器化方式部署整个系统",
+      "priority": "P2",
+      "kind": "过程",
+      "scope": "暂缓候选",
+      "reason": "先完成可运行本地系统，容器化作为可选增量。",
+      "criteria": "WHEN 按部署说明启动容器 THEN 前端、服务和数据层可访问且版本可查；WHEN 重启 THEN 持久化数据保留；WHEN 配置／依赖缺失 THEN 有明确错误，不创建不可追溯模型"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "R-01",
+      "title": "核对课程与一页概要",
+      "estimateMinutes": 30,
+      "parentTask": "P-01",
+      "specTask": "1.1",
+      "dependsOn": [],
+      "output": "按条款记录遗漏或疑问",
+      "acceptance": "每项意见说明来源；不得以作者自查替代非作者实际核对。"
+    },
+    {
+      "id": "R-02",
+      "title": "准备真实访谈对象与安排",
+      "estimateMinutes": 20,
+      "parentTask": "P-02",
+      "specTask": "1.2",
+      "dependsOn": [
+        "R-01"
+      ],
+      "output": "对象类型、相关经历、实际联系人和约访安排",
+      "acceptance": "优先有真实评审经验；实际联系由团队执行，不虚构已同意参与。"
+    },
+    {
+      "id": "R-03",
+      "title": "开展一位真实用户访谈",
+      "estimateMinutes": 30,
+      "parentTask": "P-02",
+      "specTask": "1.2",
+      "dependsOn": [
+        "R-02"
+      ],
+      "output": "一份匿名访谈记录",
+      "acceptance": "按模板记录真实经历、原话和反例；计划3–5位，每位复制此任务。"
+    },
+    {
+      "id": "R-04",
+      "title": "汇总访谈并回填用户场景",
+      "estimateMinutes": 45,
+      "parentTask": "P-02",
+      "specTask": "1.2",
+      "dependsOn": [
+        "R-03"
+      ],
+      "output": "假设支持/反对表与PRD修订建议",
+      "acceptance": "实际人数、日期、原始证据与分歧可追溯；没有行为证据就保持待验证。"
+    },
+    {
+      "id": "R-05",
+      "title": "讨论24条业务核心范围",
+      "estimateMinutes": 30,
+      "parentTask": "P-03",
+      "specTask": "1.3",
+      "dependsOn": [
+        "R-01"
+      ],
+      "output": "选中/暂缓Story及理由",
+      "acceptance": "保留课程硬性要求；这次讨论若早于访谈，只能记录为初步意见，R-04后复核。"
+    },
+    {
+      "id": "R-06",
+      "title": "交叉复核核心故事验收",
+      "estimateMinutes": 60,
+      "parentTask": "P-04",
+      "specTask": "2.1",
+      "dependsOn": [
+        "R-05"
+      ],
+      "output": "按Story-ID整理的正常/异常检查表",
+      "acceptance": "24条业务和2条过程均有意见；无默认分数、假解释或凭草案宣布通过。"
+    },
+    {
+      "id": "R-07",
+      "title": "核算标签与指标边界例",
+      "estimateMinutes": 45,
+      "parentTask": "P-05",
+      "specTask": "2.2",
+      "dependsOn": [
+        "R-01"
+      ],
+      "output": "验收测试设计中的手算记录及未决参数",
+      "acceptance": "能核对训练标签可得时间、Precision/F1/AUC和20%预算；不使用业务实现生成期望值。"
+    },
+    {
+      "id": "R-08",
+      "title": "复核架构、表引用和恢复",
+      "estimateMinutes": 45,
+      "parentTask": "P-06",
+      "specTask": "2.3",
+      "dependsOn": [
+        "R-05"
+      ],
+      "output": "组件/表关系/任务状态意见",
+      "acceptance": "成功快照不可覆盖，失败不标ready；技术栈意见明确候选或确认。"
+    },
+    {
+      "id": "R-09",
+      "title": "开展一位用户的原型走查",
+      "estimateMinutes": 30,
+      "parentTask": "P-07",
+      "specTask": "2.4",
+      "dependsOn": [
+        "R-02"
+      ],
+      "output": "WF编号、真实任务观察与修改建议",
+      "acceptance": "让参与者先自己理解；静态原型反馈不算可运行系统的NFR结果。"
+    },
+    {
+      "id": "R-10",
+      "title": "确定两项质量验证方案",
+      "estimateMinutes": 30,
+      "parentTask": "P-08",
+      "specTask": "2.5",
+      "dependsOn": [
+        "R-07",
+        "R-08"
+      ],
+      "output": "选型、环境、采样、计时和失败统计",
+      "acceptance": "有可执行测量条件；200次/2秒/30分钟等仍需资源核对，不提前写达标。"
+    },
+    {
+      "id": "R-11",
+      "title": "实际认领并建立课程看板",
+      "estimateMinutes": 30,
+      "parentTask": "P-09",
+      "specTask": "3.1",
+      "dependsOn": [
+        "R-05"
+      ],
+      "output": "owner/reviewer/截止及课程指定工具卡片",
+      "acceptance": "每卡关联Sprint/change/task；不把离线评审页当实际平台看板。"
+    },
+    {
+      "id": "R-12",
+      "title": "记录阶段评审及未决项",
+      "estimateMinutes": 30,
+      "parentTask": "P-10",
+      "specTask": "3.2",
+      "dependsOn": [
+        "R-04",
+        "R-06",
+        "R-07",
+        "R-08",
+        "R-09",
+        "R-10",
+        "R-11"
+      ],
+      "output": "真实评审记录、处理意见及阶段判断",
+      "acceptance": "真实参与者、日期、决定和证据；未决项有负责人，不自动批准或归档。"
+    }
+  ],
+  "decisions": [
+    {
+      "id": "D-01",
+      "title": "主要用户与使用入口",
+      "suggestion": "评审员优先，手动选择已解析提交；PR/提交/文件工作单位通过访谈核对。",
+      "evidenceNeeded": "真实评审经历及手动入口是否增加负担。"
+    },
+    {
+      "id": "D-02",
+      "title": "首轮与最终核心范围",
+      "suggestion": "16条首轮链路候选，最终24条业务+2条过程；42条保留为完整Backlog。",
+      "evidenceNeeded": "范围意见、课程对应和实际人力；不能只数故事。"
+    },
+    {
+      "id": "D-03",
+      "title": "主仓库与SZZ口径",
+      "suggestion": "ActiveMQ仍为候选；15份真实来源已核查历史Jira、固定main、merge/回补及diff输入，尚无正式SZZ。",
+      "evidenceNeeded": "先读数据核查报告与DATA-01～08；后续仍需体积/覆盖/归因Pilot，本轮不执行Git。"
+    },
+    {
+      "id": "D-04",
+      "title": "标签、成熟期与时间切分",
+      "suggestion": "训练标签在截止可得，核对所需分支集成和历史issue证据；unknown单列，90天/70:30待测。",
+      "evidenceNeeded": "TC-02/03与真实DATA-06核算；后续数据成熟率和类别计数。"
+    },
+    {
+      "id": "D-05",
+      "title": "effort代理与20%边界",
+      "suggestion": "max(1,LA+LD)、score/cost排序、完整提交最长前缀；风险列表另按概率排序。",
+      "evidenceNeeded": "TC-04/05/06人工核算；该约定不是实际审查耗时。"
+    },
+    {
+      "id": "D-06",
+      "title": "架构与数据库",
+      "suggestion": "三层模块化单体；FastAPI/Vue/关系数据库为候选，SQLite试做不锁定最终选型。",
+      "evidenceNeeded": "团队维护成本、长任务/并发写入/恢复方式。"
+    },
+    {
+      "id": "D-07",
+      "title": "八种模型的输入与预算",
+      "suggestion": "经典/深度两类总计≥8；候选5+3，CNN/GRU输入需明确，不能任意把14维当时间序列。",
+      "evidenceNeeded": "方法合理性、diff来源/词表训练/截断与资源Pilot。"
+    },
+    {
+      "id": "D-08",
+      "title": "两项质量验证与解释时序",
+      "suggestion": "建议性能+可靠性，解释为必需功能；pending不是解释验收成功。",
+      "evidenceNeeded": "采样、失败数、硬件条件、异步完成期限和真实复验。"
+    }
+  ]
+}

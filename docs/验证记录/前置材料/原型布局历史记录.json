@@ -1,0 +1,30 @@
+{
+  "desktopScreens": [
+    {
+      "screen": "repository",
+      "desktopOverflow": false
+    },
+    {
+      "screen": "risks",
+      "desktopOverflow": false
+    },
+    {
+      "screen": "detail",
+      "desktopOverflow": false
+    },
+    {
+      "screen": "models",
+      "desktopOverflow": false
+    },
+    {
+      "screen": "trends",
+      "desktopOverflow": false
+    }
+  ],
+  "mobile": {
+    "width": 390,
+    "documentWidth": 390,
+    "sections": 5
+  },
+  "screenshotCount": 5
+}

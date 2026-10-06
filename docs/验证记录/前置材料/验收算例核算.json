@@ -1,0 +1,71 @@
+{
+  "date": "2026-10-04",
+  "kind": "synthetic_acceptance_fixture_only",
+  "method": "Python standard-library exact fractions; no product metric functions imported",
+  "fixture": [
+    {
+      "id": "A",
+      "label": 1,
+      "score": "9/10",
+      "cost": 25
+    },
+    {
+      "id": "B",
+      "label": 0,
+      "score": "4/5",
+      "cost": 5
+    },
+    {
+      "id": "C",
+      "label": 1,
+      "score": "3/5",
+      "cost": 10
+    },
+    {
+      "id": "D",
+      "label": 0,
+      "score": "1/5",
+      "cost": 60
+    }
+  ],
+  "probabilityOrder": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "effortOrder": [
+    "B",
+    "C",
+    "A",
+    "D"
+  ],
+  "classification": {
+    "TP": 2,
+    "FP": 1,
+    "FN": 0,
+    "TN": 1,
+    "precision": "2/3",
+    "recall": "1",
+    "f1": "4/5",
+    "auc": "3/4"
+  },
+  "effortBudget": {
+    "budgetCost": 20,
+    "checked": [
+      "B",
+      "C"
+    ],
+    "consumedCost": 15,
+    "recall": "1/2"
+  },
+  "areas": {
+    "model": "13/16",
+    "oracle": "69/80",
+    "worst": "11/80",
+    "popt": "27/29"
+  },
+  "trendRatio": "1/4",
+  "trainingOnlyTestTransform": 97,
+  "notVerified": "real data, labels, production implementation, model performance, interviews or approval"
+}

@@ -1,0 +1,14 @@
+{
+  "formatVersion": 1,
+  "batchManifest": "批量准备示例.json",
+  "batchSnapshot": "批量准备结果/b750305c5fdde4a47b82f6d9035243b2f8bff2739a2f83648db1f8c40e775672.json",
+  "recordId": "AMQ-9481-original",
+  "parentCommit": "6084867b26619ab614bc117667a32649def5887a",
+  "files": [
+    {
+      "path": "activemq-web/src/main/java/org/apache/activemq/web/async/AsyncServletRequest.java",
+      "parent": "parent-AsyncServletRequest.java.txt",
+      "fixed": "fixed-AsyncServletRequest.java.txt"
+    }
+  ]
+}

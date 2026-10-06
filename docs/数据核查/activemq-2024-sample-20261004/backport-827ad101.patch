@@ -1,0 +1,63 @@
+From 827ad1012b934ca4fff749a5da1a9c1e070a0ee1 Mon Sep 17 00:00:00 2001
+From: "Christopher L. Shannon" <cshannon@apache.org>
+Date: Sun, 21 Apr 2024 12:42:20 -0400
+Subject: [PATCH] AMQ-9481 - Correctly complete async servlet request on
+ timeout
+
+This fixes AsyncServletRequest to correctly call context.dispatch() when
+the async request times out so that the consumer can be re-used.
+
+(cherry picked from commit 72befc14fbb69c24bdec0c7d4a1002da8874380d)
+---
+ .../java/org/apache/activemq/web/RestTest.java  | 17 +++++++++++++----
+ .../activemq/web/async/AsyncServletRequest.java |  8 ++++----
+ 2 files changed, 17 insertions(+), 8 deletions(-)
+
+diff --git a/activemq-web-demo/src/test/java/org/apache/activemq/web/RestTest.java b/activemq-web-demo/src/test/java/org/apache/activemq/web/RestTest.java
+index 2bbea2270a5..aa5cbdb6354 100644
+--- a/activemq-web-demo/src/test/java/org/apache/activemq/web/RestTest.java
++++ b/activemq-web-demo/src/test/java/org/apache/activemq/web/RestTest.java
+@@ -86,11 +86,20 @@ public void testConsumeAsyncTimeout() throws Exception {
+         HttpClient httpClient = new HttpClient();
+         httpClient.start();
+ 
+-        final StringBuffer buf = new StringBuffer();
+-        final Future<Result> result =
+-            asyncRequest(httpClient, "http://localhost:" + port + "/message/test?readTimeout=1000&type=queue", buf);
++        // AMQ-9330 - test no 500 error on timeout and instead 204 error
++        Future<Result> result =
++            asyncRequest(httpClient, "http://localhost:" + port + "/message/test?readTimeout=2000&type=queue&clientId=test", new StringBuffer());
++        // try a second request while the first is running, this should get a 500 error since the first is still running and
++        // concurrent access to the same consumer is not allowed
++        Future<Result> errorResult = asyncRequest(httpClient, "http://localhost:" + port + "/message/test?readTimeout=1&type=queue&clientId=test", new StringBuffer());
++        assertEquals(HttpStatus.INTERNAL_SERVER_ERROR_500, errorResult.get().getResponse().getStatus());
++        //After the original request finishes, verify 204 and not 500 error
++        assertEquals(HttpStatus.NO_CONTENT_204, result.get().getResponse().getStatus());
+ 
+-        //Test timeout, no message was sent
++        // AMQ-9481 - test to make sure we can re-use the consumer after timeout by trying again and ensuring
++        // no 500 error. Before the fix in AMQ-9418 this would fail even after the previous request timed out
++        result =
++            asyncRequest(httpClient, "http://localhost:" + port + "/message/test?readTimeout=1000&type=queue&clientId=test", new StringBuffer());
+         assertEquals(HttpStatus.NO_CONTENT_204, result.get().getResponse().getStatus());
+     }
+ 
+diff --git a/activemq-web/src/main/java/org/apache/activemq/web/async/AsyncServletRequest.java b/activemq-web/src/main/java/org/apache/activemq/web/async/AsyncServletRequest.java
+index 2598332e4fe..bd9f462cefd 100644
+--- a/activemq-web/src/main/java/org/apache/activemq/web/async/AsyncServletRequest.java
++++ b/activemq-web/src/main/java/org/apache/activemq/web/async/AsyncServletRequest.java
+@@ -115,10 +115,10 @@ public void onTimeout(AsyncEvent event) {
+         }
+ 
+         final AsyncContext context = event.getAsyncContext();
+-        if (context != null) {
+-            // We must call complete and then set the status code to prevent a 500
+-            // error. The spec requires a 500 error on timeout unless complete() is called.
+-            context.complete();
++        if (context != null && event.getSuppliedRequest().isAsyncStarted()) {
++            // We must call dispatch to finish the request on timeout.
++            // then set the status code to prevent a 500 error.
++            context.dispatch();
+             final ServletResponse response = context.getResponse();
+             if (response instanceof HttpServletResponse) {
+                 ((HttpServletResponse) response).setStatus(HttpServletResponse.SC_NO_CONTENT);

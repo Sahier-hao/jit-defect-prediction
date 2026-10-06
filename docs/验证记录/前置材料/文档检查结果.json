@@ -1,0 +1,97 @@
+{
+  "date": "2026-10-04",
+  "checkedAt": "2026-10-04T17:16:53.485670+00:00",
+  "scope": "Fresh document structure, links and source hashes; worksheet, wireframe and acceptance-math results are cached evidence, not rerun browser tests; no product approval, SZZ or model-result evidence",
+  "stories": 42,
+  "storiesWithSuccessAndFailureDrafts": 42,
+  "priorities": {
+    "P0": 18,
+    "P1": 17,
+    "P2": 7
+  },
+  "businessBacklogP0P1Candidates": 32,
+  "selectedScopeDraft": {
+    "firstMvpBusinessStories": 16,
+    "coreBusinessStories": 24,
+    "coreProcessStories": 2,
+    "deferredStories": 16,
+    "backlogStories": 42
+  },
+  "recognizablePreparationCards": 12,
+  "decisionDrafts": 8,
+  "acceptanceCaseDesigns": 14,
+  "selectedStoriesLinkedToCaseDesigns": 26,
+  "reviewWorksheet": {
+    "functionalChecks": 7,
+    "layoutChecks": 8,
+    "pageErrors": [],
+    "externalRequests": []
+  },
+  "acceptanceMath": {
+    "model": "13/16",
+    "oracle": "69/80",
+    "worst": "11/80",
+    "popt": "27/29"
+  },
+  "markdownFilesChecked": 50,
+  "localLinksChecked": 195,
+  "realDataSourceAudit": {
+    "sourceFiles": 15,
+    "sourceBytes": 1181609,
+    "historicalIssues": 4,
+    "caseDesigns": 8,
+    "sourceHashesVerified": true,
+    "inducingLabels": "unknown_szz_not_executed"
+  },
+  "missingLocalLinks": [],
+  "tableStructureErrors": [],
+  "trailingWhitespace": [],
+  "specCapabilities": 3,
+  "requirements": 15,
+  "scenarios": 33,
+  "preparationTasks": {
+    "completedLocalMaterialChecks": 2,
+    "pendingRealReviewAndFutureImplementation": 14
+  },
+  "wireframes": {
+    "desktopScreens": [
+      {
+        "screen": "repository",
+        "desktopOverflow": false
+      },
+      {
+        "screen": "risks",
+        "desktopOverflow": false
+      },
+      {
+        "screen": "detail",
+        "desktopOverflow": false
+      },
+      {
+        "screen": "models",
+        "desktopOverflow": false
+      },
+      {
+        "screen": "trends",
+        "desktopOverflow": false
+      }
+    ],
+    "mobile": {
+      "width": 390,
+      "documentWidth": 390,
+      "sections": 5
+    },
+    "screenshotCount": 5
+  },
+  "sourceSha256": {
+    "docs\\产品需求文档.md": "8fa234e92142de8165e0a100c0d0b6b9bfdd563d35b5803ab70a8f6d52e51659",
+    "docs\\产品设计文档.md": "263aaaad1a1a628d9db2941fa735ead6b3c119c7dfaefda35096b27403208573",
+    "docs\\原型\\低保真原型.html": "ac758aed141e1e4e4f02358317e8ae846a62047a93895610610d4c7f161fe6bb",
+    "docs\\评审\\准备计划.json": "90fccf6f00d7c662da3b9b0ddbd716e8ad47e28042bd1eb1c1ff5b832cce53cf",
+    "docs\\评审\\评审工作页.html": "ae849ac3172cbfbb24a2b2706c826215802473464d53eb563590176d4bdbf209",
+    "docs\\验收测试设计.md": "fd1f670107ebc03f0cf092b3babfdd3c0103f36b1e9d90d71ec9fede22ccdc9f",
+    "docs\\数据核查\\ActiveMQ数据可行性核查.md": "4064c9ef690ffc9c76d60a738b40863ef2f636576702d9546000c86dcc4bf332",
+    "docs\\数据核查\\activemq-2024-sample-20261004\\sources.json": "635d0510842866973482f26e69c71da19b457ecae207a0c0626482f5b1bcdd4e",
+    "docs\\数据核查\\activemq-2024-sample-20261004\\case-study.json": "7d8797b333908c971b1e0cf0957c775b190865d4f288211327958621f9722f28"
+  }
+}

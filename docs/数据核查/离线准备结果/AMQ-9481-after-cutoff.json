@@ -1,0 +1,129 @@
+{
+  "formatVersion": 1,
+  "kind": "offline_fix_preparation",
+  "policyVersion": "jira-history-and-integration-v1",
+  "asOf": "2024-04-23T00:00:00+00:00",
+  "snapshotAt": "2026-10-04T02:29:05.242191+00:00",
+  "observation": "historical_reconstruction_not_historic_collection",
+  "sources": {
+    "patchSha256": "5971d591ef752579b1458f4a18ba5e2645587bdaac8ff623111bb358c1bd196d",
+    "issueSha256": "05fc7d1258dce000e15aa3c67e2a01f46f8b55f938b94d00b17116a050a5a8f7",
+    "patchPath": "docs/数据核查/activemq-2024-sample-20261004/fix-72befc14.patch",
+    "issuePath": "docs/数据核查/activemq-2024-sample-20261004/AMQ-9481.json"
+  },
+  "patch": {
+    "commitId": "72befc14fbb69c24bdec0c7d4a1002da8874380d",
+    "authoredAt": "2024-04-21T16:42:20+00:00",
+    "message": "AMQ-9481 - Correctly complete async servlet request on timeout\n\nThis fixes AsyncServletRequest to correctly call context.dispatch() when\nthe async request times out so that the consumer can be re-used.",
+    "issueRefs": [
+      "AMQ-9481"
+    ],
+    "cherryPickedFrom": [],
+    "rawCounts": {
+      "NF": 2,
+      "LA": 17,
+      "LD": 8
+    },
+    "files": [
+      {
+        "pathBefore": "activemq-web-demo/src/test/java/org/apache/activemq/web/RestTest.java",
+        "pathAfter": "activemq-web-demo/src/test/java/org/apache/activemq/web/RestTest.java",
+        "LA": 13,
+        "LD": 4,
+        "removed": [
+          {
+            "kind": "-",
+            "text": "        final StringBuffer buf = new StringBuffer();",
+            "old_line": 89,
+            "new_line": null,
+            "no_newline": false
+          },
+          {
+            "kind": "-",
+            "text": "        final Future<Result> result =",
+            "old_line": 90,
+            "new_line": null,
+            "no_newline": false
+          },
+          {
+            "kind": "-",
+            "text": "            asyncRequest(httpClient, \"http://localhost:\" + port + \"/message/test?readTimeout=1000&type=queue\", buf);",
+            "old_line": 91,
+            "new_line": null,
+            "no_newline": false
+          },
+          {
+            "kind": "-",
+            "text": "        //Test timeout, no message was sent",
+            "old_line": 93,
+            "new_line": null,
+            "no_newline": false
+          }
+        ]
+      },
+      {
+        "pathBefore": "activemq-web/src/main/java/org/apache/activemq/web/async/AsyncServletRequest.java",
+        "pathAfter": "activemq-web/src/main/java/org/apache/activemq/web/async/AsyncServletRequest.java",
+        "LA": 4,
+        "LD": 4,
+        "removed": [
+          {
+            "kind": "-",
+            "text": "        if (context != null) {",
+            "old_line": 118,
+            "new_line": null,
+            "no_newline": false
+          },
+          {
+            "kind": "-",
+            "text": "            // We must call complete and then set the status code to prevent a 500",
+            "old_line": 119,
+            "new_line": null,
+            "no_newline": false
+          },
+          {
+            "kind": "-",
+            "text": "            // error. The spec requires a 500 error on timeout unless complete() is called.",
+            "old_line": 120,
+            "new_line": null,
+            "no_newline": false
+          },
+          {
+            "kind": "-",
+            "text": "            context.complete();",
+            "old_line": 121,
+            "new_line": null,
+            "no_newline": false
+          }
+        ]
+      }
+    ]
+  },
+  "issue": {
+    "key": "AMQ-9481",
+    "source": "https://issues.apache.org/jira/rest/api/2/issue/13575795",
+    "stateAtCutoff": {
+      "issuetype": "Bug",
+      "status": "Resolved",
+      "resolution": "Fixed"
+    },
+    "qualifyingAt": "2024-04-22T15:07:37.776000+00:00",
+    "rawResolutionDate": "2024-04-22T15:07:37.766+0000",
+    "historyComplete": true,
+    "assessment": "qualified_issue"
+  },
+  "integration": {
+    "targetBranch": "main",
+    "integratedAt": "2024-04-22T15:01:36+00:00",
+    "source": "https://github.com/apache/activemq/pull/1206",
+    "verification": "caller_supplied_requires_review"
+  },
+  "candidate": {
+    "status": "candidate",
+    "availableAt": "2024-04-22T15:07:37.776000+00:00"
+  },
+  "inducingLabel": null,
+  "labelStatus": "unknown_szz_not_executed",
+  "kamei14": null,
+  "attributionPolicy": "pending_file_and_comment_review"
+}

@@ -1,0 +1,57 @@
+{
+  "date": "2026-10-04",
+  "scope": "Offline documentation worksheet only; isolated TEST inputs, no team or product acceptance",
+  "checks": [
+    "Incomplete reviewed task cannot be exported or counted as reviewed",
+    "Different reviewer and evidence required; edits persist after reload in isolated context",
+    "Agreement requires actor/date/evidence; JSON export preserves draft status and entered values",
+    "Valid import replaces records; wrong version, missing IDs and invalid dates preserve original records; text is not interpreted as HTML",
+    "Six scope filters have correct counts; tab keyboard navigation works",
+    "All four tabs have no page overflow at 1280px and 390px; screenshots use blank records",
+    "Storage failure reports temporary state and export fallback"
+  ],
+  "layouts": [
+    {
+      "tab": "overview",
+      "viewport": 1280,
+      "document": 1280
+    },
+    {
+      "tab": "tasks",
+      "viewport": 1280,
+      "document": 1280
+    },
+    {
+      "tab": "decisions",
+      "viewport": 1280,
+      "document": 1280
+    },
+    {
+      "tab": "stories",
+      "viewport": 1280,
+      "document": 1280
+    },
+    {
+      "tab": "overview",
+      "viewport": 390,
+      "document": 390
+    },
+    {
+      "tab": "tasks",
+      "viewport": 390,
+      "document": 390
+    },
+    {
+      "tab": "decisions",
+      "viewport": 390,
+      "document": 390
+    },
+    {
+      "tab": "stories",
+      "viewport": 390,
+      "document": 390
+    }
+  ],
+  "pageErrors": [],
+  "externalRequests": []
+}

@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JIT 产品低保真原型 · Sprint 0 草案</title>
+  <style>
+    *{box-sizing:border-box}body{margin:0;background:#eeeeec;color:#222;font:15px/1.65 "Microsoft YaHei","Segoe UI",sans-serif}main{max-width:1120px;margin:auto;padding:32px 20px}h1{font-size:26px;margin:0 0 6px}h2{font-size:21px;margin:0}h3{font-size:16px;margin:0 0 8px}p{margin:8px 0}a{color:inherit;text-underline-offset:3px}nav{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 28px}nav a{background:white;border:1px solid #bbb;padding:5px 12px}section{background:white;border:1px solid #aaa;margin:0 0 32px;scroll-margin-top:15px}.screen-head{padding:20px 24px;border-bottom:2px solid #444;display:flex;gap:15px;justify-content:space-between;align-items:center}.id{font:12px/1.5 Consolas,monospace;border:1px solid #888;padding:4px 7px;white-space:nowrap}.content{padding:22px 24px}.muted{color:#595959;font-size:13px}.banner{border-left:4px solid #555;background:#f1f1ef;padding:12px 16px;margin-bottom:18px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.field{border:1px solid #bbb;padding:8px 12px;margin-top:5px;background:#fafafa;color:#555}.row{display:flex;flex-wrap:wrap;gap:16px;align-items:end;margin:16px 0}.row>div{flex:1;min-width:140px}button{font:inherit;color:#333;border:1px solid #777;background:#eee;padding:8px 14px;cursor:default}button:disabled{color:#555;opacity:1}table{width:100%;border-collapse:collapse;font-size:13px}th,td{text-align:left;border-bottom:1px solid #ccc;padding:10px 8px;vertical-align:top}th{background:#f3f3f1}.table-scroll{overflow:auto}td.nowrap{white-space:nowrap}.pill{border:1px solid #999;padding:2px 6px;display:inline-block;font-size:12px}.panel{border:1px solid #aaa;padding:16px}.notes{background:#f6f6f4;border-top:1px dashed #aaa;padding:16px 24px;font-size:13px}.states{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}.states>div{border:1px dashed #999;padding:12px}.states strong{display:block;margin-bottom:5px}.score{font:40px/1.25 Consolas,monospace;margin:12px 0}.placeholder{border:1px dashed #999;background:repeating-linear-gradient(135deg,#fafafa,#fafafa 10px,#f3f3f1 10px,#f3f3f1 11px);padding:25px;text-align:center;min-height:155px;display:grid;align-content:center}.small{font-size:12px}.footer{padding:14px 24px;border-top:1px solid #ccc;font-size:12px;color:#555}ul{margin:8px 0;padding-left:22px}.stack>*+*{margin-top:12px}footer{font-size:13px;color:#555}.notice{margin-bottom:18px;font-weight:bold}.model-table td:first-child{white-space:nowrap}@media(max-width:700px){main{padding:20px 12px}.content,.notes{padding:16px}.screen-head{padding:16px;align-items:start}.grid,.states{grid-template-columns:1fr}h1{font-size:22px}.id{white-space:normal}table{min-width:560px}.row>div{min-width:100%}.score{font-size:32px}}@media print{body{background:white}main{padding:0;max-width:none}nav{display:none}section{break-inside:avoid;page-break-after:always;margin:0;border-color:#777}.states,.grid{grid-template-columns:1fr 1fr}.notes{font-size:11px}}
+    .grid{grid-template-columns:repeat(2,minmax(0,1fr))}.grid>*{min-width:0}.table-scroll{max-width:100%}@media(max-width:700px){.grid{grid-template-columns:minmax(0,1fr)}#detail table{min-width:0;font-size:12px}}
+    .deferred{border:1px dashed #aaa;background:#f7f7f5;color:#626262}.scope-note{font-size:13px;border:1px dashed #999;padding:10px 14px;margin:0 0 16px}
+  </style>
+</head>
+<body>
+<main>
+  <h1>JIT 缺陷预测系统 · 低保真原型</h1>
+  <p>v0.2 · 对齐PRD v0.6 · 2026-10-04 · 需求讨论用 · 未经团队评审</p>
+  <p class="notice">所有数据均为示意占位，未连接模型或仓库。按钮仅表示预期操作，页面跳转用于走查。</p>
+  <nav aria-label="原型页面">
+    <a href="#repository">WF-01 仓库</a><a href="#risks">WF-02 风险列表</a><a href="#detail">WF-03 提交详情</a><a href="#models">WF-04 模型比较</a><a href="#trends">WF-05 历史趋势</a>
+  </nav>
+
+  <section id="repository">
+    <div class="screen-head"><h2>仓库接入与数据准备 / Repositories</h2><span class="id">WF-01 · Sprint 1</span></div>
+    <div class="content">
+      <div class="banner">接入公开 Java 仓库，得到可追溯的数据集。首轮验证一个主仓库；地址、采集窗口和规则需要确认。</div>
+      <div class="grid"><div><label>仓库地址 / Repository URL</label><div class="field">公开仓库地址（示意）</div></div><div><label>采集窗口 / Mining window</label><div class="field">起始日期 — 截止日期（待选择）</div></div></div>
+      <div class="row"><div><button disabled>创建采集任务 / Start import（示意）</button></div><div class="muted">提交后显示任务 ID，可离开页面后继续查询。</div></div>
+      <div class="table-scroll"><table><thead><tr><th>仓库</th><th>状态／进度</th><th>数据质量</th><th>操作入口</th></tr></thead><tbody>
+        <tr><td>主仓库 A（示意）</td><td><span class="pill">解析中</span><br>已处理／总数：—</td><td>尚未生成最终快照</td><td>查看任务日志</td></tr>
+        <tr><td>仓库 B（示意）</td><td><span class="pill">已就绪</span></td><td>有效／buggy／unknown：—</td><td><a href="#models">准备训练</a> · <a href="#risks">查看风险</a></td></tr>
+        <tr><td>仓库 C（示意）</td><td><span class="pill">失败</span><br>失败原因及阶段</td><td>失败记录保留；不产生 ready 数据集</td><td>重试（新 attempt）／删除草稿</td></tr>
+      </tbody></table></div>
+      <div class="states"><div><strong>空状态</strong>尚未接入仓库，提示填写地址和窗口。</div><div><strong>输入错误</strong>指出地址／窗口错误，不创建无效任务。</div><div><strong>归因不完整</strong>展示无法归因与 unknown 数量，不默认为 clean。</div></div>
+    </div>
+    <div class="notes">走查问题：用户能否理解“已就绪”与“已有模型”的差别？失败原因和下一步是否足够清楚？关联 US-1.1.1～1.1.3、1.3.3、2.2.3。</div>
+  </section>
+
+  <section id="risks">
+    <div class="screen-head"><h2>提交风险列表 / Review queue</h2><span class="id">WF-02 · 首要用户入口</span></div>
+    <div class="content">
+      <div class="row"><div>仓库<div class="field">主仓库 A ▾</div></div><div>模型版本<div class="field">已登记版本（示意）▾</div></div><div class="deferred">时间范围（暂缓）<div class="field">开始 — 结束</div></div><div class="deferred">最低分数（暂缓）<div class="field">未设置</div></div></div>
+      <div class="scope-note">v0.6：核心保留仓库／模型选择、全局概率排序、分页和详情。时间／阈值筛选与风险等级是暂缓候选，保留席位供讨论。Deferred fields are not core commitments.</div>
+      <div class="banner">按模型风险分数降序排列。高分是进一步检查的依据，不是缺陷确认或自动阻止合并。示意原型没有真实分数。</div>
+      <div class="table-scroll"><table><thead><tr><th>提交／摘要</th><th>提交时间</th><th>模型风险分数</th><th class="deferred">风险等级（暂缓）</th><th>变更成本</th><th>操作</th></tr></thead><tbody>
+        <tr><td>commit-A<br>变更摘要（示意）</td><td>示意日期 A</td><td>—</td><td class="deferred">暂缓候选</td><td>LA+LD：—</td><td class="nowrap"><a href="#detail">查看详情 →</a></td></tr>
+        <tr><td>commit-B<br>变更摘要（示意）</td><td>示意日期 B</td><td>—</td><td class="deferred">暂缓候选</td><td>LA+LD：—</td><td class="nowrap"><a href="#detail">查看详情 →</a></td></tr>
+        <tr><td>commit-C<br>变更摘要（示意）</td><td>示意日期 C</td><td>—</td><td class="deferred">暂缓候选</td><td>LA+LD：—</td><td class="nowrap"><a href="#detail">查看详情 →</a></td></tr>
+      </tbody></table></div>
+      <p class="muted">共 — 条 · 第 — 页 · 上一页／下一页（示意）。筛选后全局排序，再分页；不是只排序当前页。</p>
+      <div class="states"><div><strong>无模型</strong>提示尚无兼容模型，入口指向模型登记页。</div><div><strong>筛选后无结果</strong>保留条件，允许清除筛选；不显示请求失败。</div><div><strong>加载失败／特征缺失</strong>分别说明原因。不能填 0 或随机分数代替失败。</div></div>
+    </div>
+    <div class="notes">走查问题：评审者实际按 PR、提交还是文件安排工作？需要怎样的 PR 上下文？概率排序与成本评价是两种口径，不能混用。关联 US-4.1.1、4.1.3、5.1.1、5.1.2。</div>
+  </section>
+
+  <section id="detail">
+    <div class="screen-head"><h2>提交详情与解释 / Commit detail</h2><span class="id">WF-03 · Sprint 1</span></div>
+    <div class="content">
+      <p><a href="#risks">← 返回风险列表</a> · commit-A（示意） · 仓库／提交时间／变更摘要</p>
+      <div class="grid"><div class="panel"><h3>模型风险分数（概率输出）</h3><div class="score">—</div><p class="muted">模型：版本 ID（示意）<br>训练窗口：开始 — 截止<br>数据集版本／特征版本：—<br>当前展示：历史重放／未来提交（须明确）</p></div><div class="panel"><h3>预测解释 / Explanation</h3><p><span class="pill">待计算／完成／失败（状态示意）</span></p><div class="table-scroll"><table><thead><tr><th>关键特征</th><th>实际值</th><th>贡献与方向</th></tr></thead><tbody><tr><td>特征 1</td><td>—</td><td>—</td></tr><tr><td>特征 2</td><td>—</td><td>—</td></tr><tr><td>特征 3</td><td>—</td><td>—</td></tr></tbody></table></div><p class="small">方法／贡献单位／解释版本：—。贡献不是因果证明。</p></div></div>
+      <div class="grid" style="margin-top:18px"><div class="panel"><h3>变更文件与上下文</h3><p>文件路径、增删行、改名状态（示意）</p><p class="muted">查看原始提交的入口待确认；不把未来修复信息作为预测输入。</p></div><div class="panel"><h3>14 维特征及数据状态</h3><p>NS · ND · NF · Entropy · LA · LD · LT · FIX · NDEV · AGE · NUC · EXP · REXP · SEXP</p><p class="muted">每项值、缺失原因与计算版本。标签另列：unknown／可观察标签（非模型输入）。</p></div></div>
+      <div class="states"><div><strong>解释待计算</strong>分数可先展示，显示等待状态；不伪造三条解释。</div><div><strong>解释失败</strong>保留分数与版本，显示原因和重试入口；不计解释验收成功。</div><div><strong>模型失效／缺少特征</strong>不展示预测分数，给出具体修复入口。</div></div>
+    </div>
+    <div class="notes">走查问题：哪些解释能帮助确定要检查的文件？模型来源是否易找到？预测与历史标签是否会被误认成同一件事？关联 US-2.1.2、4.1.1、4.2.1、5.1.3。</div>
+  </section>
+
+  <section id="models">
+    <div class="screen-head"><h2>训练、评价与模型比较 / Models</h2><span class="id">WF-04 · Sprint 1→2</span></div>
+    <div class="content">
+      <div class="row"><div>数据集版本<div class="field">不可变快照（示意）▾</div></div><div>方法与预算<div class="field">经典／深度方法；预算待核验</div></div><div>时间切分<div class="field">训练／验证／测试窗口</div></div></div>
+      <div class="row"><div><button disabled>创建训练任务 / Train（示意）</button></div><div class="muted">有效样本、正例、unknown：—。资格不足时给出计数，不直接开始。</div></div>
+      <div class="banner">比较需使用相同测试清单、标签与指标口径。以下是方法候选和指标位置，不代表已经训练；深度输入合理性待评审。</div>
+      <div class="table-scroll"><table class="model-table"><thead><tr><th>候选方法</th><th>类别</th><th>状态</th><th>Precision／Recall／F1／AUC</th><th>Recall@20%Effort／Popt</th></tr></thead><tbody>
+        <tr><td>逻辑回归</td><td>经典</td><td>未安排正式训练</td><td>—</td><td>—</td></tr><tr><td>朴素贝叶斯</td><td>经典</td><td>未安排</td><td>—</td><td>—</td></tr><tr><td>决策树</td><td>经典</td><td>未安排</td><td>—</td><td>—</td></tr><tr><td>随机森林</td><td>经典</td><td>未安排</td><td>—</td><td>—</td></tr><tr><td>梯度提升树</td><td>经典</td><td>未安排</td><td>—</td><td>—</td></tr><tr><td>MLP</td><td>深度候选</td><td>输入／预算待评审</td><td>—</td><td>—</td></tr><tr><td>CNN</td><td>深度候选</td><td>输入／预算待评审</td><td>—</td><td>—</td></tr><tr><td>GRU</td><td>深度候选</td><td>输入／预算待评审</td><td>—</td><td>—</td></tr>
+      </tbody></table></div>
+      <p class="muted">选定成功模型 → 查看元数据、参数及原始报告 → 登记版本。失败模型不可登记。种子、耗时、文件校验值和排除样本数需保留。</p>
+      <div class="states"><div><strong>训练失败</strong>显示阶段、原因与日志，保留 attempt，可重试。</div><div><strong>指标未定义</strong>例如测试集无两类标签，显示原因，不补零冒充结果。</div><div><strong>模型不可比</strong>不同测试清单／口径时禁用合并排行榜。</div></div>
+    </div>
+    <div class="notes">走查问题：用户能否分清验证集与最终测试集？是否能判断两个模型可比？关联 US-2.2.1、3.1.1、3.2.1、3.3.1～3.3.4。</div>
+  </section>
+
+  <section id="trends">
+    <div class="screen-head"><h2>历史标签趋势 / Historical trends</h2><span class="id">WF-05 · Sprint 2</span></div>
+    <div class="content">
+      <div class="row"><div>仓库与标签快照<div class="field">主仓库／快照版本 ▾</div></div><div>时间与粒度<div class="field">起止窗口／按月（示意）</div></div></div>
+      <div class="scope-note">v0.6：核心验收历史时间趋势与unknown／成熟状态。目录分布暂缓，保留候选示意。Directory distribution is deferred.</div>
+      <div class="banner">这是历史观察标签的数量／比例，不是未来真实缺陷，也不能把“预测高风险数量”当成已发生缺陷。未成熟与 unknown 单独统计。</div>
+      <div class="grid"><div><h3>按时间桶的数量与占比</h3><div class="placeholder">趋势图位置<br><span class="muted">X：提交时间 · Y：buggy 数／可标注提交数<br>未提供真实数据，不绘制假趋势</span></div></div><div class="deferred"><h3>目录分布（暂缓）</h3><div class="placeholder">目录分布图位置<br><span class="muted">明确一条提交涉及多目录的计数方式<br>合计不一定等于唯一提交数</span></div></div></div>
+      <div class="table-scroll" style="margin-top:18px"><table><thead><tr><th>时间桶</th><th>可标注提交数</th><th>buggy</th><th>unknown／未成熟</th><th>比例</th></tr></thead><tbody><tr><td>窗口 A（示意）</td><td>—</td><td>—</td><td>—</td><td>—</td></tr><tr><td>窗口 B（示意）</td><td>—</td><td>—</td><td>—</td><td>—</td></tr></tbody></table></div>
+      <div class="states"><div><strong>暂无标签</strong>引导完成标注，不画成零缺陷趋势。</div><div><strong>分母为零</strong>比例显示“未定义”，保留该桶。</div><div><strong>观察窗口未成熟</strong>显示标签截止和成熟规则，不作质量改善结论。</div></div>
+    </div>
+    <div class="notes">走查问题：管理者是否会把标签噪声误认为质量波动？哪些时间粒度有用？关联 US-1.3.3、5.2.1、5.2.2。</div>
+  </section>
+  <footer>绘制工具：Codex 生成 HTML/CSS 图源，浏览器导出 PNG。提示词：制作五页灰度低保真原型，覆盖仓库、风险列表、提交解释、模型比较和标签趋势；显式展示空／错／等待状态，不编造分数或实验结果。人工评审与真实用户走查待做。</footer>
+</main>
+</body>
+</html>

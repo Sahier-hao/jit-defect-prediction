@@ -1,0 +1,28 @@
+{
+  "formatVersion": 1,
+  "repository": "apache/activemq",
+  "targetBranch": "main",
+  "sourceRef": "6e6caf7c6060efadc1ba524147e71d9720fcd935",
+  "asOf": "2024-04-23T00:00:00Z",
+  "sourceLedger": {
+    "path": "activemq-2024-sample-20261004/sources.json",
+    "sha256": "635d0510842866973482f26e69c71da19b457ecae207a0c0626482f5b1bcdd4e"
+  },
+  "items": [
+    {
+      "id": "AMQ-9481-original",
+      "patch": "fix-72befc14.patch",
+      "issue": "AMQ-9481.json",
+      "integration": {
+        "branch": "main",
+        "integratedAt": "2024-04-22T15:01:36Z",
+        "source": "pr-1206.html"
+      }
+    },
+    {
+      "id": "AMQ-9330-original",
+      "patch": "amq9330-8b6072d0.patch",
+      "issue": "AMQ-9330.json"
+    }
+  ]
+}

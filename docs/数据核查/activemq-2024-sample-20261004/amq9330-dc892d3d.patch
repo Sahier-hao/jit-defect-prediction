@@ -1,0 +1,175 @@
+From dc892d3dfc2f4b7d0402d947f40431ce4e50d92d Mon Sep 17 00:00:00 2001
+From: "Christopher L. Shannon" <cshannon@apache.org>
+Date: Thu, 11 Apr 2024 09:59:46 -0400
+Subject: [PATCH] AMQ-9330 - Return 204 code when polling empty destinations
+ (#1203)
+
+Previously a timeout was thrown and complete was not called so Jetty was
+returning a 500 error
+
+(cherry picked from commit 8b6072d03e273b02288e71cac6eef0539c48ea02)
+(cherry picked from commit 45a1bd54d3e1202d775388cf5b7d63e4c96183a5)
+---
+ .../org/apache/activemq/web/RestTest.java     | 40 +++++++++----------
+ .../web/async/AsyncServletRequest.java        | 13 ++++++
+ 2 files changed, 33 insertions(+), 20 deletions(-)
+
+diff --git a/activemq-web-demo/src/test/java/org/apache/activemq/web/RestTest.java b/activemq-web-demo/src/test/java/org/apache/activemq/web/RestTest.java
+index 9319601e902..2bbea2270a5 100644
+--- a/activemq-web-demo/src/test/java/org/apache/activemq/web/RestTest.java
++++ b/activemq-web-demo/src/test/java/org/apache/activemq/web/RestTest.java
+@@ -21,7 +21,9 @@
+ import static org.junit.Assert.assertTrue;
+ 
+ import java.util.Set;
++import java.util.concurrent.CompletableFuture;
+ import java.util.concurrent.CountDownLatch;
++import java.util.concurrent.Future;
+ import java.util.concurrent.atomic.AtomicInteger;
+ 
+ import javax.jms.TextMessage;
+@@ -52,10 +54,10 @@ public void testConsume() throws Exception {
+         httpClient.start();
+ 
+         final StringBuffer buf = new StringBuffer();
+-        final CountDownLatch latch =
++        final Future<Result> result =
+                 asyncRequest(httpClient, "http://localhost:" + port + "/message/test?readTimeout=1000&type=queue", buf);
+ 
+-        latch.await();
++        assertEquals(HttpStatus.OK_200, result.get().getResponse().getStatus());
+         assertEquals("test", buf.toString());
+     }
+ 
+@@ -66,7 +68,7 @@ public void testConsumeAsync() throws Exception {
+         httpClient.start();
+ 
+         final StringBuffer buf = new StringBuffer();
+-        final CountDownLatch latch =
++        final Future<Result> result =
+             asyncRequest(httpClient, "http://localhost:" + port + "/message/test?readTimeout=5000&type=queue", buf);
+ 
+         //Sleep 2 seconds before sending, should still get the response as timeout is 5 seconds
+@@ -74,7 +76,7 @@ public void testConsumeAsync() throws Exception {
+         producer.send(session.createTextMessage("test"));
+         LOG.info("message sent");
+ 
+-        latch.await();
++        assertEquals(HttpStatus.OK_200, result.get().getResponse().getStatus());
+         assertEquals("test", buf.toString());
+     }
+ 
+@@ -85,12 +87,11 @@ public void testConsumeAsyncTimeout() throws Exception {
+         httpClient.start();
+ 
+         final StringBuffer buf = new StringBuffer();
+-        final CountDownLatch latch =
++        final Future<Result> result =
+             asyncRequest(httpClient, "http://localhost:" + port + "/message/test?readTimeout=1000&type=queue", buf);
+ 
+         //Test timeout, no message was sent
+-        latch.await();
+-        assertTrue(buf.toString().contains("AsyncContext timeout"));
++        assertEquals(HttpStatus.NO_CONTENT_204, result.get().getResponse().getStatus());
+     }
+ 
+     @Test(timeout = 60 * 1000)
+@@ -101,13 +102,13 @@ public void testSubscribeFirst() throws Exception {
+         httpClient.start();
+ 
+         final StringBuffer buf = new StringBuffer();
+-        final CountDownLatch latch =
++        final Future<Result> result =
+                 asyncRequest(httpClient, "http://localhost:" + port + "/message/test?readTimeout=5000&type=queue", buf);
+ 
+         producer.send(session.createTextMessage("test"));
+         LOG.info("message sent");
+ 
+-        latch.await();
++        assertEquals(HttpStatus.OK_200, result.get().getResponse().getStatus());
+         assertEquals("test", buf.toString());
+ 
+     }
+@@ -163,12 +164,11 @@ public void testCorrelation() throws Exception {
+             producer.send(message);
+ 
+             final StringBuffer buf = new StringBuffer();
+-            final CountDownLatch latch =
++            final Future<Result> result =
+                     asyncRequest(httpClient, "http://localhost:" + port + "/message/test?readTimeout=1000&type=queue&clientId=test", buf);
+ 
+-            latch.await();
+-            LOG.info("Received: " +  buf.toString());
+-           // assertEquals(200, contentExchange.getResponseStatus());
++            assertEquals(HttpStatus.OK_200, result.get().getResponse().getStatus());
++            LOG.info("Received: " +  buf);
+             assertEquals(correlId,  buf.toString());
+         }
+         httpClient.stop();
+@@ -183,11 +183,11 @@ public void testDisconnect() throws Exception {
+         httpClient.start();
+ 
+         final StringBuffer buf = new StringBuffer();
+-        final CountDownLatch latch =
++        final Future<Result> result =
+                 asyncRequest(httpClient, "http://localhost:" + port + "/message/test?readTimeout=1000&type=queue&clientId=test", buf);
+ 
+-        latch.await();
+-        LOG.info("Received: " + buf.toString());
++        assertEquals(HttpStatus.OK_200, result.get().getResponse().getStatus());
++        LOG.info("Received: " + buf);
+ 
+         final StringBuffer buf2 = new StringBuffer();
+         final CountDownLatch latch2 = new CountDownLatch(1);
+@@ -315,16 +315,16 @@ public void onComplete(Result result) {
+         assertTrue("success status", HttpStatus.isSuccess(status.get()));
+     }
+ 
+-    protected CountDownLatch asyncRequest(final HttpClient httpClient, final String url, final StringBuffer buffer) {
+-        final CountDownLatch latch = new CountDownLatch(1);
++    protected Future<Result> asyncRequest(final HttpClient httpClient, final String url, final StringBuffer buffer) {
++        final CompletableFuture<Result> futureResult = new CompletableFuture<>();
+         httpClient.newRequest(url).send(new BufferingResponseListener() {
+             @Override
+             public void onComplete(Result result) {
+                 buffer.append(getContentAsString());
+-                latch.countDown();
++                futureResult.complete(result);
+             }
+         });
+-        return latch;
++        return futureResult;
+     }
+ 
+     protected CountDownLatch asyncRequest(final HttpClient httpClient, final String url, final StringBuffer buffer,
+diff --git a/activemq-web/src/main/java/org/apache/activemq/web/async/AsyncServletRequest.java b/activemq-web/src/main/java/org/apache/activemq/web/async/AsyncServletRequest.java
+index 79aa3fb06ff..2598332e4fe 100644
+--- a/activemq-web/src/main/java/org/apache/activemq/web/async/AsyncServletRequest.java
++++ b/activemq-web/src/main/java/org/apache/activemq/web/async/AsyncServletRequest.java
+@@ -27,6 +27,8 @@
+ import javax.servlet.DispatcherType;
+ import javax.servlet.ServletRequest;
+ import javax.servlet.ServletRequestWrapper;
++import javax.servlet.ServletResponse;
++import javax.servlet.http.HttpServletResponse;
+ import org.slf4j.Logger;
+ import org.slf4j.LoggerFactory;
+ 
+@@ -111,6 +113,17 @@ public void onTimeout(AsyncEvent event) {
+         if (LOG.isDebugEnabled()) {
+             LOG.debug("ActiveMQAsyncRequest " + event + " timeout.");
+         }
++
++        final AsyncContext context = event.getAsyncContext();
++        if (context != null) {
++            // We must call complete and then set the status code to prevent a 500
++            // error. The spec requires a 500 error on timeout unless complete() is called.
++            context.complete();
++            final ServletResponse response = context.getResponse();
++            if (response instanceof HttpServletResponse) {
++                ((HttpServletResponse) response).setStatus(HttpServletResponse.SC_NO_CONTENT);
++            }
++        }
+     }
+ 
+     @Override

@@ -1,0 +1,70 @@
+{
+  "verifiedAt": "2026-10-04T10:50:41.440811+00:00",
+  "scope": "Offline preparation implementation and software behavior only; no Git, SZZ, training, team approval or product acceptance",
+  "pythonForFullRegression": "3.14.2",
+  "defaultPythonCliSmoke": "3.12.14; valid saved-source JSON emitted successfully",
+  "checks": [
+    {
+      "command": "C:/Python314/python.exe -m pytest -q",
+      "exitCode": 0,
+      "passed": 81,
+      "newPreparationTests": 51,
+      "existingTests": 30,
+      "durationSeconds": 18.98,
+      "warnings": 1,
+      "warning": "Existing StarletteDeprecationWarning for httpx TestClient"
+    },
+    {
+      "command": "ruff check jit_defect tests",
+      "exitCode": 0,
+      "ruffVersion": "0.16.9"
+    },
+    {
+      "command": "python docs/????/????.py",
+      "exitCode": 0,
+      "result": "PASS",
+      "sourceFiles": 15,
+      "historicalIssues": 4,
+      "caseDesigns": 8
+    },
+    {
+      "command": "openspec validate --all --strict --no-interactive",
+      "exitCode": 0,
+      "changesPassed": 3,
+      "changesFailed": 0
+    }
+  ],
+  "files": [
+    {
+      "path": "jit_defect/preparation.py",
+      "sha256": "cc6e1adf4111a1c27b5146f25671ae9ef17bc4250c47e76ad5a99cac885bdb73"
+    },
+    {
+      "path": "tests/test_preparation_cli.py",
+      "sha256": "4fc7ad28519b33c5865aec2a86aa5607e979f4aacc4f45b519015d3b3f470276"
+    },
+    {
+      "path": "tests/test_preparation_history.py",
+      "sha256": "314fe6008bf1c0bdc73cb7fc0f5dff0bc0dd140b65029c4737c978b506733fe1"
+    },
+    {
+      "path": "tests/test_preparation_patch.py",
+      "sha256": "59e1efefd7233d27d8fed8973bf8f2d8b8360353b2f7392273610916e3d32f98"
+    },
+    {
+      "path": "docs/数据核查/离线准备结果/AMQ-9481-after-cutoff.json",
+      "sha256": "fda77a12abb315aef5457eff3f8433f5a753c25ed4ba2cbf5b24be7dab8baa28"
+    },
+    {
+      "path": "docs/数据核查/离线准备结果/AMQ-9481-before-cutoff.json",
+      "sha256": "94da3fcafd26a6be8f501dfe8f5a61277e3585933bb60e256f30df9040da3ec1"
+    }
+  ],
+  "limits": [
+    "Integration metadata is explicitly caller-supplied and needs independent review",
+    "Only a bounded email text-patch subset is supported",
+    "Historical reconstruction does not establish historical observation",
+    "Removed comments and test files still require a separate attribution policy",
+    "All inducing labels and Kamei14 vectors remain unset"
+  ]
+}

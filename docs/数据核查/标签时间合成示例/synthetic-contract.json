@@ -1,0 +1,292 @@
+{
+  "formatVersion": 1,
+  "kind": "temporal_label_contract",
+  "csvSha256": "56a8e649bea5b43b0554e4c50b836a27da7f9202618c5f174453f5b9c5b924d0",
+  "config": {
+    "trainCutoff": "2025-01-29T00:00:00+00:00",
+    "evaluationCutoff": "2025-02-10T00:00:00+00:00",
+    "maturityDays": 1
+  },
+  "rows": [
+    {
+      "commitId": "synthetic-000",
+      "featureAsOf": "2025-01-01T00:00:00+00:00",
+      "labelStatus": "unknown",
+      "labelAvailableAt": null,
+      "evidenceRef": null
+    },
+    {
+      "commitId": "synthetic-001",
+      "featureAsOf": "2025-01-02T00:00:00+00:00",
+      "labelStatus": "clean_observed",
+      "labelAvailableAt": "2025-01-03T00:00:00+00:00",
+      "evidenceRef": "synthetic-illustration:synthetic-001"
+    },
+    {
+      "commitId": "synthetic-002",
+      "featureAsOf": "2025-01-03T00:00:00+00:00",
+      "labelStatus": "clean_observed",
+      "labelAvailableAt": "2025-01-04T00:00:00+00:00",
+      "evidenceRef": "synthetic-illustration:synthetic-002"
+    },
+    {
+      "commitId": "synthetic-003",
+      "featureAsOf": "2025-01-04T00:00:00+00:00",
+      "labelStatus": "buggy",
+      "labelAvailableAt": "2025-02-03T00:00:00+00:00",
+      "evidenceRef": "synthetic-illustration:synthetic-003"
+    },
+    {
+      "commitId": "synthetic-004",
+      "featureAsOf": "2025-01-05T00:00:00+00:00",
+      "labelStatus": "unknown",
+      "labelAvailableAt": null,
+      "evidenceRef": null
+    },
+    {
+      "commitId": "synthetic-005",
+      "featureAsOf": "2025-01-07T00:00:00+00:00",
+      "labelStatus": "buggy",
+      "labelAvailableAt": "2025-01-07T00:00:00+00:00",
+      "evidenceRef": "synthetic-illustration:synthetic-005"
+    },
+    {
+      "commitId": "synthetic-006",
+      "featureAsOf": "2025-01-07T00:00:00+00:00",
+      "labelStatus": "clean_observed",
+      "labelAvailableAt": "2025-01-08T00:00:00+00:00",
+      "evidenceRef": null
+    },
+    {
+      "commitId": "synthetic-007",
+      "featureAsOf": "2025-01-08T00:00:00+00:00",
+      "labelStatus": "clean_observed",
+      "labelAvailableAt": "2025-01-09T00:00:00+00:00",
+      "evidenceRef": "synthetic-illustration:synthetic-007"
+    },
+    {
+      "commitId": "synthetic-008",
+      "featureAsOf": "2025-01-09T00:00:00+00:00",
+      "labelStatus": "buggy",
+      "labelAvailableAt": "2025-01-10T00:00:00+00:00",
+      "evidenceRef": "synthetic-illustration:synthetic-008"
+    },
+    {
+      "commitId": "synthetic-009",
+      "featureAsOf": "2025-01-10T00:00:00+00:00",
+      "labelStatus": "buggy",
+      "labelAvailableAt": "2025-01-11T00:00:00+00:00",
+      "evidenceRef": "synthetic-illustration:synthetic-009"
+    },
+    {
+      "commitId": "synthetic-010",
+      "featureAsOf": "2025-01-11T00:00:00+00:00",
+      "labelStatus": "buggy",
+      "labelAvailableAt": "2025-01-12T00:00:00+00:00",
+      "evidenceRef": "synthetic-illustration:synthetic-010"
+    },
+    {
+      "commitId": "synthetic-011",
+      "featureAsOf": "2025-01-12T00:00:00+00:00",
+      "labelStatus": "clean_observed",
+      "labelAvailableAt": "2025-01-13T00:00:00+00:00",
+      "evidenceRef": "synthetic-illustration:synthetic-011"
+    },
+    {
+      "commitId": "synthetic-012",
+      "featureAsOf": "2025-01-13T00:00:00+00:00",
+      "labelStatus": "buggy",
+      "labelAvailableAt": "2025-01-14T00:00:00+00:00",
+      "evidenceRef": "synthetic-illustration:synthetic-012"
+    },
+    {
+      "commitId": "synthetic-013",
+      "featureAsOf": "2025-01-14T00:00:00+00:00",
+      "labelStatus": "buggy",
+      "labelAvailableAt": "2025-01-15T00:00:00+00:00",
+      "evidenceRef": "synthetic-illustration:synthetic-013"
+    },
+    {
+      "commitId": "synthetic-014",
+      "featureAsOf": "2025-01-15T00:00:00+00:00",
+      "labelStatus": "buggy",
+      "labelAvailableAt": "2025-01-16T00:00:00+00:00",
+      "evidenceRef": "synthetic-illustration:synthetic-014"
+    },
+    {
+      "commitId": "synthetic-015",
+      "featureAsOf": "2025-01-16T00:00:00+00:00",
+      "labelStatus": "buggy",
+      "labelAvailableAt": "2025-01-17T00:00:00+00:00",
+      "evidenceRef": "synthetic-illustration:synthetic-015"
+    },
+    {
+      "commitId": "synthetic-016",
+      "featureAsOf": "2025-01-17T00:00:00+00:00",
+      "labelStatus": "buggy",
+      "labelAvailableAt": "2025-01-18T00:00:00+00:00",
+      "evidenceRef": "synthetic-illustration:synthetic-016"
+    },
+    {
+      "commitId": "synthetic-017",
+      "featureAsOf": "2025-01-18T00:00:00+00:00",
+      "labelStatus": "buggy",
+      "labelAvailableAt": "2025-01-19T00:00:00+00:00",
+      "evidenceRef": "synthetic-illustration:synthetic-017"
+    },
+    {
+      "commitId": "synthetic-018",
+      "featureAsOf": "2025-01-19T00:00:00+00:00",
+      "labelStatus": "buggy",
+      "labelAvailableAt": "2025-01-20T00:00:00+00:00",
+      "evidenceRef": "synthetic-illustration:synthetic-018"
+    },
+    {
+      "commitId": "synthetic-019",
+      "featureAsOf": "2025-01-20T00:00:00+00:00",
+      "labelStatus": "buggy",
+      "labelAvailableAt": "2025-01-21T00:00:00+00:00",
+      "evidenceRef": "synthetic-illustration:synthetic-019"
+    },
+    {
+      "commitId": "synthetic-020",
+      "featureAsOf": "2025-01-21T00:00:00+00:00",
+      "labelStatus": "clean_observed",
+      "labelAvailableAt": "2025-01-22T00:00:00+00:00",
+      "evidenceRef": "synthetic-illustration:synthetic-020"
+    },
+    {
+      "commitId": "synthetic-021",
+      "featureAsOf": "2025-01-22T00:00:00+00:00",
+      "labelStatus": "clean_observed",
+      "labelAvailableAt": "2025-01-23T00:00:00+00:00",
+      "evidenceRef": "synthetic-illustration:synthetic-021"
+    },
+    {
+      "commitId": "synthetic-022",
+      "featureAsOf": "2025-01-23T00:00:00+00:00",
+      "labelStatus": "buggy",
+      "labelAvailableAt": "2025-01-24T00:00:00+00:00",
+      "evidenceRef": "synthetic-illustration:synthetic-022"
+    },
+    {
+      "commitId": "synthetic-023",
+      "featureAsOf": "2025-01-24T00:00:00+00:00",
+      "labelStatus": "clean_observed",
+      "labelAvailableAt": "2025-01-25T00:00:00+00:00",
+      "evidenceRef": "synthetic-illustration:synthetic-023"
+    },
+    {
+      "commitId": "synthetic-024",
+      "featureAsOf": "2025-01-25T00:00:00+00:00",
+      "labelStatus": "buggy",
+      "labelAvailableAt": "2025-01-26T00:00:00+00:00",
+      "evidenceRef": "synthetic-illustration:synthetic-024"
+    },
+    {
+      "commitId": "synthetic-025",
+      "featureAsOf": "2025-01-26T00:00:00+00:00",
+      "labelStatus": "clean_observed",
+      "labelAvailableAt": "2025-01-27T00:00:00+00:00",
+      "evidenceRef": "synthetic-illustration:synthetic-025"
+    },
+    {
+      "commitId": "synthetic-026",
+      "featureAsOf": "2025-01-27T00:00:00+00:00",
+      "labelStatus": "clean_observed",
+      "labelAvailableAt": "2025-01-28T00:00:00+00:00",
+      "evidenceRef": "synthetic-illustration:synthetic-026"
+    },
+    {
+      "commitId": "synthetic-027",
+      "featureAsOf": "2025-01-28T00:00:00+00:00",
+      "labelStatus": "clean_observed",
+      "labelAvailableAt": "2025-01-29T00:00:00+00:00",
+      "evidenceRef": "synthetic-illustration:synthetic-027"
+    },
+    {
+      "commitId": "synthetic-028",
+      "featureAsOf": "2025-01-29T00:00:00+00:00",
+      "labelStatus": "clean_observed",
+      "labelAvailableAt": "2025-01-30T00:00:00+00:00",
+      "evidenceRef": "synthetic-illustration:synthetic-028"
+    },
+    {
+      "commitId": "synthetic-029",
+      "featureAsOf": "2025-01-30T00:00:00+00:00",
+      "labelStatus": "unknown",
+      "labelAvailableAt": null,
+      "evidenceRef": null
+    },
+    {
+      "commitId": "synthetic-030",
+      "featureAsOf": "2025-01-31T00:00:00+00:00",
+      "labelStatus": "buggy",
+      "labelAvailableAt": "2025-02-01T00:00:00+00:00",
+      "evidenceRef": "synthetic-illustration:synthetic-030"
+    },
+    {
+      "commitId": "synthetic-031",
+      "featureAsOf": "2025-02-01T00:00:00+00:00",
+      "labelStatus": "buggy",
+      "labelAvailableAt": "2025-02-02T00:00:00+00:00",
+      "evidenceRef": "synthetic-illustration:synthetic-031"
+    },
+    {
+      "commitId": "synthetic-032",
+      "featureAsOf": "2025-02-02T00:00:00+00:00",
+      "labelStatus": "buggy",
+      "labelAvailableAt": "2025-02-03T00:00:00+00:00",
+      "evidenceRef": "synthetic-illustration:synthetic-032"
+    },
+    {
+      "commitId": "synthetic-033",
+      "featureAsOf": "2025-02-03T00:00:00+00:00",
+      "labelStatus": "buggy",
+      "labelAvailableAt": "2025-02-04T00:00:00+00:00",
+      "evidenceRef": "synthetic-illustration:synthetic-033"
+    },
+    {
+      "commitId": "synthetic-034",
+      "featureAsOf": "2025-02-04T00:00:00+00:00",
+      "labelStatus": "buggy",
+      "labelAvailableAt": "2025-02-05T00:00:00+00:00",
+      "evidenceRef": "synthetic-illustration:synthetic-034"
+    },
+    {
+      "commitId": "synthetic-035",
+      "featureAsOf": "2025-02-05T00:00:00+00:00",
+      "labelStatus": "clean_observed",
+      "labelAvailableAt": "2025-02-06T00:00:00+00:00",
+      "evidenceRef": "synthetic-illustration:synthetic-035"
+    },
+    {
+      "commitId": "synthetic-036",
+      "featureAsOf": "2025-02-06T00:00:00+00:00",
+      "labelStatus": "clean_observed",
+      "labelAvailableAt": "2025-02-07T00:00:00+00:00",
+      "evidenceRef": "synthetic-illustration:synthetic-036"
+    },
+    {
+      "commitId": "synthetic-037",
+      "featureAsOf": "2025-02-07T00:00:00+00:00",
+      "labelStatus": "clean_observed",
+      "labelAvailableAt": "2025-02-08T00:00:00+00:00",
+      "evidenceRef": "synthetic-illustration:synthetic-037"
+    },
+    {
+      "commitId": "synthetic-038",
+      "featureAsOf": "2025-02-08T00:00:00+00:00",
+      "labelStatus": "clean_observed",
+      "labelAvailableAt": "2025-02-08T00:00:00+00:00",
+      "evidenceRef": "synthetic-illustration:synthetic-038"
+    },
+    {
+      "commitId": "synthetic-039",
+      "featureAsOf": "2025-02-09T00:00:00+00:00",
+      "labelStatus": "clean_observed",
+      "labelAvailableAt": "2025-02-11T00:00:00+00:00",
+      "evidenceRef": "synthetic-illustration:synthetic-039"
+    }
+  ]
+}
