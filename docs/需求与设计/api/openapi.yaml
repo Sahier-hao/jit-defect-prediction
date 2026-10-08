@@ -1,0 +1,771 @@
+openapi: 3.1.0
+info:
+  title: JIT Defect Prediction Product API
+  version: 0.1.0-sprint0-draft
+  description: |
+    Sprint 0 candidate contract. These paths and schemas are not implemented.
+    Review and refinement are required before an implementation change starts.
+servers:
+  - url: /
+    description: Relative server for the local or reviewed deployment
+security:
+  - bearerAuth: []
+tags:
+  - name: repositories
+  - name: data-preparation
+  - name: training
+  - name: predictions
+  - name: review
+paths:
+  /api/v1/repositories:
+    get:
+      tags: [repositories]
+      summary: List repositories
+      responses:
+        "200":
+          description: Repository page
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RepositoryPage"
+        default:
+          $ref: "#/components/responses/Error"
+    post:
+      tags: [repositories]
+      summary: Register a repository
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RepositoryCreate"
+      responses:
+        "201":
+          description: Repository created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Repository"
+        default:
+          $ref: "#/components/responses/Error"
+  /api/v1/repositories/{repositoryId}/mining-runs:
+    post:
+      tags: [data-preparation]
+      summary: Create a repository mining task
+      parameters:
+        - $ref: "#/components/parameters/RepositoryId"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/MiningRunCreate"
+      responses:
+        "202":
+          description: Mining task accepted
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TaskAccepted"
+        default:
+          $ref: "#/components/responses/Error"
+  /api/v1/tasks/{taskId}:
+    get:
+      tags: [data-preparation, training, predictions]
+      summary: Get task status
+      parameters:
+        - $ref: "#/components/parameters/TaskId"
+      responses:
+        "200":
+          description: Task status
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Task"
+        default:
+          $ref: "#/components/responses/Error"
+  /api/v1/datasets:
+    get:
+      tags: [data-preparation]
+      summary: List available dataset versions
+      parameters:
+        - name: repositoryId
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: eligible
+          in: query
+          schema:
+            type: boolean
+        - name: page
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+            default: 1
+        - name: pageSize
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 20
+      responses:
+        "200":
+          description: Dataset page
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DatasetPage"
+        default:
+          $ref: "#/components/responses/Error"
+  /api/v1/datasets/{datasetId}:
+    get:
+      tags: [data-preparation]
+      summary: Get an immutable dataset snapshot
+      parameters:
+        - $ref: "#/components/parameters/DatasetId"
+      responses:
+        "200":
+          description: Dataset snapshot
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DatasetVersion"
+        default:
+          $ref: "#/components/responses/Error"
+  /api/v1/training-runs:
+    post:
+      tags: [training]
+      summary: Create a training task
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TrainingRunCreate"
+      responses:
+        "202":
+          description: Training task accepted
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TaskAccepted"
+        default:
+          $ref: "#/components/responses/Error"
+  /api/v1/training-runs/{trainingRunId}:
+    get:
+      tags: [training]
+      summary: Get training run and resulting model reference
+      parameters:
+        - $ref: "#/components/parameters/TrainingRunId"
+      responses:
+        "200":
+          description: Training run
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TrainingRun"
+        default:
+          $ref: "#/components/responses/Error"
+  /api/v1/models:
+    get:
+      tags: [training]
+      summary: List model versions
+      parameters:
+        - name: datasetId
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: state
+          in: query
+          schema:
+            type: string
+        - name: page
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+            default: 1
+        - name: pageSize
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 20
+      responses:
+        "200":
+          description: Model page
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ModelPage"
+        default:
+          $ref: "#/components/responses/Error"
+  /api/v1/models/{modelId}:
+    get:
+      tags: [training]
+      summary: Get a model version
+      parameters:
+        - $ref: "#/components/parameters/ModelId"
+      responses:
+        "200":
+          description: Model version
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ModelVersion"
+        default:
+          $ref: "#/components/responses/Error"
+  /api/v1/model-comparisons:
+    post:
+      tags: [training]
+      summary: Compare model versions on the same test manifest
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ModelComparisonRequest"
+      responses:
+        "200":
+          description: Comparable model results
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ModelComparison"
+        default:
+          $ref: "#/components/responses/Error"
+  /api/v1/predictions:
+    post:
+      tags: [predictions]
+      summary: Create a commit prediction
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PredictionCreate"
+      responses:
+        "201":
+          description: Prediction created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Prediction"
+        default:
+          $ref: "#/components/responses/Error"
+  /api/v1/predictions/{predictionId}/explanation:
+    get:
+      tags: [predictions]
+      summary: Get explanation status or result
+      parameters:
+        - $ref: "#/components/parameters/PredictionId"
+      responses:
+        "200":
+          description: Explanation status
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Explanation"
+        default:
+          $ref: "#/components/responses/Error"
+  /api/v1/commits/{commitId}:
+    get:
+      tags: [review]
+      summary: Get commit context for a model prediction
+      parameters:
+        - $ref: "#/components/parameters/CommitId"
+        - name: modelId
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Commit detail
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CommitDetail"
+        default:
+          $ref: "#/components/responses/Error"
+  /api/v1/risk-items:
+    get:
+      tags: [review]
+      summary: Get globally ranked risk items
+      parameters:
+        - name: repositoryId
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: modelId
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: page
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+            default: 1
+        - name: pageSize
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 20
+      responses:
+        "200":
+          description: Ranked risk page
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RiskItemPage"
+        default:
+          $ref: "#/components/responses/Error"
+  /api/v1/trends:
+    get:
+      tags: [review]
+      summary: Get historical label trends
+      parameters:
+        - name: repositoryId
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: datasetId
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: bucket
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Trend buckets
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TrendPage"
+        default:
+          $ref: "#/components/responses/Error"
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Bearer token for the A1 deployment candidate
+  responses:
+    Error:
+      description: Common error response
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+  parameters:
+    RepositoryId:
+      name: repositoryId
+      in: path
+      required: true
+      schema:
+        type: string
+    TaskId:
+      name: taskId
+      in: path
+      required: true
+      schema:
+        type: string
+    DatasetId:
+      name: datasetId
+      in: path
+      required: true
+      schema:
+        type: string
+    ModelId:
+      name: modelId
+      in: path
+      required: true
+      schema:
+        type: string
+    PredictionId:
+      name: predictionId
+      in: path
+      required: true
+      schema:
+        type: string
+    TrainingRunId:
+      name: trainingRunId
+      in: path
+      required: true
+      schema:
+        type: string
+    CommitId:
+      name: commitId
+      in: path
+      required: true
+      schema:
+        type: string
+  schemas:
+    RepositoryCreate:
+      type: object
+      required: [canonicalUrl, targetBranch]
+      properties:
+        canonicalUrl:
+          type: string
+          format: uri
+        name:
+          type: string
+          maxLength: 200
+        language:
+          type: string
+        targetBranch:
+          type: string
+    Repository:
+      type: object
+      required: [repositoryId, canonicalUrl, targetBranch]
+      properties:
+        repositoryId:
+          type: string
+        canonicalUrl:
+          type: string
+        targetBranch:
+          type: string
+        state:
+          type: string
+    RepositoryPage:
+      type: object
+      required: [items, total, page, pageSize]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/Repository"
+        total:
+          type: integer
+        page:
+          type: integer
+        pageSize:
+          type: integer
+    DatasetPage:
+      type: object
+      required: [items, total, page, pageSize]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/DatasetVersion"
+        total:
+          type: integer
+        page:
+          type: integer
+        pageSize:
+          type: integer
+    MiningRunCreate:
+      type: object
+      required: [historyCutoff, labelAsOf, ruleVersion]
+      properties:
+        sourceRef:
+          type: string
+        historyCutoff:
+          type: string
+          format: date-time
+        labelAsOf:
+          type: string
+          format: date-time
+        ruleVersion:
+          type: string
+    TaskAccepted:
+      type: object
+      required: [taskId, state, resourceType, resourceId]
+      properties:
+        taskId:
+          type: string
+        state:
+          $ref: "#/components/schemas/TaskState"
+        resourceType:
+          type: string
+          enum: [miningRun, trainingRun]
+        resourceId:
+          type: string
+    Task:
+      type: object
+      required: [taskId, type, state, progress]
+      properties:
+        taskId:
+          type: string
+        type:
+          type: string
+        state:
+          $ref: "#/components/schemas/TaskState"
+        progress:
+          type: number
+          minimum: 0
+          maximum: 1
+        counts:
+          type: object
+          additionalProperties: true
+        error:
+          $ref: "#/components/schemas/Error"
+    TaskState:
+      type: string
+      enum: [queued, running, ready, failed, cancelled]
+    DatasetVersion:
+      type: object
+      required: [datasetId, state, contentHash, counts]
+      properties:
+        datasetId:
+          type: string
+        state:
+          type: string
+          enum: [building, ready, failed]
+        contentHash:
+          type: string
+        featureSchemaVersion:
+          type: string
+        labelPolicyVersion:
+          type: string
+        counts:
+          type: object
+          additionalProperties: true
+    TrainingRunCreate:
+      type: object
+      required: [datasetId, modelType, splitConfig, budget]
+      properties:
+        datasetId:
+          type: string
+        modelType:
+          type: string
+        params:
+          type: object
+          additionalProperties: true
+        splitConfig:
+          type: object
+          additionalProperties: true
+        budget:
+          type: object
+          additionalProperties: true
+    TrainingRun:
+      type: object
+      required: [trainingRunId, datasetId, state]
+      properties:
+        trainingRunId:
+          type: string
+        datasetId:
+          type: string
+        state:
+          type: string
+          enum: [queued, running, ready, failed, cancelled]
+        modelId:
+          type: string
+        counts:
+          type: object
+          additionalProperties: true
+        error:
+          $ref: "#/components/schemas/Error"
+    ModelPage:
+      type: object
+      required: [items, total, page, pageSize]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/ModelVersion"
+        total:
+          type: integer
+        page:
+          type: integer
+        pageSize:
+          type: integer
+    ModelVersion:
+      type: object
+      required: [modelId, state]
+      properties:
+        modelId:
+          type: string
+        state:
+          type: string
+          enum: [training, ready, failed, invalid]
+        metrics:
+          type: object
+          additionalProperties: true
+        artifactHash:
+          type: string
+        dependencyVersions:
+          type: object
+          additionalProperties: true
+    ModelComparisonRequest:
+      type: object
+      required: [modelIds]
+      properties:
+        modelIds:
+          type: array
+          minItems: 2
+          items:
+            type: string
+    ModelComparison:
+      type: object
+      required: [comparable]
+      properties:
+        comparable:
+          type: boolean
+        reason:
+          type: string
+        metrics:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+    PredictionCreate:
+      type: object
+      required: [commitId, modelId]
+      properties:
+        commitId:
+          type: string
+        modelId:
+          type: string
+    Prediction:
+      type: object
+      required: [predictionId, commitId, modelId, score, explanationStatus]
+      properties:
+        predictionId:
+          type: string
+        commitId:
+          type: string
+        modelId:
+          type: string
+        score:
+          type: number
+          minimum: 0
+          maximum: 1
+        explanationStatus:
+          type: string
+          enum: [pending, ready, failed]
+        requestId:
+          type: string
+    Explanation:
+      type: object
+      required: [state]
+      properties:
+        state:
+          type: string
+          enum: [pending, ready, failed]
+        method:
+          type: string
+        methodVersion:
+          type: string
+        unit:
+          type: string
+        contributions:
+          type: array
+          items:
+            $ref: "#/components/schemas/Contribution"
+        reason:
+          type: string
+    Contribution:
+      type: object
+      required: [feature, value, contribution, direction]
+      properties:
+        feature:
+          type: string
+        value:
+          type: number
+        contribution:
+          type: number
+        direction:
+          type: string
+          enum: [raises, lowers, neutral]
+    CommitDetail:
+      type: object
+      required: [commitId, repositoryId, committedAt, modelId, features]
+      properties:
+        commitId:
+          type: string
+        repositoryId:
+          type: string
+        committedAt:
+          type: string
+          format: date-time
+        message:
+          type: string
+        label:
+          oneOf:
+            - type: integer
+              enum: [0, 1]
+            - type: "null"
+        features:
+          type: object
+          additionalProperties: true
+        modelId:
+          type: string
+        predictionId:
+          type: string
+        score:
+          type: number
+          minimum: 0
+          maximum: 1
+        explanationStatus:
+          type: string
+          enum: [pending, ready, failed]
+    RiskItem:
+      type: object
+      required: [commitId, score, modelId]
+      properties:
+        commitId:
+          type: string
+        score:
+          type: number
+          minimum: 0
+          maximum: 1
+        committedAt:
+          type: string
+          format: date-time
+        modelId:
+          type: string
+        scope:
+          type: string
+    RiskItemPage:
+      type: object
+      required: [items, total, page, pageSize]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/RiskItem"
+        total:
+          type: integer
+        page:
+          type: integer
+        pageSize:
+          type: integer
+    TrendPage:
+      type: object
+      required: [buckets]
+      properties:
+        buckets:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+    Error:
+      type: object
+      required: [code, message]
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        details:
+          type: object
+          additionalProperties: true
+        requestId:
+          type: string
