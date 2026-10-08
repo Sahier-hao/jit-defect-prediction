@@ -6,6 +6,7 @@
 | [目录整理检查结果](目录整理检查结果.json) | 最近一次运行文档检查工具的结果；包含当次链接、文档一致性与来源核对 |
 | [前置材料验证记录](前置材料验证记录.md) | 2026-10-04 的需求草稿、原型和评审工作页检查记录 |
 | [本地基线验证记录](本地基线验证记录.md) | 当时技术试做的软件检查记录 |
+| [设计复核材料检查结果](设计复核材料检查结果.json) | 2026-10-08 的需求附录、独立 API 契约、OpenAPI 草案和文档检查；不代表非作者评审通过 |
 | [前置材料历史产物](前置材料/) | 原型布局、评审页、算例和原文档检查 JSON；保留原内容 |
 | [数据核查历史记录](../数据核查/) | 各数据处理模块当时的验证报告、原始样本与快照 |
 
@@ -15,6 +16,7 @@
 
 ```powershell
 python scripts/verify_docs.py
+python scripts/verify_sprint0_docs.py
 python scripts/verify_data_sources.py
 python scripts/verify_saved_evidence.py
 ```

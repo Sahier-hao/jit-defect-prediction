@@ -5,6 +5,7 @@
 | 命令 | 检查内容 | 是否写文件 |
 |---|---|---|
 | `python scripts/verify_docs.py` | Markdown／HTML 本地链接、原型图片、需求与计划一致性、保存的来源哈希 | 写入[当前文档检查结果](../docs/验证记录/目录整理检查结果.json)；不覆盖历史记录 |
+| `python scripts/verify_sprint0_docs.py` | 检查设计分析报告位于需求附录、API清单与接口契约独立维护，并验证 OpenAPI 草案链接 | 只读 |
 | `python scripts/verify_data_sources.py` | 15份保存的公开来源、4个历史 issue、8个案例设计及修复前后行 | 只读 |
 | `python scripts/verify_saved_evidence.py` | 整理中保留文件的哈希；批量准备、Java旧行和时间审计快照的重新计算 | 只读 |
 
